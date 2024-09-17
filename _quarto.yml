@@ -4,6 +4,7 @@ project:
 format: 
   html: 
     number-depth: -1
+    number-sections: false
 
 filters:
   - line-highlight
@@ -24,6 +25,7 @@ book:
         - js/08-reverse-name-website.qmd
     - part: "GEE"
       chapters:
+        - gee/00-Preperation.qmd
         - gee/00-SRTM.qmd
         - gee/01-Sentinel-RBG.qmd
         - gee/02-Sentinel_NDVI.qmd

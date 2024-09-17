@@ -1,4 +1,4 @@
-# Demo 4: NDVI over time
+# Demo 4: NDVI over time {#sec-gee-demo-ndvi2}
 
 *Calculating NDVI over time*
 
@@ -19,13 +19,10 @@ imageVisParam2 = {"opacity":1,"bands":["B8"],"min":-1,"palette":["ff0000","ffff0
 
 // move the function statemement up
 function ndvi_fun(image){
-  var nir = image.select("B8");
-  var red = image.select("B4");
-  var zaehler = nir.subtract(red);
-  var nenner = nir.add(red);
-  var ndvi = zaehler.divide(nenner);
+  var ndvi = image.normalizedDifference(["B8", "B4"]);
   return ndvi
 }
+
 
 // filter the image collection by date and location
 var s2 = ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED");

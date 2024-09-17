@@ -1,5 +1,3 @@
-
-
 ## General
 
 - Stance Maples has an awesome introduction to GEE on [youtube](https://youtu.be/oAElakLgCdA).

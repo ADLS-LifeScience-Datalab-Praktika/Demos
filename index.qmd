@@ -1,27 +1,34 @@
 
 
+
+
 # Introduction {.unnumbered}
 
 These notes are intended to accompany the the Digital Life Sience Data Lab course. Nils will work with you through these examples in a workshop format. This means he will live code and you will accompany him. We specifically do *not* want to give you these codes up front, since writing your own code and making mistakes is the best way to learn.
 
-This also means that the code you write is part of your learning experience and you should keep it for your own reference. To set this up, proceed as follows:
 
-1. Select *New* → *Repo* → Give the repo a meaningful name
-2. Select *New* → *File* → 
-   1. Choose the repo from step 1 
-   2. Give the file a meaningful name (Demo Number + Topic) 
-   3. Optionally add a commit message
-3. Configure Repo by clicking on the configure Button. You can use the git URL to clone the repo to your local machine (and sync with GitHub if you are inclined to do so).
-
-
-**Instructions for Nils:**
-
-1. Do the steps above
-2. Make your own repo available to everyone
-3. Share the URL to your repo
 
 ## Preperation
 
-Please make sure you have registered for a GoogleEarthEngine Account. See the slides [here](https://github.zhaw.ch/pages/ADLS-Digital-Environment/Life-Sciences-Datalab-Praktika-Remote-Sending/register-gee.html) for instructions.
+Please make sure you have registered for a GoogleEarthEngine Account. See the slides [here](https://github.zhaw.ch/pages/ADLS-Digital-Environment/Life-Sciences-Datalab-Praktika-Remote-Sensing/register-gee.html) for instructions.
 
 
+## Timetable
+
+
+- Morning: 
+  1. Lesson: Slides & @sec-js-console
+  2. Lesson: @sec-js-demo-html - @sec-js-demo-website
+  3. Lesson: @sec-gee-demo-unispec & @sec-gee-demo-multispec
+  4. Lesson: @sec-gee-demo-ndvi1 & @sec-gee-demo-forest [^1]
+- Afternoon: 
+  - *Either*: Apply @sec-gee-demo-forest to a different area of interest to monitor tree canopy cover over time
+  - *or*: Apply a differnt analysis of your own choosing
+  
+  → Export the results and import it into R or Python and write a short description (max 1 page, including figure) of your analysis with the usual chapters[^usual-chapters]
+
+
+
+[^1]: should we leave out @sec-gee-demo-ndvi1? It's quite complex (cloud cover issue and adding band to collection
+
+[^usual-chapters]: Usual chapters: Abstract, Introduction, Material and Methods, Results, Discussion

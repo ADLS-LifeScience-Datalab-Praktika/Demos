@@ -1,14 +1,28 @@
 
 
-# Demo 1: Unispectral Data
-
-**Exloring a digital elevation model (DEM) in GEE**
-
-- In this exercise we will explore a simple, single band dataset: A Digital Elevation Model (DEM)
-- First, use the search bar to look for a topographically interesting place, e.g. Visp, Switzerland.
+# Demo 1: Unispectral Data {#sec-gee-demo-unispec}
 
 
-## Setting up
+**Use Case: Identifying Suitable Areas for Renewable Energy Installation**
+
+In this lesson, we will use global terrain data to assess potential sites for renewable energy installations, such as solar panels or wind turbines. By calculating and visualizing elevation, slope, and aspect, we can identify optimal areas for infrastructure placement. Elevation provides insight into regions with better wind exposure or sunlight availability. Slope helps ensure land stability and suitability for construction. Aspect plays a key role in determining sunlight exposure for solar panels. Through this exercise, we will explore how terrain data can support sustainable energy planning and development.
+
+**Solar**:
+
+- *Elevation*: Suitable elevations are between 100 and 1,500 meters to avoid valleys and ensure good sunlight exposure.
+- *Slope*: Prefer gentle slopes of 5-10% (around 3-6 degrees), although steeper slopes can be used with higher installation costs.
+- *Aspect*: In the Northern Hemisphere, aim for south-facing slopes (between 135° and 225°); in the Southern Hemisphere, aim for north-facing slopes (between 315° and 45°).
+
+**Wind Turbines**:
+
+- *Elevation*: Preferably above 500 meters to take advantage of higher wind speeds.
+- *Slope*: Ideal slope is less than 5% (around 3 degrees) to ensure stability and ease of construction.
+- *Aspect*: Generally not a major concern, as wind turbines are more affected by local wind patterns than the slope's orientation.
+
+
+## Demo
+
+### Setting up
 
 - Use the same search bar to look for "Digital Elevation" data. We will use the SRTM data.
 - Explore the metadata of SRTM
@@ -21,7 +35,7 @@
 var srtm = ee.Image("USGS/SRTMGL1_003");
 ```
 
-## `console.log()` and `print()`
+### `console.log()` and `print()`
 
 - Nothing happens. 
 - To get metadata of the data (similar to R `str()` function):
@@ -37,7 +51,7 @@ console.log(srtm);
 print(srtm);
 ```
 
-## Create a map
+### Create a map
 
 Add the data to the map
 
@@ -49,7 +63,7 @@ Map.addLayer(srtm)
 - The color scheme  "white to black" is streched across the *whole* range of values. 
 - Visp, however steep it is there, does not cover this whole range. 
 
-## Consult docs to change the viz params
+### Consult docs to change the viz params
 
 - Truncate using the GUI interface (e.g. from 0 to 4000). 
 - In the docs for `Map.addLayer()` see the reference:
@@ -70,7 +84,7 @@ visParam = {min: 0, max: 4000}
 Map.addLayer(srtm, visParam)
 ```
 
-## Add a color palette
+### Add a color palette
 
 Add a color palette, and maybe to the whole thing in one line:
 
@@ -79,7 +93,7 @@ Map.addLayer(srtm, {min: 0, max: 4000, palette: ["green", "red", "blue"]})
 ```
 
 
-## Add slope
+### Add slope
 
 ```js
 var slope = ee.Terrain.slope(srtm);
@@ -88,3 +102,91 @@ var slopevis = {min: 0, max: 30, palette: ['green','yellow','red']};
 Map.addLayer(srtm, {min: 0, max: 3000}, 'DEM');
 Map.addLayer(slope, slopevis, 'slope');
 ```
+
+
+
+### Determine if slope is within range (5 - 10°)
+
+
+```js
+var slope = ee.Terrain.slope(srtm);
+
+var good_slope = slope.gt(5).and(slope.lt(10));
+
+Map.addLayer(good_slope, {palette: ["red", "blue"]}) ;
+```
+
+
+
+## Task
+
+
+### Determine if Elevation is with Range (1000 - 2000 m.s.l)
+
+
+```js
+var good_elevation = srtm.gt(1000).and(srtm.lt(2000))
+```
+
+
+### Calculate Aspect
+
+What is [aspect](https://en.wikipedia.org/wiki/Aspect_(geography))?
+
+
+```js
+var aspect = ee.Terrain.aspect(srtm);
+```
+
+
+### Determine if `aspect` is within range (135° and 225°)
+
+We need southfacing slopes!
+
+
+```js
+var good_aspect = aspect.gt(135).and(aspect.lt(225));
+```
+
+
+### Bring everything together
+
+
+```js
+var good_everything = good_slope.and(good_aspect.and(good_elevation))
+
+// selfMask() hides all 0 values
+Map.addLayer(good_everything.selfMask(), {palette: ["#ff000077", "blue"]}) ;
+
+```
+
+
+:::{.callout-note collapse="true"}
+
+## Full working example
+
+
+```js
+var srtm = ee.Image("CGIAR/SRTM90_V4");
+
+var slope = ee.Terrain.slope(srtm);
+
+var aspect = ee.Terrain.aspect(srtm);
+
+
+var good_slope = slope.gt(5).and(slope.lt(10));
+
+var good_aspect = aspect.gt(135).and(aspect.lt(225));
+
+
+var good_elevation = srtm.gt(1000).and(srtm.lt(2000))
+
+var good_everything = good_slope.and(good_aspect.and(good_elevation))
+
+
+
+Map.addLayer(good_everything.selfMask(), {palette: ["#ff000077", "blue"]}) ;
+```
+
+
+:::

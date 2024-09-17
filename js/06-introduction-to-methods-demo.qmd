@@ -1,4 +1,4 @@
-# Demo: Methods
+# Demo 4: Methods
 
 
 Methods are functions tied to specific objects. 

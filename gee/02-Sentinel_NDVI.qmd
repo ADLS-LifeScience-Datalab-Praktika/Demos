@@ -1,13 +1,18 @@
 
-# Demo 3: Multispec NDVI
+# Demo 3: Multispec NDVI {#sec-gee-demo-ndvi1}
 
 *Calculating NDVI for a single image*
 
 - In this exercise, we will do some quantitative analysis on the data, rather than "just" visualizing it qualitatively.
-- We will calculate the [Normalized Difference Vegetation Index](https://de.wikipedia.org/wiki/Normalized_Difference_Vegetation_Index) (NDVI)
-- You have already seen this in the first lecture on the [Sentinel Hub EO-Browser](https://apps.sentinel-hub.com/eo-browser/)
-- There, you weren't able to do any calculations based on the data
+- We will calculate the [Normalized Difference Vegetation Index](https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index) (NDVI)
 
+
+
+**Use Case: Assessing Agricultural Crop Health Using NDVI**
+
+In this lesson, we will calculate and analyze NDVI (Normalized Difference Vegetation Index) to monitor the health of crops across a farmland area. NDVI provides a way to assess plant vitality by measuring how much near-infrared light (reflected by healthy plants) differs from red light (absorbed by plants). By identifying areas with low NDVI values, we can detect early signs of crop stress caused by insufficient water, nutrient deficiencies, or disease.
+
+This analysis has direct financial implications: early detection of stressed crops allows farmers to take timely corrective actions, such as adjusting irrigation or applying fertilizers, potentially avoiding major losses. Improved crop health leads to higher yields, reducing waste and increasing profitability. Additionally, precision farming strategies informed by NDVI can help optimize resource use, lowering costs related to water, fertilizers, and pesticides while increasing overall farm efficiency.
 
 ## Setup
 
@@ -27,7 +32,7 @@ Map.addLayer(s2, imageVisParam);
 ## Specify an area of interest (`aoi`)
 
 - As we saw in the last demo, we have several images in the collection.
-- However, we are interested only in a single image, maybe an aggregate
+- However, we are interested only in a single image of a specific area
 - To select a single image, we need to filter by location.
 - To do this, use the map UI and create a point in Visp, name it "aoi"
   - Note how the points are immediately added in the code editor
@@ -77,28 +82,17 @@ s2 = s2.first()
 print(s2)
 ```
 
-## Calculate NDVI
+## Normalized Difference Function (skip this, doesn't work)
 
-- Now, we can use the image to calculate [NDVI](https://de.wikipedia.org/wiki/Normalized_Difference_Vegetation_Index)
-
-
-$$ \text{NDVI} = \frac{\text{NIR}- \text{Red}}{\text{NIR}+\text{Red}} $$
-
-```js
-var nir = s2.select("B8")
-var red = s2.select("B4")
-var zaehler = nir.subtract(red);
-var nenner = nir.add(red);
-var ndvi = zaehler.divide(nenner);
-```
-
-## Visualize the output
-
-Add the output to the map:
+- Alternatively, you can use the *Normalized Difference* function
+- The function "normalizedDifference" is a generic function to calculcate normalized difference between two bands
+- This doesn't seem to work?
 
 ```js
-Map.addLayer(ndvi);
+var ndvi = s2.normalizedDifference(["B8", "B4"]);
 ```
+
+
 
 ## Adjust range and palette
 
@@ -114,16 +108,6 @@ Map.addLayer(ndvi, imageVisParam2);
 
 ```
 
-## Normalized Difference Function (skip this, doesn't work)
-
-- Alternatively, you can use the *Normalized Difference* function
-- The function "normalizedDifference" is a generic function to calculcate normalized difference between two bands
-- This doesn't seem to work?
-
-```js
-var ndvi = s2.normalizedDifference(["B8", "B4"]);
-```
-
 
 ## Custom NDVI function
 
@@ -132,15 +116,11 @@ var ndvi = s2.normalizedDifference(["B8", "B4"]);
 
 ```js
 function ndvi_fun(image){
-  var nir = image.select("B8");
-  var red = image.select("B4");
-  var zaehler = nir.subtract(red);
-  var nenner = nir.add(red);
-  var ndvi = zaehler.divide(nenner);
+  var ndvi = image.normalizedDifference(["B8", "B4"]);
   return ndvi
 }
 
-var ndvi = ndvi_fun(s2)
+var ndvi = ndvi_fun(filtered)
 
-Map.addLayer(ndvi, imageVisParam2);
+Map.addLayer(ndvi, {palette: ["red", "yellow", "green"]});
 ``` 

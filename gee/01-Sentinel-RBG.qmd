@@ -1,15 +1,17 @@
 
-## Demo 2: Multispectral Data
+## Demo 2: Multispectral Data {#sec-gee-demo-multispec}
 
 *Exploring Multispectral Data*
 
 - In this exercise, we will explore a more complex, multispectral dataset.
 - This adds complexity since there are not only multiple bands, but there also is a temporal dimension and issues with cloud cover etc
+- We will create a "true color image", meaning that we will take the Red, Green and Blue band and map the values to RGB.
+- We will also create a "false color image", meaning taht we will take other bands and map these to RGB
 
 Lets get started!
 
 - Look for Sentinel-2 Data, browse the collections
-- Add the dataset * Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A*
+- Add the dataset *Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A*
 
 ```js
 var s2 = ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED");
@@ -70,7 +72,16 @@ Map.addLayer(filtered, imageVisParam);
 ```
 
 
+from [here](https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/composites/):
+
+- **True color composite** uses visible light bands red (B04), green (B03) and blue (B02) in the corresponding red, green and blue color channels, resulting in a natural colored result, that is a good representation of the Earth as humans would see it naturally.
+- **False color composite** using near infrared, red and green bands is very popular. It is most commonly used to assess plant density and health, as plants reflect near infrared and green light, while absorbing red. Since they reflect more near infrared than green, plant-covered land appears deep red. Denser plant growth is darker red. Cities and exposed ground are gray or tan, and water appears blue or black.
 
 
 
+```js
+
+imageVisParam2 = {"opacity":1,"bands":["B8","B4","B3"],"min":204.68,"max":10029.32,"gamma":3.8280000000000003}
+
+```
 

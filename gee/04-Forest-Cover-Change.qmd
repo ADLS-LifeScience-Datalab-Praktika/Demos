@@ -1,5 +1,5 @@
 
-## Demo 5: Forest regrowth
+## Demo 5: Forest regrowth {#sec-gee-demo-forest}
 
 **How did the forst fire in leuk (2003) affect tree canopy cover**
 
@@ -35,7 +35,7 @@ var loss2004 = hansen.select("lossyear").remap([4], [1])
 Map.addLayer(loss2004, {}, "Loss 2004");
 ```
 
-## Determin the area of interest
+## Determine the area of interest
 
 - draw a square or a polygon around the forest fire in Leuk
 - rename it to aoi
@@ -134,7 +134,7 @@ Map.addLayer(treeCanopy2015, imageVisParam, "2015");
 ## Create a chart
 
 - Comparing 2000 and 2015 already shows, that the tree canopy cover has not really increased
-- Lets determin the tree canopy cover over time by creating a chart
+- Lets determine the tree canopy cover over time by creating a chart
 
 ```js
 print(ui.Chart.image.series(gfcc, aoi));

@@ -1,0 +1,22 @@
+# Preperation
+
+
+The code you write is part of your learning experience and you should keep it for your own reference. To set this up, proceed as follows:
+
+1. Select *New* → *Repo* → Give the repo a meaningful name
+2. Select *New* → *File* → 
+   1. Choose the repo from step 1 
+   2. Give the file a meaningful name (Demo Number + Topic) 
+   3. Optionally add a commit message
+3. Configure Repo by clicking on the configure Button. You can use the git URL to clone the repo to your local machine (and sync with GitHub if you are inclined to do so).
+
+
+:::{.callout-note}
+
+## Instructions for Nils
+
+1. Do the steps above
+2. Make your own repo available to everyone
+3. Share the URL to your repo
+
+:::

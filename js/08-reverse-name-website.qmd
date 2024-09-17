@@ -1,4 +1,7 @@
-# Task: Reverse-name
+# Task (Optional): Reverse-name Website
+
+
+Task: Create a website that takes a name as an input and reverses that input.
 
 ```html
 <!DOCTYPE html>
