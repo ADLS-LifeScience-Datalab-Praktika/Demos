@@ -1,5 +1,5 @@
 
-# Demo 3: Multispec NDVI {#sec-gee-demo-ndvi1}
+# Demo 3: Multispectral NDVI {#sec-gee-demo-ndvi1}
 
 *Calculating NDVI for a single image*
 

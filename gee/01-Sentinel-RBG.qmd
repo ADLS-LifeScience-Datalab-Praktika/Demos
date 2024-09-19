@@ -1,5 +1,5 @@
 
-## Demo 2: Multispectral Data {#sec-gee-demo-multispec}
+## Demo 2: Multispectral RGB {#sec-gee-demo-multispec}
 
 *Exploring Multispectral Data*
 

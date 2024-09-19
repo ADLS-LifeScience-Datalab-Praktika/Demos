@@ -22,10 +22,6 @@ Please make sure you have registered for a GoogleEarthEngine Account. See the sl
   3. Lesson: @sec-gee-demo-unispec & @sec-gee-demo-multispec
   4. Lesson: @sec-gee-demo-ndvi1 & @sec-gee-demo-forest [^1]
 - Afternoon: 
-  - *Either*: Apply @sec-gee-demo-forest to a different area of interest to monitor tree canopy cover over time
-  - *or*: Apply a differnt analysis of your own choosing
-  
-  → Export the results and import it into R or Python and write a short description (max 1 page, including figure) of your analysis with the usual chapters[^usual-chapters]
 
 
 
