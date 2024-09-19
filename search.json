@@ -24,7 +24,7 @@
     "href": "index.html#timetable",
     "title": "Cloud Computing with Google Earth Engine",
     "section": "Timetable",
-    "text": "Timetable\n\nMorning:\n\nLesson: Slides & Demo 1: console\nLesson: Demo 2: Html-file - Demo 5: year2days-Website\nLesson: Demo 1: Unispectral Data & Demo 2: Multispectral Data\nLesson: Demo 3: Multispec NDVI & Demo 5: Forest regrowth 1\n\nAfternoon:\n\nEither: Apply Demo 5: Forest regrowth to a different area of interest to monitor tree canopy cover over time\nor: Apply a differnt analysis of your own choosing\n\n→ Export the results and import it into R or Python and write a short description (max 1 page, including figure) of your analysis with the usual chapters2",
+    "text": "Timetable\n\nMorning:\n\nLesson: Slides & Demo 1: console\nLesson: Demo 2: Html-file - Demo 5: year2days-Website\nLesson: Demo 1: Unispectral Data & Demo 2: Multispectral RGB\nLesson: Demo 3: Multispectral NDVI & Demo 5: Forest regrowth 1\n\nAfternoon:",
     "crumbs": [
       "Introduction"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#footnotes",
     "title": "Cloud Computing with Google Earth Engine",
     "section": "",
-    "text": "should we leave out Demo 3: Multispec NDVI? It’s quite complex (cloud cover issue and adding band to collection↩︎\nUsual chapters: Abstract, Introduction, Material and Methods, Results, Discussion↩︎",
+    "text": "should we leave out Demo 3: Multispectral NDVI? It’s quite complex (cloud cover issue and adding band to collection↩︎",
     "crumbs": [
       "Introduction"
     ]
@@ -174,100 +174,100 @@
   {
     "objectID": "gee/01-Sentinel-RBG.html",
     "href": "gee/01-Sentinel-RBG.html",
-    "title": "Demo 2: Multispectral Data",
+    "title": "Demo 2: Multispectral RGB",
     "section": "",
     "text": "Exploring Multispectral Data\n\nIn this exercise, we will explore a more complex, multispectral dataset.\nThis adds complexity since there are not only multiple bands, but there also is a temporal dimension and issues with cloud cover etc\nWe will create a “true color image”, meaning that we will take the Red, Green and Blue band and map the values to RGB.\nWe will also create a “false color image”, meaning taht we will take other bands and map these to RGB\n\nLets get started!\n\nLook for Sentinel-2 Data, browse the collections\nAdd the dataset Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A\n\nvar s2 = ee.ImageCollection(\"COPERNICUS/S2_SR_HARMONIZED\");\n\nEven the first step shows us, that this is a more complex dataset.\nPrinting the collection fails:\n\nprint(s2);\n\nin the docs, look for ways to filter the dataset, e.g. by date\nuse the function filterDate() which can be found under ee.ImageCollection\nApply the filter:\n\nPlay around with some recent dates (2 - 3 days)\nZoom out\nand add the result to the map.\nThis nicely shows the path of the Sentiel-2 satellite\n\n\nvar filtered = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\n\nMap.addLayer(filtered);\n\nPrinting to the console is still not possible.\nHow many images are in the collection?\n\nprint(filtered.size())\n\nZoom back to a region of interest, e.g. Visp\nThe image does not look good\nCheck the Docs for ee.ImageCollection and as before, it references ee.data.getMapId(). There, note the following line:\n\nbands (comma-separated strings) Comma-delimited list of band names to be mapped to RGB.\n\nRead the Metadata of the dataset, check the Tab “Bands”. Note the Band names and their description: RGB is “B4, B3, B2”.\n\nMap.addLayer(filtered, {\"bands\":[\"B4\",\"B3\",\"B2\"]});\n\nstill not looking good. Using the map UI, use the layer setting to strech the image to 98% and raise the gamma to about 4. You will learn more about these values in the Remote Sensing Course (FS24)\nimport these setting into the script via the Import-Button\n\nNote the imageVisParam object and how it is part of the code, but not quite. You can copy the code and create your own object from it, if you are so inclined.\nYou can now replace the JavaScript object with the imageVisParam object\n\n\n// was created automagically:\nvar imageVisParam = {\"opacity\":1,\"bands\":[\"B4\",\"B3\",\"B2\"],\"min\":85.84,\"max\":4206.16,\"gamma\":3.055};\n\n// can be used in the addLayer-function:\nMap.addLayer(filtered, imageVisParam);\nfrom here:\n\nTrue color composite uses visible light bands red (B04), green (B03) and blue (B02) in the corresponding red, green and blue color channels, resulting in a natural colored result, that is a good representation of the Earth as humans would see it naturally.\nFalse color composite using near infrared, red and green bands is very popular. It is most commonly used to assess plant density and health, as plants reflect near infrared and green light, while absorbing red. Since they reflect more near infrared than green, plant-covered land appears deep red. Denser plant growth is darker red. Cities and exposed ground are gray or tan, and water appears blue or black.\n\n\nimageVisParam2 = {\"opacity\":1,\"bands\":[\"B8\",\"B4\",\"B3\"],\"min\":204.68,\"max\":10029.32,\"gamma\":3.8280000000000003}",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Demo 2: Multispectral Data</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Demo 2: Multispectral RGB</span>"
     ]
   },
   {
     "objectID": "gee/02-Sentinel_NDVI.html",
     "href": "gee/02-Sentinel_NDVI.html",
-    "title": "Demo 3: Multispec NDVI",
+    "title": "Demo 3: Multispectral NDVI",
     "section": "",
     "text": "Setup",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispec NDVI</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
     "objectID": "gee/02-Sentinel_NDVI.html#setup",
     "href": "gee/02-Sentinel_NDVI.html#setup",
-    "title": "Demo 3: Multispec NDVI",
+    "title": "Demo 3: Multispectral NDVI",
     "section": "",
     "text": "We will work with the same data from Demo 2\nWe can overwrite s2 so we do not have too many variables\n\nvar imageVisParam = {\"opacity\":1,\"bands\":[\"B4\",\"B3\",\"B2\"],\"min\":85.84,\"max\":4206.16,\"gamma\":3.055}\n\nvar s2 = ee.ImageCollection(\"COPERNICUS/S2_SR_HARMONIZED\");\n\ns2 = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\n\nMap.addLayer(s2, imageVisParam);",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispec NDVI</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
     "objectID": "gee/02-Sentinel_NDVI.html#specify-an-area-of-interest-aoi",
     "href": "gee/02-Sentinel_NDVI.html#specify-an-area-of-interest-aoi",
-    "title": "Demo 3: Multispec NDVI",
+    "title": "Demo 3: Multispectral NDVI",
     "section": "Specify an area of interest (aoi)",
     "text": "Specify an area of interest (aoi)\n\nAs we saw in the last demo, we have several images in the collection.\nHowever, we are interested only in a single image of a specific area\nTo select a single image, we need to filter by location.\nTo do this, use the map UI and create a point in Visp, name it “aoi”\n\nNote how the points are immediately added in the code editor\nIf a mistake was made, either delete and redraw, or copy the code, delete the import statement and add it manually\n\n\n// this was created automagically\naoi = ee.Geometry.Point([7.880419288840592, 46.29770703906289]);\n\n// and can be added to the Map like so:\nMap.addLayer(aoi);",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispec NDVI</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
     "objectID": "gee/02-Sentinel_NDVI.html#filter-by-the-aoi",
     "href": "gee/02-Sentinel_NDVI.html#filter-by-the-aoi",
-    "title": "Demo 3: Multispec NDVI",
+    "title": "Demo 3: Multispectral NDVI",
     "section": "Filter by the aoi",
     "text": "Filter by the aoi\n\nusing the search function in Docs, look for various filter functions\nWe will need the function filerBounds()\nApply the filter, but out of intereste check the size of the collection before and after filtering\n\n// the original filter coincidently shows just one image \n// for the filtered Date and AOI. Try changing the dates \n// so that multiple images \n\n//var s2 = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\nvar s2 = s2.filterDate(\"2023-09-01\", \"2023-10-03\");\n\n\nconsole.log(s2.size())\n\ns2 = s2.filterBounds(aoi);\n\nconsole.log(s2.size())\nconsole.log(s2);",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispec NDVI</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
     "objectID": "gee/02-Sentinel_NDVI.html#inspect-the-output",
     "href": "gee/02-Sentinel_NDVI.html#inspect-the-output",
-    "title": "Demo 3: Multispec NDVI",
+    "title": "Demo 3: Multispectral NDVI",
     "section": "Inspect the output",
     "text": "Inspect the output\n\nCheck the output of console.log(s2).\nWe wanted a single image, but still have an image collection with multiple values.\nWe might want to choose the best image (we will do so later on)\nbut for now let’s keep it simple and just take the first with the first() method\n\ns2 = s2.first()\n\nprint(s2)",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispec NDVI</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
     "objectID": "gee/02-Sentinel_NDVI.html#normalized-difference-function-skip-this-doesnt-work",
     "href": "gee/02-Sentinel_NDVI.html#normalized-difference-function-skip-this-doesnt-work",
-    "title": "Demo 3: Multispec NDVI",
+    "title": "Demo 3: Multispectral NDVI",
     "section": "Normalized Difference Function (skip this, doesn’t work)",
     "text": "Normalized Difference Function (skip this, doesn’t work)\n\nAlternatively, you can use the Normalized Difference function\nThe function “normalizedDifference” is a generic function to calculcate normalized difference between two bands\nThis doesn’t seem to work?\n\nvar ndvi = s2.normalizedDifference([\"B8\", \"B4\"]);",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispec NDVI</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
     "objectID": "gee/02-Sentinel_NDVI.html#adjust-range-and-palette",
     "href": "gee/02-Sentinel_NDVI.html#adjust-range-and-palette",
-    "title": "Demo 3: Multispec NDVI",
+    "title": "Demo 3: Multispectral NDVI",
     "section": "Adjust range and palette",
     "text": "Adjust range and palette\n\nVia the GUI\n\nAdjust the value range to -1 - 1\nAdd a palettte by adding the colors red, yellow and green. These will automatically be mapped to the specified value rage.\n\nImport the visParams from the GUI to the code editor\n\nimageVisParam2 = {\"opacity\":1,\"bands\":[\"B8\"],\"min\":-1,\"palette\":[\"ff0000\",\"ffff00\",\"008000\"]};\n\nMap.addLayer(ndvi, imageVisParam2);",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispec NDVI</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
     "objectID": "gee/02-Sentinel_NDVI.html#custom-ndvi-function",
     "href": "gee/02-Sentinel_NDVI.html#custom-ndvi-function",
-    "title": "Demo 3: Multispec NDVI",
+    "title": "Demo 3: Multispectral NDVI",
     "section": "Custom NDVI function",
     "text": "Custom NDVI function\n\nWe could also create a custom ndvi()-function that takes the bands 8 and 4\nWe can only apply this function to the Sentinel-2 data, where the Band numbers 8 and 4 correspond to NIR and Red.\n\nfunction ndvi_fun(image){\n  var ndvi = image.normalizedDifference([\"B8\", \"B4\"]);\n  return ndvi\n}\n\nvar ndvi = ndvi_fun(filtered)\n\nMap.addLayer(ndvi, {palette: [\"red\", \"yellow\", \"green\"]});",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispec NDVI</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
