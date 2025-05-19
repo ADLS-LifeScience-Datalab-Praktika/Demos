@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Task: Basic-html – Cloud Computing with Google Earth Engine</title>
+<title>Task 1: Identifying Suitable Areas for Renewable Energy Installation – Cloud Computing with Google Earth Engine</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../js/04-basic-html-script-demo.html" rel="next">
-<link href="../js/02-basic-html-script-demo.html" rel="prev">
+<link href="../gee/01-Sentinel-RBG.html" rel="next">
+<link href="../gee/00-SRTM.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../js/01-browser-console-demo.html">JavaScript</a></li><li class="breadcrumb-item"><a href="../js/03-basic-html-script-task.html"><span class="chapter-title">Task: Basic-html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../gee/00-Preperation.html">GEE</a></li><li class="breadcrumb-item"><a href="../gee/01-Task_Suitable_Locations.html"><span class="chapter-title">Task 1: Identifying Suitable Areas for Renewable Energy Installation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../js/03-basic-html-script-task.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Task: Basic-html</span></a>
+  <a href="../js/03-basic-html-script-task.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Task: Basic-html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -220,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../gee/01-Task_Suitable_Locations.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Task 1: Identifying Suitable Areas for Renewable Energy Installation</span></a>
+  <a href="../gee/01-Task_Suitable_Locations.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Task 1: Identifying Suitable Areas for Renewable Energy Installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -256,9 +256,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../js/01-browser-console-demo.html">JavaScript</a></li><li class="breadcrumb-item"><a href="../js/03-basic-html-script-task.html"><span class="chapter-title">Task: Basic-html</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../gee/00-Preperation.html">GEE</a></li><li class="breadcrumb-item"><a href="../gee/01-Task_Suitable_Locations.html"><span class="chapter-title">Task 1: Identifying Suitable Areas for Renewable Energy Installation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Task: Basic-html</span></h1>
+<h1 class="title"><span class="chapter-title">Task 1: Identifying Suitable Areas for Renewable Energy Installation</span></h1>
 </div>
 
 
@@ -275,10 +275,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><em>in an html file</em></p>
-<div class="sourceCode" id="cb1" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> myage <span class="op">=</span> <span class="dv">34</span><span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> myage_days <span class="op">=</span> myage<span class="op">*</span><span class="dv">365</span><span class="op">;</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"I am "</span><span class="op">+</span>myage_days<span class="op">+</span><span class="st">" years old"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Solution:</p>
+<div class="sourceCode" id="cb1" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> srtm <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">"CGIAR/SRTM90_V4"</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> slope <span class="op">=</span> ee<span class="op">.</span><span class="at">Terrain</span><span class="op">.</span><span class="fu">slope</span>(srtm)<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> aspect <span class="op">=</span> ee<span class="op">.</span><span class="at">Terrain</span><span class="op">.</span><span class="fu">aspect</span>(srtm)<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> elevation_good <span class="op">=</span> srtm<span class="op">.</span><span class="fu">gt</span>(<span class="dv">500</span>)<span class="op">.</span><span class="fu">and</span>(srtm<span class="op">.</span><span class="fu">lt</span>(<span class="dv">1000</span>))<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> slope_good <span class="op">=</span> slope<span class="op">.</span><span class="fu">gt</span>(<span class="dv">3</span>)<span class="op">.</span><span class="fu">and</span>(slope<span class="op">.</span><span class="fu">lt</span>(<span class="dv">6</span>))<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> aspect_good <span class="op">=</span> aspect<span class="op">.</span><span class="fu">gte</span>(<span class="dv">135</span>)<span class="op">.</span><span class="fu">and</span>(aspect<span class="op">.</span><span class="fu">lte</span>(<span class="dv">225</span>))<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">// good aspect (exposition): 135-225°</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> all_good <span class="op">=</span> elevation_good<span class="op">.</span><span class="fu">and</span>(slope_good)<span class="op">.</span><span class="fu">and</span>(aspect_good)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">//Map.addLayer(srtm, {min: 0, max: 4000, palette: ["blue","yellow","red"]});</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">//Map.addLayer(elevation_good.selfMask(), {palette: ["red","green"]})</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(all_good<span class="op">.</span><span class="fu">selfMask</span>()<span class="op">,</span> {<span class="dt">palette</span><span class="op">:</span> [<span class="st">"red"</span><span class="op">,</span><span class="st">"green"</span>]})</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
@@ -702,13 +722,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../js/02-basic-html-script-demo.html" class="pagination-link" aria-label="Demo 2: Html-file">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Demo 2: Html-file</span></span>
+      <a href="../gee/00-SRTM.html" class="pagination-link" aria-label="Demo 1: Unispectral Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Demo 1: Unispectral Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../js/04-basic-html-script-demo.html" class="pagination-link" aria-label="Demo 3: html-script">
-        <span class="nav-page-text"><span class="chapter-title">Demo 3: html-script</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../gee/01-Sentinel-RBG.html" class="pagination-link" aria-label="Demo 2: Multispectral RGB">
+        <span class="nav-page-text"><span class="chapter-title">Demo 2: Multispectral RGB</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
