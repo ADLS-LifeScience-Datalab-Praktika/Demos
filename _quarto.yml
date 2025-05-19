@@ -27,6 +27,7 @@ book:
       chapters:
         - gee/00-Preperation.qmd
         - gee/00-SRTM.qmd
+        - gee/01-Task_Suitable_Locations.qmd
         - gee/01-Sentinel-RBG.qmd
         - gee/02-Sentinel_NDVI.qmd
         - gee/03-Sentinel-NDVI-over-time.qmd

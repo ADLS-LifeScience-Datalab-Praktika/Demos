@@ -1,0 +1,33 @@
+ 
+## Task 1: Identifying Suitable Areas for Renewable Energy Installation
+
+
+Solution:
+
+```{.js}
+
+var srtm = ee.Image("CGIAR/SRTM90_V4");
+
+
+var slope = ee.Terrain.slope(srtm);
+var aspect = ee.Terrain.aspect(srtm);
+
+
+
+var elevation_good = srtm.gt(500).and(srtm.lt(1000));
+var slope_good = slope.gt(3).and(slope.lt(6));
+var aspect_good = aspect.gte(135).and(aspect.lte(225));
+
+// good aspect (exposition): 135-225°
+
+var all_good = elevation_good.and(slope_good).and(aspect_good)
+
+
+//Map.addLayer(srtm, {min: 0, max: 4000, palette: ["blue","yellow","red"]});
+//Map.addLayer(elevation_good.selfMask(), {palette: ["red","green"]})
+
+Map.addLayer(all_good.selfMask(), {palette: ["red","green"]})
+
+
+```
+
