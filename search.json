@@ -132,7 +132,7 @@
     "href": "gee/00-Preperation.html",
     "title": "Preperation",
     "section": "",
-    "text": "The code you write is part of your learning experience and you should keep it for your own reference. To set this up, proceed as follows:\n\nSelect New → Repo → Give the repo a meaningful name\nSelect New → File →\n\nChoose the repo from step 1\nGive the file a meaningful name (Demo Number + Topic)\nOptionally add a commit message\n\nConfigure Repo by clicking on the configure Button. You can use the git URL to clone the repo to your local machine (and sync with GitHub if you are inclined to do so).\n\n\n\n\n\n\n\nInstructions for Nils\n\n\n\n\nDo the steps above\nMake your own repo available to everyone\nShare the URL to your repo",
+    "text": "The code you write is part of your learning experience and you should keep it for your own reference. To set this up, proceed as follows:\n\nSelect New → Repo → Give the repo a meaningful name\nSelect New → File →\n\nChoose the repo from step 1\nGive the file a meaningful name (Demo Number + Topic)\nOptionally add a commit message\n\nConfigure Repo by clicking on the configure Button. You can use the git URL to clone the repo to your local machine (and sync with GitHub if you are inclined to do so).\n\n\n\n\n\n\n\nNoteInstructions for Nils\n\n\n\n\nDo the steps above\nMake your own repo available to everyone\nShare the URL to your repo",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Preperation</span>"
@@ -165,7 +165,7 @@
     "href": "gee/00-SRTM.html#task",
     "title": "Demo 1: Unispectral Data",
     "section": "Task",
-    "text": "Task\n\nDetermine if Elevation is with Range (1000 - 2000 m.s.l)\nvar good_elevation = srtm.gt(1000).and(srtm.lt(2000))\n\n\nCalculate Aspect\nWhat is aspect?\nvar aspect = ee.Terrain.aspect(srtm);\n\n\nDetermine if aspect is within range (135° and 225°)\nWe need southfacing slopes!\nvar good_aspect = aspect.gt(135).and(aspect.lt(225));\n\n\nBring everything together\nvar good_everything = good_slope.and(good_aspect.and(good_elevation))\n\n// selfMask() hides all 0 values\nMap.addLayer(good_everything.selfMask(), {palette: [\"#ff000077\", \"blue\"]}) ;\n\n\n\n\n\n\nFull working example\n\n\n\n\n\nvar srtm = ee.Image(\"CGIAR/SRTM90_V4\");\n\nvar slope = ee.Terrain.slope(srtm);\n\nvar aspect = ee.Terrain.aspect(srtm);\n\n\nvar good_slope = slope.gt(5).and(slope.lt(10));\n\nvar good_aspect = aspect.gt(135).and(aspect.lt(225));\n\n\nvar good_elevation = srtm.gt(1000).and(srtm.lt(2000))\n\nvar good_everything = good_slope.and(good_aspect.and(good_elevation))\n\n\n\nMap.addLayer(good_everything.selfMask(), {palette: [\"#ff000077\", \"blue\"]}) ;",
+    "text": "Task\n\nDetermine if Elevation is with Range (1000 - 2000 m.s.l)\nvar good_elevation = srtm.gt(1000).and(srtm.lt(2000))\n\n\nCalculate Aspect\nWhat is aspect?\nvar aspect = ee.Terrain.aspect(srtm);\n\n\nDetermine if aspect is within range (135° and 225°)\nWe need southfacing slopes!\nvar good_aspect = aspect.gt(135).and(aspect.lt(225));\n\n\nBring everything together\nvar good_everything = good_slope.and(good_aspect.and(good_elevation))\n\n// selfMask() hides all 0 values\nMap.addLayer(good_everything.selfMask(), {palette: [\"#ff000077\", \"blue\"]}) ;\n\n\n\n\n\n\nNoteFull working example\n\n\n\n\n\nvar srtm = ee.Image(\"CGIAR/SRTM90_V4\");\n\nvar slope = ee.Terrain.slope(srtm);\n\nvar aspect = ee.Terrain.aspect(srtm);\n\n\nvar good_slope = slope.gt(5).and(slope.lt(10));\n\nvar good_aspect = aspect.gt(135).and(aspect.lt(225));\n\n\nvar good_elevation = srtm.gt(1000).and(srtm.lt(2000))\n\nvar good_everything = good_slope.and(good_aspect.and(good_elevation))\n\n\n\nMap.addLayer(good_everything.selfMask(), {palette: [\"#ff000077\", \"blue\"]}) ;",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Demo 1: Unispectral Data</span>"
@@ -341,7 +341,7 @@
     "href": "gee/03-Sentinel-NDVI-over-time.html#debugging-the-chart",
     "title": "Demo 4: NDVI over time",
     "section": "Debugging the chart",
-    "text": "Debugging the chart\nThis will throw an error:\n\n\n\n\n\n\nError\n\n\n\nNo features contain non-null values of \"system:time_start\"",
+    "text": "Debugging the chart\nThis will throw an error:\n\n\n\n\n\n\nImportantError\n\n\n\nNo features contain non-null values of \"system:time_start\"",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
@@ -352,7 +352,7 @@
     "href": "gee/03-Sentinel-NDVI-over-time.html#compare-the-two-objects",
     "title": "Demo 4: NDVI over time",
     "section": "Compare the two objects",
-    "text": "Compare the two objects\nCompare the to objects, s2 and ndvi. Much metadata was lost when we mapped the function over the collection.\n\n\n\n\n\n\ns2 looks as follows:\n\n\n\n\n\nfeatures: List (218 elements)\n  0:  Image COPERNICUS/S2_SR_HARMONIZED/20230101T102339_20230101T102333_T32TLS (23 bands)\n    type: Image\n    id: COPERNICUS/S2_SR_HARMONIZED/20230101T102339_20230101T102333_T32TLS\n    version: 1696354178264204\n    bands: List (23 elements)\n    properties: Object (101 properties)  # ← lots of metadata\n      AOT_RETRIEVAL_ACCURACY: 0\n      AOT_RETRIEVAL_METHOD: CAMS\n      ....\n      system:time_end: 1672568887220\n      system:time_start: 1672568887220\n\n\n\n\n\n\n\n\n\nndvi looks as follows:\n\n\n\n\n\nfeatures: List (218 elements)\n  0: Image (1 band)\n    type: Image\n    bands: List (1 element)\n    properties: Object (1 property)        # ← no metadata\n      system:index: 20230101T102339_20230",
+    "text": "Compare the two objects\nCompare the to objects, s2 and ndvi. Much metadata was lost when we mapped the function over the collection.\n\n\n\n\n\n\nNotes2 looks as follows:\n\n\n\n\n\nfeatures: List (218 elements)\n  0:  Image COPERNICUS/S2_SR_HARMONIZED/20230101T102339_20230101T102333_T32TLS (23 bands)\n    type: Image\n    id: COPERNICUS/S2_SR_HARMONIZED/20230101T102339_20230101T102333_T32TLS\n    version: 1696354178264204\n    bands: List (23 elements)\n    properties: Object (101 properties)  # ← lots of metadata\n      AOT_RETRIEVAL_ACCURACY: 0\n      AOT_RETRIEVAL_METHOD: CAMS\n      ....\n      system:time_end: 1672568887220\n      system:time_start: 1672568887220\n\n\n\n\n\n\n\n\n\nNotendvi looks as follows:\n\n\n\n\n\nfeatures: List (218 elements)\n  0: Image (1 band)\n    type: Image\n    bands: List (1 element)\n    properties: Object (1 property)        # ← no metadata\n      system:index: 20230101T102339_20230",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
