@@ -1,2 +1,5 @@
 /.quarto/
 *.ipynb
+_book
+docs
+.Rproj.user
