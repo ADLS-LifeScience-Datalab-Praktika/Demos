@@ -3,74 +3,74 @@
 # Demo 1: Unispectral Data {#sec-gee-demo-unispec}
 
 
-**Use Case: Identifying Suitable Areas for Renewable Energy Installation**
+**Use Case: Identifizierung geeigneter Gebiete für renewable energy Installation**
 
-In this lesson, we will use global terrain data to assess potential sites for renewable energy installations, such as solar panels or wind turbines. By calculating and visualizing elevation, slope, and aspect, we can identify optimal areas for infrastructure placement. Elevation provides insight into regions with better wind exposure or sunlight availability. Slope helps ensure land stability and suitability for construction. Aspect plays a key role in determining sunlight exposure for solar panels. Through this exercise, we will explore how terrain data can support sustainable energy planning and development.
+In dieser Lektion werden wir globale terrain Daten verwenden, um potenzielle Standorte für renewable energy Installationen zu bewerten, wie solar panels oder wind turbines. Durch Berechnung und Visualisierung von elevation, slope und aspect können wir optimale Gebiete für infrastructure placement identifizieren. Elevation gibt Einblick in Regionen mit besserer wind exposure oder sunlight availability. Slope hilft, land stability und suitability for construction sicherzustellen. Aspect spielt eine Schlüsselrolle bei der Bestimmung der sunlight exposure für solar panels. Durch diese Übung werden wir erkunden, wie terrain Daten sustainable energy planning und development unterstützen können.
 
 **Solar**:
 
-- *Elevation*: Suitable elevations are between 100 and 1,500 meters to avoid valleys and ensure good sunlight exposure.
-- *Slope*: Prefer gentle slopes of 5-10% (around 3-6 degrees), although steeper slopes can be used with higher installation costs.
-- *Aspect*: In the Northern Hemisphere, aim for south-facing slopes (between 135° and 225°); in the Southern Hemisphere, aim for north-facing slopes (between 315° and 45°).
+- *Elevation*: Geeignete elevations sind zwischen 100 und 1.500 Metern, um valleys zu vermeiden und gute sunlight exposure sicherzustellen.
+- *Slope*: Bevorzugt sanfte slopes von 5-10% (etwa 3-6 Grad), obwohl steilere slopes mit höheren installation costs verwendet werden können.
+- *Aspect*: In der nördlichen Hemisphäre, zielt auf südlich ausgerichtete slopes (zwischen 135° und 225°); in der südlichen Hemisphäre, zielt auf nördlich ausgerichtete slopes (zwischen 315° und 45°).
 
 **Wind Turbines**:
 
-- *Elevation*: Preferably above 500 meters to take advantage of higher wind speeds.
-- *Slope*: Ideal slope is less than 5% (around 3 degrees) to ensure stability and ease of construction.
-- *Aspect*: Generally not a major concern, as wind turbines are more affected by local wind patterns than the slope's orientation.
+- *Elevation*: Vorzugsweise über 500 Meter, um von höheren wind speeds zu profitieren.
+- *Slope*: Ideale slope ist weniger als 5% (etwa 3 Grad), um stability und ease of construction sicherzustellen.
+- *Aspect*: Im Allgemeinen kein großes Problem, da wind turbines mehr von lokalen wind patterns betroffen sind als von der slope's orientation.
 
 
 ## Demo
 
-### Setting up
+### Setup
 
-- Use the same search bar to look for "Digital Elevation" data. We will use the SRTM data.
-- Explore the metadata of SRTM
-- Import via the *Collection Snippet*-button
-  - Save in a variable and add `;`
-  - Execute with <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
+- Verwendet die gleiche search bar, um nach "Digital Elevation" Daten zu suchen. Wir werden die SRTM Daten verwenden.
+- Erkundet die metadata von SRTM
+- Importiert über den *Collection Snippet*-Button
+  - Speichert in einer Variable und fügt `;` hinzu
+  - Führt mit <kbd>Ctrl</kbd> + <kbd>Enter</kbd> aus
 
 
 ```js
 var srtm = ee.Image("USGS/SRTMGL1_003");
 ```
 
-### `console.log()` and `print()`
+### `console.log()` und `print()`
 
-- Nothing happens. 
-- To get metadata of the data (similar to R `str()` function):
+- Nichts passiert.
+- Um metadata der Daten zu erhalten (ähnlich der R `str()` Funktion):
 
 ```js
 console.log(srtm);
 ```
 
-- In the GEE environment, `print()` is the same as `console.log()` 
-- This is not the case outside GEE!
+- In der GEE Umgebung ist `print()` das gleiche wie `console.log()`
+- Das ist außerhalb von GEE nicht der Fall!
 
 ```js
 print(srtm);
 ```
 
-### Create a map
+### Eine Karte erstellen
 
-Add the data to the map
+Fügt die Daten zur Karte hinzu
 
 ```js
 Map.addLayer(srtm)
 ```
 
-- The result does not show much. Why?
-- The color scheme  "white to black" is streched across the *whole* range of values. 
-- Visp, however steep it is there, does not cover this whole range. 
+- Das Ergebnis zeigt nicht viel. Warum?
+- Das color scheme "white to black" ist über den *ganzen* range of values gestreckt.
+- Visp, egal wie steil es dort ist, deckt nicht diesen ganzen range ab. 
 
-### Consult docs to change the viz params
+### Docs konsultieren, um die viz params zu ändern
 
-- Truncate using the GUI interface (e.g. from 0 to 4000). 
-- In the docs for `Map.addLayer()` see the reference:
+- Truncate mit dem GUI interface (z.B. von 0 bis 4000).
+- In den docs für `Map.addLayer()` seht die Referenz:
 
   > For Images and ImageCollection, see `ee.data.getMapId` for valid parameters
 
- - Look for `ee.data.getMapId` in the docs and note the following reference:
+ - Sucht nach `ee.data.getMapId` in den docs und beachtet die folgende Referenz:
 
    > The visualization parameters as a (client-side) JavaScript object.
    > ...
@@ -84,16 +84,16 @@ visParam = {min: 0, max: 4000}
 Map.addLayer(srtm, visParam)
 ```
 
-### Add a color palette
+### Eine color palette hinzufügen
 
-Add a color palette, and maybe to the whole thing in one line:
+Fügt eine color palette hinzu, und vielleicht das Ganze in einer Zeile:
 
 ```js
 Map.addLayer(srtm, {min: 0, max: 4000, palette: ["green", "red", "blue"]})
 ```
 
 
-### Add slope
+### Slope hinzufügen
 
 ```js
 var slope = ee.Terrain.slope(srtm);
@@ -105,7 +105,7 @@ Map.addLayer(slope, slopevis, 'slope');
 
 
 
-### Determine if slope is within range (5 - 10°)
+### Bestimmt, ob slope im Bereich liegt (5 - 10°)
 
 
 ```js
@@ -118,10 +118,10 @@ Map.addLayer(good_slope, {palette: ["red", "blue"]}) ;
 
 
 
-## Task
+# Aufgabe {#sec-gee-task-unispec}
 
 
-### Determine if Elevation is with Range (1000 - 2000 m.s.l)
+## Bestimmt, ob Elevation im Bereich liegt (1000 - 2000 m.s.l)
 
 
 ```js
@@ -129,9 +129,9 @@ var good_elevation = srtm.gt(1000).and(srtm.lt(2000))
 ```
 
 
-### Calculate Aspect
+## Aspect berechnen
 
-What is [aspect](https://en.wikipedia.org/wiki/Aspect_(geography))?
+Was ist [aspect](https://en.wikipedia.org/wiki/Aspect_(geography))?
 
 
 ```js
@@ -139,9 +139,9 @@ var aspect = ee.Terrain.aspect(srtm);
 ```
 
 
-### Determine if `aspect` is within range (135° and 225°)
+## Bestimmt, ob `aspect` im Bereich liegt (135° und 225°)
 
-We need southfacing slopes!
+Wir brauchen südlich ausgerichtete slopes!
 
 
 ```js
@@ -149,7 +149,7 @@ var good_aspect = aspect.gt(135).and(aspect.lt(225));
 ```
 
 
-### Bring everything together
+## Alles zusammenbringen
 
 
 ```js
@@ -163,7 +163,7 @@ Map.addLayer(good_everything.selfMask(), {palette: ["#ff000077", "blue"]}) ;
 
 :::{.callout-note collapse="true"}
 
-## Full working example
+## Vollständiges funktionierendes Beispiel
 
 
 ```js

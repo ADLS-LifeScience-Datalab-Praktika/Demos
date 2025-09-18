@@ -1,32 +1,32 @@
 
 ## Demo 1: console {#sec-js-console}
 
-*in the browser Console*
+*in der browser Console*
 
 
-Creating string variables: 
+String Variablen erstellen:
 
 ```js
 // just like in R, but not correct
-myname = "Nils Ratnaweera" 
+myname = "Nils Ratnaweera"
 
-// use var to create a new variable 
-// ommiting var works and if you're in the global scope then 
+// use var to create a new variable
+// ommiting var works and if you're in the global scope then
 // there's not much difference. https://stackoverflow.com/a/1470494/4139249
-var myname = "Nils Ratnaweera" 
+var myname = "Nils Ratnaweera"
 
 // end statement with a semi colon
-var myname = "Nils Ratnaweera"; 
+var myname = "Nils Ratnaweera";
 ```
 
-Checking the `typeof`
+Den `typeof` überprüfen
 
 ```js
 typeof(myname)
 ```
 
 
-Creating numeric varibles
+Numerische Variablen erstellen
 
 ```js
 // create a number in quotes
@@ -50,13 +50,13 @@ typeof(myage);
 // now, you can do math
 myage+1
 
-myage*365; 
+myage*365;
 
 // you can also create variables "on the fly"
-var myage_days = myage*365; 
+var myage_days = myage*365;
 
 ```
-You can create variables first and fill them later
+Ihr könnt Variablen zuerst erstellen und später füllen
 
 ```js
 var myage_days;
@@ -64,8 +64,8 @@ var myage_days;
 myage_days = myage*365;
 ```
 
-You can print to the console my calling the variable (just like in R).
-But this only works from the interactive console.
+Ihr könnt auf die console ausgeben, indem ihr die Variable aufruft (genau wie in R).
+Aber das funktioniert nur von der interaktiven console aus.
 
 ```js
 myage_days;
@@ -74,7 +74,7 @@ console.log(myage_days);
 // dont write print(myage_days); !
 ```
 
-`let` and `const` are other ways to create variables  with subtle differences, but we will ignore these in our lesson.
+`let` und `const` sind andere Wege, um Variablen zu erstellen mit subtilen Unterschieden, aber wir werden diese in unserer Lektion ignorieren.
 
 ```js
 let email = "rata@zhaw.ch";

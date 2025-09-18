@@ -1,23 +1,23 @@
 
 # Demo 3: Multispectral NDVI {#sec-gee-demo-ndvi1}
 
-*Calculating NDVI for a single image*
+*NDVI für ein einzelnes Bild berechnen*
 
-- In this exercise, we will do some quantitative analysis on the data, rather than "just" visualizing it qualitatively.
-- We will calculate the [Normalized Difference Vegetation Index](https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index) (NDVI)
+- In dieser Übung werden wir eine quantitative Analyse der Daten durchführen, anstatt sie "nur" qualitativ zu visualisieren.
+- Wir werden den [Normalized Difference Vegetation Index](https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index) (NDVI) berechnen
 
 
 
-**Use Case: Assessing Agricultural Crop Health Using NDVI**
+**Use Case: Bewertung der landwirtschaftlichen Pflanzengesundheit mit NDVI**
 
-In this lesson, we will calculate and analyze NDVI (Normalized Difference Vegetation Index) to monitor the health of crops across a farmland area. NDVI provides a way to assess plant vitality by measuring how much near-infrared light (reflected by healthy plants) differs from red light (absorbed by plants). By identifying areas with low NDVI values, we can detect early signs of crop stress caused by insufficient water, nutrient deficiencies, or disease.
+In dieser Lektion werden wir NDVI (Normalized Difference Vegetation Index) berechnen und analysieren, um die Gesundheit von crops über ein farmland Gebiet zu überwachen. NDVI bietet einen Weg, plant vitality zu bewerten, indem gemessen wird, wie sehr sich near-infrared light (reflektiert von gesunden plants) von red light (absorbiert von plants) unterscheidet. Durch die Identifizierung von Gebieten mit niedrigen NDVI-Werten können wir frühe Anzeichen von crop stress erkennen, verursacht durch insufficient water, nutrient deficiencies oder disease.
 
-This analysis has direct financial implications: early detection of stressed crops allows farmers to take timely corrective actions, such as adjusting irrigation or applying fertilizers, potentially avoiding major losses. Improved crop health leads to higher yields, reducing waste and increasing profitability. Additionally, precision farming strategies informed by NDVI can help optimize resource use, lowering costs related to water, fertilizers, and pesticides while increasing overall farm efficiency.
+Diese Analyse hat direkte finanzielle Auswirkungen: frühe Erkennung von gestressten crops ermöglicht es farmers, rechtzeitig korrigierende Maßnahmen zu ergreifen, wie adjusting irrigation oder applying fertilizers, wodurch möglicherweise größere Verluste vermieden werden. Verbesserte crop health führt zu höheren yields, reduziert waste und erhöht profitability. Zusätzlich können precision farming Strategien, die durch NDVI informiert werden, helfen, resource use zu optimieren, Kosten im Zusammenhang mit water, fertilizers und pesticides zu senken und gleichzeitig die overall farm efficiency zu steigern.
 
 ## Setup
 
-- We will work with the same data from Demo 2
-- We can overwrite `s2` so we do not have too many variables
+- Wir werden mit den gleichen Daten von Demo 2 arbeiten
+- Wir können `s2` überschreiben, damit wir nicht zu viele Variablen haben
 
 ```js
 var imageVisParam = {"opacity":1,"bands":["B4","B3","B2"],"min":85.84,"max":4206.16,"gamma":3.055}
@@ -29,14 +29,14 @@ s2 = s2.filterDate("2023-10-01", "2023-10-03");
 Map.addLayer(s2, imageVisParam);
 ```
 
-## Specify an area of interest (`aoi`)
+## Eine area of interest (`aoi`) spezifizieren
 
-- As we saw in the last demo, we have several images in the collection.
-- However, we are interested only in a single image of a specific area
-- To select a single image, we need to filter by location.
-- To do this, use the map UI and create a point in Visp, name it "aoi"
-  - Note how the points are immediately added in the code editor
-  - If a mistake was made, either delete and redraw, or copy the code, delete the import statement and add it manually
+- Wie wir in der letzten Demo gesehen haben, haben wir mehrere Bilder in der collection.
+- Wir sind jedoch nur an einem einzelnen Bild eines spezifischen Gebiets interessiert
+- Um ein einzelnes Bild auszuwählen, müssen wir nach location filtern.
+- Dazu verwendet die map UI und erstellt einen Punkt in Visp, nennt ihn "aoi"
+  - Beachtet, wie die Punkte sofort im code editor hinzugefügt werden
+  - Falls ein Fehler gemacht wurde, entweder löschen und neu zeichnen, oder den Code kopieren, das import statement löschen und manuell hinzufügen
 
 ```js
 // this was created automagically
@@ -46,11 +46,11 @@ aoi = ee.Geometry.Point([7.880419288840592, 46.29770703906289]);
 Map.addLayer(aoi);
 ```
 
-## Filter by the `aoi`
+## Nach der `aoi` filtern
 
-- using the search function in Docs, look for various filter functions
-- We will need the function `filerBounds()`
-- Apply the filter, but out of intereste check the size of the collection before and after filtering
+- verwendet die search Funktion in Docs, sucht nach verschiedenen filter Funktionen
+- Wir brauchen die Funktion `filterBounds()`
+- Wendet den Filter an, aber überprüft aus Interesse die Größe der collection vor und nach dem Filtern
 
 ```js
 // the original filter coincidently shows just one image 
@@ -69,12 +69,12 @@ console.log(s2.size())
 console.log(s2);
 ```
 
-## Inspect the output
+## Den output inspizieren
 
-- Check the output of `console.log(s2)`. 
-- We wanted a single image, but still have an image collection with multiple values. 
-- We might want to choose *the best* image (we will do so later on)
-- but for now let's keep it simple and just take the first with the `first()` method
+- Überprüft den output von `console.log(s2)`.
+- Wir wollten ein einzelnes Bild, haben aber immer noch eine image collection mit mehreren Werten.
+- Wir möchten vielleicht *das beste* Bild wählen (das werden wir später tun)
+- aber für jetzt halten wir es einfach und nehmen das erste mit der `first()` method
 
 ```js
 s2 = s2.first()
@@ -82,11 +82,11 @@ s2 = s2.first()
 print(s2)
 ```
 
-## Normalized Difference Function (skip this, doesn't work)
+## Normalized Difference Function (überspringen, funktioniert nicht)
 
-- Alternatively, you can use the *Normalized Difference* function
-- The function "normalizedDifference" is a generic function to calculcate normalized difference between two bands
-- This doesn't seem to work?
+- Alternativ könnt ihr die *Normalized Difference* Funktion verwenden
+- Die Funktion "normalizedDifference" ist eine generische Funktion, um normalized difference zwischen zwei bands zu berechnen
+- Das scheint nicht zu funktionieren?
 
 ```js
 var ndvi = s2.normalizedDifference(["B8", "B4"]);
@@ -94,12 +94,12 @@ var ndvi = s2.normalizedDifference(["B8", "B4"]);
 
 
 
-## Adjust range and palette
+## Range und palette anpassen
 
-- Via the GUI
-  - Adjust the value range to `-1` - `1`
-  - Add a palettte by adding the colors red, yellow and green. These will automatically be mapped to the specified value rage.
-- Import the visParams from the GUI to the code editor
+- Über die GUI
+  - Passt die value range auf `-1` - `1` an
+  - Fügt eine palette hinzu, indem ihr die Farben red, yellow und green hinzufügt. Diese werden automatisch auf die spezifizierte value range gemappt.
+- Importiert die visParams von der GUI in den code editor
 
 ```js
 imageVisParam2 = {"opacity":1,"bands":["B8"],"min":-1,"palette":["ff0000","ffff00","008000"]};
@@ -111,8 +111,8 @@ Map.addLayer(ndvi, imageVisParam2);
 
 ## Custom NDVI function
 
-- We could also create a custom `ndvi()`-function that takes the bands 8 and 4
-- We can only apply this function to the Sentinel-2 data, where the Band numbers 8 and 4 correspond to NIR and Red.
+- Wir könnten auch eine custom `ndvi()`-function erstellen, die die bands 8 und 4 nimmt
+- Wir können diese Funktion nur auf die Sentinel-2 Daten anwenden, wo die Band Nummern 8 und 4 NIR und Red entsprechen.
 
 ```js
 function ndvi_fun(image){

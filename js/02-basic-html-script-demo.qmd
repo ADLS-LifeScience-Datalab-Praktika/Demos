@@ -1,14 +1,14 @@
 
 ## Demo 2: Html-file {#sec-js-demo-html}
 
-As per instructions in the slides, create an html file and open this file in a browser window. Create opening and closing  `<script>` tags.
+Wie in den Folien angegeben, erstellt eine html Datei und öffnet diese Datei in einem browser window. Erstellt öffnende und schließende `<script>` tags.
 
 ```html
 <script>
 </script>
 ```
 
-Now, start developping javascript code in between the `<script>` tags.
+Jetzt beginnt mit der Entwicklung von javascript Code zwischen den `<script>` tags.
 
 ```js
 // create a var, have a look at the browser.
@@ -18,7 +18,7 @@ var myname = "Nils Ratnaweera";
 // show that the variable exists
 ```
 
-Demonstrate `console.log`.
+Demonstriert `console.log`.
 
 
 ```js

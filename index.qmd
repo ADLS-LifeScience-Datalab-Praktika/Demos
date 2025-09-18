@@ -2,29 +2,40 @@
 
 
 
-# Introduction {.unnumbered}
+# Einführung {.unnumbered}
 
-These notes are intended to accompany the the Digital Life Sience Data Lab course. Nils will work with you through these examples in a workshop format. This means he will live code and you will accompany him. We specifically do *not* want to give you these codes up front, since writing your own code and making mistakes is the best way to learn.
-
-
-
-## Preperation
-
-Please make sure you have registered for a GoogleEarthEngine Account. See the slides [here](https://github.zhaw.ch/pages/ADLS-Digital-Environment/Life-Sciences-Datalab-Praktika-Remote-Sensing/register-gee.html) for instructions.
-
-
-## Timetable
-
-
-- Morning: 
-  1. Lesson: Slides & @sec-js-console
-  2. Lesson: @sec-js-demo-html - @sec-js-demo-website
-  3. Lesson: @sec-gee-demo-unispec & @sec-gee-demo-multispec
-  4. Lesson: @sec-gee-demo-ndvi1 & @sec-gee-demo-forest [^1]
-- Afternoon: 
+Diese Unterlagen begleiten den Digital Life Science Data Lab Kurs. Nils wird mit euch durch diese Beispiele in einem Workshop-Format arbeiten. Das bedeutet, er wird live programmieren und ihr werdet ihn begleiten. Wir möchten euch diese Codes bewusst *nicht* im Voraus geben, da das Schreiben eigener Codes und das Machen von Fehlern der beste Weg zum Lernen ist.
 
 
 
-[^1]: should we leave out @sec-gee-demo-ndvi1? It's quite complex (cloud cover issue and adding band to collection
+## Vorbereitung
 
-[^usual-chapters]: Usual chapters: Abstract, Introduction, Material and Methods, Results, Discussion
+Bitte stellt sicher, dass ihr euch für ein GoogleEarthEngine Account registriert habt. Siehe die Folien [hier](adls-lifescience-datalab-praktika.github.io/Register-GEE) für Anweisungen.
+
+
+## Stundenplan
+
+
+1. Lektion: 
+   - Einführungs-Folien
+   - @sec-js-console (Demo 1)
+2. Lektion: 
+   - @sec-js-demo-html (Demo 2)
+   - @sec-js-task-basic-html (Task)
+   - @sec-js-html-script (Demo 3)
+   - @sec-js-task-years2days (Task)
+   - @sec-js-methods (Demo 4)
+3. Lektion
+   - @sec-js-demo-website (Demo 5)
+   - @sec-js-reverse-name (Task)
+4. Lektion: 
+   - @sec-gee-demo-unispec (Demo 1)
+   - @sec-gee-task-unispec (Task)
+   - @sec-gee-demo-multispec
+5. Lektion: 
+   - @sec-gee-demo-ndvi1 
+   - @sec-gee-demo-ndvi2
+   - @sec-gee-demo-forest
+
+
+

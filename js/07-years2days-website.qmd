@@ -2,7 +2,9 @@
 # Demo 5: `year2days`-Website {#sec-js-demo-website}
 
 
-Create structure:
+## Grundstruktur erstellen
+
+Erstellt die Grundstruktur:
 
 ```html
 <!DOCTYPE html>
@@ -15,30 +17,34 @@ Create structure:
 ```
 
 
-Add header:
+## Header hinzufügen
+
+Fügt einen Header hinzu:
 
 ```{.html source-line-numbers="5"}
 <!DOCTYPE html>
 <html>
 
 <body>
-    <h1>Years to Days calculator</h1>
+    <h1>Jahre zu Tage Rechner</h1>
 </body>
 
 </html>
 
 ```
 
-Add input and button:
+## Input und Button hinzufügen
+
+Fügt Input-Feld und Button hinzu:
 
 ```{.html source-line-numbers="7-9"}
 <!DOCTYPE html>
 <html>
 
 <body>
-    <h1>Years to Days calculator</h1>
+    <h1>Jahre zu Tage Rechner</h1>
 
-    Please enter your age in years:
+    Bitte gebt euer Alter in Jahren ein:
     <input id="myage" type="number">
     <button>Calculate</button>
 </body>
@@ -47,16 +53,18 @@ Add input and button:
 ```
 
 
-Add `<script>` with a dummy function, then call the function when clicking the button.
+## Script mit Dummy Function
+
+Fügt `<script>` mit einer dummy function hinzu, dann ruft die Function beim Klicken des Buttons auf.
 
 ```{.html source-line-numbers="9-16"}
 <!DOCTYPE html>
 <html>
 
 <body>
-    <h1>Years to Days calculator</h1>
+    <h1>Jahre zu Tage Rechner</h1>
 
-    Please enter your age in years:
+    Bitte gebt euer Alter in Jahren ein:
     <input id="myage" type="number">
     <button onclick="calculate();">Calculate!</button>
 
@@ -71,16 +79,18 @@ Add `<script>` with a dummy function, then call the function when clicking the b
 </html>
 ```
 
-Replace the dummy function with the aged entered in the form.
+## Dummy Function ersetzen
+
+Ersetzt die dummy function mit dem im Formular eingegebenen Alter.
 
 ```{.html source-line-numbers="14-15"}
 <!DOCTYPE html>
 <html>
 
 <body>
-    <h1>Years to Days calculator</h1>
+    <h1>Jahre zu Tage Rechner</h1>
 
-    Please enter your age in years:
+    Bitte gebt euer Alter in Jahren ein:
     <input id="myage" type="number">
     <button onclick="calculate();">Calculate!</button>
 
@@ -96,16 +106,18 @@ Replace the dummy function with the aged entered in the form.
 </html>
 ```
 
-Replace the alert with the calculation.
+## Alert durch Berechnung ersetzen
+
+Ersetzt das alert durch die Berechnung.
 
 ```{.html source-line-numbers="15-16"}
 <!DOCTYPE html>
 <html>
 
 <body>
-    <h1>Years to Days calculator</h1>
+    <h1>Jahre zu Tage Rechner</h1>
 
-    Please enter your age in years:
+    Bitte gebt euer Alter in Jahren ein:
     <input id="myage" type="number">
     <button onclick="calculate();">Calculate!</button>
 
@@ -114,7 +126,7 @@ Replace the alert with the calculation.
         function calculate() {
             myage = document.getElementById("myage").value
             var myage_days = myage*365
-            alert("You are "+myage_days+" days old")
+            alert("Du bist "+myage_days+" Tage alt")
         }
     </script>
 </body>

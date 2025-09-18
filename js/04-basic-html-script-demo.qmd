@@ -1,79 +1,91 @@
 
-# Demo 3: html-script
+# Demo 3: html-script {#sec-js-html-script}
 
+*JavaScript in HTML-Dateien*
 
+## Mathematische Operationen
 
-Demonstrate doing math
+Demonstriert mathematische Operationen:
 
 ```js
 var myage_days = myage*365;
 
-console.log("I am "+myage_days+" days old");
+console.log("Ich bin "+myage_days+" Tage alt");
 ```
 
-In the console, demonstrate checking the type with `typeof()`
+## Datentypen prüfen
+
+In der Konsole, demonstriert das Überprüfen des Typs mit `typeof()`:
 
 ```js
 typeof(myage);
 typeof(myname);
 ```
 
-Now, demonstrate comments by adding comments to the code
+## Kommentare
+
+Nun demonstriert Kommentare, indem ihr Kommentare zum Code hinzufügt:
 
 ```js
-// I'm declaring my variables here:
+// Hier deklariere ich meine Variablen:
 var myage = 34;
 var myage_days = myage*365;
 
-console.log("I am "+myage_days+" days old");
+console.log("Ich bin "+myage_days+" Tage alt");
 ```
 
-Demonstrate creating arrays
+## Arrays
+
+Demonstriert das Erstellen von Arrays:
 
 ```js
 var myFriends = ["John","Peter", "Mary"];
 ```
 
-In the console, demonstrate calling items from an array in the console. 
-**Note** that the first value is index as `0`
+In der Konsole, demonstriert das Aufrufen von Elementen aus einem Array.
+**Beachtet**, dass der erste Wert als `0` indiziert ist:
 
 ```js
 myFriends[0];
 ```
 
-What if we want to store information on each friend, e.g. the age? 
-Demonstrate this with a dictionary.
+## Dictionaries
+
+Was ist, wenn wir Informationen über jeden Freund speichern wollen, z.B. das Alter?
+Demonstriert dies mit einem Dictionary:
 
 ```js
 var myFriends = {John: 23, Peter: 33, Mary: 40};
 ```
 
-Show that indexing does not work with numbers in a dictionary
+Zeigt, dass Indizierung mit Zahlen in einem Dictionary nicht funktioniert:
 ```js
 myFriends[0];
 
-// it works with string
+// Es funktioniert mit string
 myFriends["John"];
 
-// or with a dot
+// oder mit einem Punkt
 myFriends.John;
 ```
 
-Demonstrate functions. 
+## Functions
 
-Question: what are functions good for?
+Demonstriert Functions.
+
+Frage: Wofür sind Functions gut?
 
 ```js
-// write this function in the html file, 
-// then run it in the console
+// Schreibt diese Function in die HTML-Datei,
+// dann führt sie in der Konsole aus
 function say_hello(){
     console.log("hello")
 };
 ```
 
 ```js
-// write this function in the html file, 
-// and call it within the script
+// Schreibt diese Function in die HTML-Datei,
+// und ruft sie innerhalb des Scripts auf
 function say_hello(){
     console.log("hello")
 };
@@ -81,13 +93,15 @@ function say_hello(){
 say_hello();
 ```
 
-The previous function did not take an input. 
+## Functions mit Input
 
-Let's create a function that takes an input:
+Die vorherige Function nahm keinen Input.
+
+Lasst uns eine Function erstellen, die einen Input nimmt:
 
 ```js
-// write this function in the html file, 
-// then run it in the console
+// Schreibt diese Function in die HTML-Datei,
+// dann führt sie in der Konsole aus
 function say_something(what){
     console.log(what)
 };

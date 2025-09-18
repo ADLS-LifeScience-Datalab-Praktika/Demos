@@ -1,36 +1,36 @@
 
 ## Demo 2: Multispectral RGB {#sec-gee-demo-multispec}
 
-*Exploring Multispectral Data*
+*Multispektrale Daten erkunden*
 
-- In this exercise, we will explore a more complex, multispectral dataset.
-- This adds complexity since there are not only multiple bands, but there also is a temporal dimension and issues with cloud cover etc
-- We will create a "true color image", meaning that we will take the Red, Green and Blue band and map the values to RGB.
-- We will also create a "false color image", meaning taht we will take other bands and map these to RGB
+- In dieser Übung werden wir einen komplexeren, multispektralen Datensatz erkunden.
+- Dies fügt Komplexität hinzu, da es nicht nur mehrere bands gibt, sondern auch eine zeitliche Dimension und Probleme mit cloud cover etc
+- Wir werden ein "true color image" erstellen, das bedeutet, wir nehmen die Red, Green und Blue band und mappen die Werte auf RGB.
+- Wir werden auch ein "false color image" erstellen, das bedeutet, wir nehmen andere bands und mappen diese auf RGB
 
-Lets get started!
+Lasst uns anfangen!
 
-- Look for Sentinel-2 Data, browse the collections
-- Add the dataset *Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A*
+- Sucht nach Sentinel-2 Data, durchstöbert die collections
+- Fügt den Datensatz *Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A* hinzu
 
 ```js
 var s2 = ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED");
 ```
 
-- Even the first step shows us, that this is a more complex dataset. 
-- Printing the collection fails:
+- Schon der erste Schritt zeigt uns, dass dies ein komplexerer Datensatz ist.
+- Das Ausgeben der collection schlägt fehl:
 
 ```js
 print(s2);
 ```
 
-- in the docs, look for ways to filter the dataset, e.g. by date
-- use the function `filterDate()` which can be found under `ee.ImageCollection`
-- Apply the filter:
-  - Play around with some recent dates (2 - 3 days) 
-  - Zoom out
-  - and add the result to the map. 
-  - This nicely shows the path of the Sentiel-2 satellite
+- in den docs, sucht nach Wegen, den Datensatz zu filtern, z.B. nach Datum
+- verwendet die Funktion `filterDate()`, die unter `ee.ImageCollection` zu finden ist
+- Wendet den Filter an:
+  - Spielt mit einigen aktuellen Daten herum (2 - 3 Tage)
+  - Zoomt heraus
+  - und fügt das Ergebnis zur Karte hinzu.
+  - Dies zeigt schön den Pfad des Sentinel-2 Satelliten
 
 
 
@@ -40,28 +40,28 @@ var filtered = s2.filterDate("2023-10-01", "2023-10-03");
 Map.addLayer(filtered);
 ```
 
-- Printing to the console is still not possible.
-- How many images are in the collection?
+- Das Ausgeben auf die console ist immer noch nicht möglich.
+- Wie viele Bilder sind in der collection?
 
 ```js
 print(filtered.size())
 ```
 
-- Zoom back to a region of interest, e.g. Visp
-- The image does not look good
-- Check the Docs for `ee.ImageCollection` and as before, it references `ee.data.getMapId()`. There, note the following line:
+- Zoomt zurück zu einer region of interest, z.B. Visp
+- Das Bild sieht nicht gut aus
+- Überprüft die Docs für `ee.ImageCollection` und wie zuvor referenziert es `ee.data.getMapId()`. Dort, beachtet die folgende Zeile:
 
   > bands (comma-separated strings) Comma-delimited list of band names to be mapped to RGB.
-- Read the Metadata of the dataset, check the Tab "Bands". Note the Band names and their description: RGB is "B4, B3, B2".
+- Liest die Metadata des Datensatzes, überprüft den Tab "Bands". Beachtet die Band Namen und ihre Beschreibung: RGB ist "B4, B3, B2".
 
 ```js
 Map.addLayer(filtered, {"bands":["B4","B3","B2"]});
 ```
 
-- still not looking good. Using the map UI, use the layer setting to strech  the image to 98% and raise the gamma to about 4. You will learn more about these values in the Remote Sensing Course (FS24)
-- import these setting into the script via the **Import**-Button
-  - Note the `imageVisParam` object and how it is part of the code, but not quite. You can copy the code and create your own object from it, if you are so inclined.
-  - You can now replace the JavaScript object with the `imageVisParam` object
+- sieht immer noch nicht gut aus. Verwendet die map UI, nutzt die layer Einstellung, um das Bild auf 98% zu strecken und erhöht gamma auf etwa 4. Ihr werdet mehr über diese Werte im Remote Sensing Kurs lernen (FS24)
+- importiert diese Einstellungen in das script über den **Import**-Button
+  - Beachtet das `imageVisParam` object und wie es Teil des Codes ist, aber nicht ganz. Ihr könnt den Code kopieren und euer eigenes object daraus erstellen, wenn ihr möchtet.
+  - Ihr könnt jetzt das JavaScript object mit dem `imageVisParam` object ersetzen
 
 ```js
 // was created automagically:
@@ -72,10 +72,10 @@ Map.addLayer(filtered, imageVisParam);
 ```
 
 
-from [here](https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/composites/):
+von [hier](https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/composites/):
 
-- **True color composite** uses visible light bands red (B04), green (B03) and blue (B02) in the corresponding red, green and blue color channels, resulting in a natural colored result, that is a good representation of the Earth as humans would see it naturally.
-- **False color composite** using near infrared, red and green bands is very popular. It is most commonly used to assess plant density and health, as plants reflect near infrared and green light, while absorbing red. Since they reflect more near infrared than green, plant-covered land appears deep red. Denser plant growth is darker red. Cities and exposed ground are gray or tan, and water appears blue or black.
+- **True color composite** verwendet visible light bands red (B04), green (B03) und blue (B02) in den entsprechenden red, green und blue color channels, was zu einem natürlich gefärbten Ergebnis führt, das eine gute Darstellung der Erde ist, wie Menschen sie natürlich sehen würden.
+- **False color composite** mit near infrared, red und green bands ist sehr beliebt. Es wird am häufigsten verwendet, um plant density und health zu bewerten, da plants near infrared und green light reflektieren, während sie red absorbieren. Da sie mehr near infrared als green reflektieren, erscheint pflanzenbewachsenes Land tiefrot. Dichterer Pflanzenwuchs ist dunkler rot. Städte und exposed ground sind grau oder braun, und water erscheint blau oder schwarz.
 
 
 

@@ -1,12 +1,12 @@
 # Demo 4: NDVI over time {#sec-gee-demo-ndvi2}
 
-*Calculating NDVI over time*
+*NDVI über die Zeit berechnen*
 
-## Prepare
+## Vorbereitung
 
-- In this exercise, we will calculate NDVI values over time. 
-- starting with the sentinel-2 image from the last example
-- Remove everything but the following lines:
+- In dieser Übung werden wir NDVI-Werte über die Zeit berechnen.
+- Beginnen mit dem Sentinel-2 Bild aus dem letzten Beispiel
+- Entfernt alles außer den folgenden Zeilen:
 
 
 ```js
@@ -36,19 +36,19 @@ var ndvi = ndvi_fun(s2)
 Map.addLayer(ndvi, imageVisParam2);
 ``` 
 
-## Replace Point with Polygon
+## Point mit Polygon ersetzen
 
-- Delete the `aoi`-Point and replace it with a Polygon of the same name
-- Draw a polygon from about Lalden (North-East) to Zeneggen (South-West)
-- Rerun the code, the output should be similar
+- Löscht den `aoi`-Point und ersetzt ihn mit einem Polygon gleichen Namens
+- Zeichnet ein Polygon von etwa Lalden (Nord-Ost) bis Zeneggen (Süd-West)
+- Führt den Code erneut aus, die Ausgabe sollte ähnlich sein
 
-## Apply the function to the whole image collection
+## Function auf die gesamte Image Collection anwenden
 
-- Now, we want to apply our `ndvi_fun()` to the whole image collection.
-- Remove lines
+- Nun wollen wir unsere `ndvi_fun()` auf die gesamte Image Collection anwenden.
+- Entfernt die Zeilen:
   - `s2 = s2.first()`
   - `var ndvi = ndvi_fun(s2)`
-- We can use `.map()` for this. Add the following line:
+- Wir können `.map()` dafür verwenden. Fügt die folgende Zeile hinzu:
 
 ```js
 var ndvi = s2.map(ndvi_fun);
@@ -57,21 +57,21 @@ print(ndvi);
 
 ```
 
-## Visualize the output
+## Output visualisieren
 
-- Now we want to create a chart of the ndvi values over time
-- search through the docs for chart. 
-- consult the docs "ui.Chart.image.series" first
-- Try the following
+- Nun wollen wir ein Diagramm der NDVI-Werte über die Zeit erstellen
+- Sucht in der Dokumentation nach chart
+- Konsultiert zuerst die Dokumentation zu "ui.Chart.image.series"
+- Versucht das Folgende:
 
 
 ```js
 print(ui.Chart.image.series(ndvi, aoi));
 ```
 
-## Debugging the chart
+## Chart debuggen
 
-This will throw an error: 
+Dies wird einen Fehler werfen: 
 
 :::{.callout-important}
 ## Error
@@ -82,9 +82,9 @@ No features contain non-null values of "system:time_start"
 :::
 
 
-## Compare the two objects
+## Die zwei Objekte vergleichen
 
-Compare the to objects, `s2` and `ndvi`. Much metadata was lost when we `map`ped the function over the collection. 
+Vergleicht die beiden Objekte `s2` und `ndvi`. Viele Metadaten gingen verloren, als wir die Function über die Collection `map`pten. 
 
 
 
@@ -123,9 +123,9 @@ features: List (218 elements)
 ```
 :::
 
-## Add output as new image
+## Output als neues Image hinzufügen
 
-Instead of generating a new image, we can simply add the output to the original image collection:
+Anstatt ein neues Image zu generieren, können wir einfach das Output zur ursprünglichen Image Collection hinzufügen:
 
 ```{.default source-line-numbers="7-9"}
 function ndvi_fun(image){
@@ -140,19 +140,19 @@ function ndvi_fun(image){
 }
 ```
 
-## Run analysis on the entire year
+## Analyse für das ganze Jahr durchführen
 
-- Now, extend the date range to the entire year
-- Note how the ndvi values change over time, but have irregularities?
+- Erweitert nun den Datumsbereich auf das ganze Jahr
+- Beachtet, wie sich die NDVI-Werte über die Zeit ändern, aber Unregelmäßigkeiten aufweisen?
 
 
 ![](../images/ee-chart.png)
 
 
-## Debugging the chart again
+## Chart erneut debuggen
 
-- Determine the date of such an image by hovering over the chart
-- in my chart, 2023-06-10 is such a date
+- Bestimmt das Datum eines solchen Images, indem ihr über das Diagramm hovert
+- In meinem Diagramm ist 2023-06-10 ein solches Datum
 
 ```js
 // filter by that date (these can result more than one image, but no matter)
@@ -162,16 +162,16 @@ var fil = s2.filterDate("2023-06-10","2023-06-11")
 Map.addLayer(fil)
 ```
 
-## Filtering by cloud cover
+## Nach Wolkenbedeckung filtern
 
-This shows the issue: clouds!
+Dies zeigt das Problem: Wolken!
 
 ![](../images/cloudy.png)
 
-- Check the metadata of the image. 
-- In the properties, there is a field `CLOUDY_PIXEL_PERCENTAGE`. 
-- in the docs, look for *Filters*
-- `ee.Filter.metadata(name, operator, value)` is depricated, use `ee.Filter.lt()` instead
+- Überprüft die Metadaten des Images
+- In den Properties gibt es ein Feld `CLOUDY_PIXEL_PERCENTAGE`
+- Sucht in der Dokumentation nach *Filters*
+- `ee.Filter.metadata(name, operator, value)` ist veraltet, verwendet stattdessen `ee.Filter.lt()`
 
 
 ```js
@@ -179,9 +179,9 @@ s2 = s2.filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20));
 ```
 
 
-## Export the data
+## Daten exportieren
 
-Now you can export the output as csv, svg or png
+Nun könnt ihr das Output als csv, svg oder png exportieren
 
 
 

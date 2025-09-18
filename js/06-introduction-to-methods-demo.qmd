@@ -1,25 +1,26 @@
-# Demo 4: Methods
+# Demo 4: Methods {#sec-js-methods}
 
+*Einführung in JavaScript Methods*
 
-Methods are functions tied to specific objects. 
+Methods sind Funktionen, die an spezifische Objekte gebunden sind. 
 
 ```js
 var myname = "Nils Ratnaweera"
 
-// in the console:
+// in der Konsole:
 myname.length
 ```
 
 ```js
 var myage = 34
-// in the console
-myage.toFixed(2) // 2 decimal places
+// in der Konsole
+myage.toFixed(2) // 2 Nachkommastellen
 ```
 
 
 ```js
 var myname = "Nils Ratnaweera"
-// in the console
+// in der Konsole
 myname.split(" ")
 
 myname.split("").reverse()

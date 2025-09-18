@@ -1,22 +1,22 @@
-# Preperation
+# Vorbereitung
 
 
-The code you write is part of your learning experience and you should keep it for your own reference. To set this up, proceed as follows:
+Der Code, den ihr schreibt, ist Teil eurer Lernerfahrung und ihr solltet ihn für eure eigene Referenz aufbewahren. Um dies einzurichten, geht wie folgt vor:
 
-1. Select *New* → *Repo* → Give the repo a meaningful name
-2. Select *New* → *File* → 
-   1. Choose the repo from step 1 
-   2. Give the file a meaningful name (Demo Number + Topic) 
-   3. Optionally add a commit message
-3. Configure Repo by clicking on the configure Button. You can use the git URL to clone the repo to your local machine (and sync with GitHub if you are inclined to do so).
+1. Wählt *New* → *Repo* → Gebt dem Repository einen sinnvollen Namen
+2. Wählt *New* → *File* →
+   1. Wählt das Repository aus Schritt 1
+   2. Gebt der Datei einen sinnvollen Namen (Demo Nummer + Thema)
+   3. Optional könnt ihr eine commit message hinzufügen
+3. Konfiguriert das Repository durch Klicken auf den configure Button. Ihr könnt die git URL verwenden, um das Repository auf euren lokalen Rechner zu klonen (und mit GitHub zu synchronisieren, falls ihr das möchtet).
 
 
 :::{.callout-note}
 
-## Instructions for Nils
+## Anweisungen für Nils
 
-1. Do the steps above
-2. Make your own repo available to everyone
-3. Share the URL to your repo
+1. Führe die obigen Schritte durch
+2. Mache dein eigenes Repository für alle verfügbar
+3. Teile die URL zu deinem Repository
 
 :::

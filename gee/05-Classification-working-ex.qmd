@@ -1,5 +1,13 @@
 
-## Landuse classification
+# Classification Demo {#sec-gee-classification-demo}
+
+*Landnutzungsklassifikation mit Sentinel-2 Daten*
+
+## Vorbereitung
+
+In dieser Übung führen wir eine überwachte Klassifikation mit Sentinel-2 Daten durch. Wir werden verschiedene Landnutzungsklassen unterscheiden: Wald, ländliche Gebiete, städtische Gebiete und Wasser.
+
+## Landnutzungsklassifikation
 
 ```js
 

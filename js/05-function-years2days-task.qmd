@@ -1,20 +1,24 @@
-# Task: `years2days`
+# Task: `years2days` {#sec-js-task-years2days}
+
+*Function zur Umrechnung von Jahren in Tage*
 
 ```js
-// create this function in the html file, 
-// demonstrate it in the console. 
+// Erstellt diese Function in der HTML-Datei,
+// demonstriert sie in der Konsole. 
 function years2days(years){
     console.log(years*365)
 }; 
-// Show how the result cannot be assigned to a variable
-// in the console:
+// Zeigt, wie das Ergebnis nicht einer Variablen zugewiesen werden kann
+// in der Konsole:
 
 var myage_days;
 myage_days = years2days(34);
 myage_days;
 ```
 
-Show how the function should `return` something rather than printing to the console.
+## Return Statement
+
+Zeigt, wie die Function etwas `return`en sollte, anstatt es in die Konsole zu printen.
 
 ```js
 function years2days(years){

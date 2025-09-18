@@ -1,8 +1,16 @@
- 
-## Task 1: Identifying Suitable Areas for Renewable Energy Installation
+# Task 1: Identifying Suitable Areas for Renewable Energy Installation {#sec-gee-task-suitable}
 
+*Identifikation geeigneter Gebiete für Erneuerbare Energie Anlagen*
 
-Solution:
+## Aufgabenstellung
+
+Identifiziert geeignete Standorte für die Installation von erneuerbaren Energieanlagen basierend auf folgenden Kriterien:
+
+- Elevation: 500-1000m über Meereshöhe
+- Slope: 3-6 Grad
+- Aspect (Exposition): 135-225° (Süd-exponiert)
+
+## Lösung:
 
 ```{.js}
 
@@ -18,7 +26,7 @@ var elevation_good = srtm.gt(500).and(srtm.lt(1000));
 var slope_good = slope.gt(3).and(slope.lt(6));
 var aspect_good = aspect.gte(135).and(aspect.lte(225));
 
-// good aspect (exposition): 135-225°
+// Gute Exposition: 135-225° (südexponiert)
 
 var all_good = elevation_good.and(slope_good).and(aspect_good)
 

@@ -1,7 +1,12 @@
-# Task (Optional): Reverse-name Website
+# Task (Optional): Reverse-name Website {#sec-js-reverse-name}
 
+*Website zum Umkehren von Namen*
 
-Task: Create a website that takes a name as an input and reverses that input.
+Dieser Task kann mit gh-pages als Website publiziert werden!
+
+## Aufgabe
+
+Erstellt eine Website, die einen Namen als Eingabe nimmt und diese Eingabe umkehrt.
 
 ```html
 <!DOCTYPE html>
@@ -10,7 +15,7 @@ Task: Create a website that takes a name as an input and reverses that input.
 <body>
     <h1>Name reverser</h1>
 
-    Please enter your name:
+    Bitte gebt euren Namen ein:
     <input id="myname" type="text">
     <button onclick="reverse_it();">Calculate!</button>
 

@@ -1,13 +1,12 @@
 
-## Demo 5: Forest regrowth {#sec-gee-demo-forest}
+# Demo 5: Forest regrowth {#sec-gee-demo-forest}
 
-**How did the forst fire in leuk (2003) affect tree canopy cover**
+*Wie wirkte sich der Waldbrand in Leuk (2003) auf die Baumkronenbedeckung aus?*
 
+## Vorbereitung
 
-## Preperation
-
-- get dataset "*Hansen Global Forest Change v1.9 (2000-2021)*"
-- `print()` it to the console, explore the bands and properties
+- Ladet den Datensatz "*Hansen Global Forest Change v1.9 (2000-2021)*"
+- Gebt ihn mit `print()` in der Konsole aus, erkundet die Bänder und Properties
 
 ```js
 var hansen = ee.Image("UMD/hansen/global_forest_change_2020_v1_8")
@@ -15,9 +14,9 @@ var hansen = ee.Image("UMD/hansen/global_forest_change_2020_v1_8")
 print(hansen)
 ```
 
-## Visualize the fire (lossyear)
+## Waldbrand visualisieren (lossyear)
 
-- visualize the forst fire loss year
+- Visualisiert das Jahr des Waldverlusts
 
 
 ```js
@@ -25,25 +24,25 @@ var lossyear = hansen.select("lossyear")
 Map.addLayer(lossyear, {}, "Year of Loss");
 ```
 
-## Highlight the fire in 2003
+## Waldbrand von 2003 hervorheben
 
-- albeit the fire was in 2003, the loss year is recorded 2004
-- reclassify to 2004 to 1 (all other to nodata) to see the fire in 2004
+- Obwohl der Brand 2003 war, ist das Verlustjahr als 2004 erfasst
+- Reklassifiziert 2004 zu 1 (alle anderen zu nodata), um den Brand von 2004 zu sehen
 
 ```js
 var loss2004 = hansen.select("lossyear").remap([4], [1])
 Map.addLayer(loss2004, {}, "Loss 2004");
 ```
 
-## Determine the area of interest
+## Untersuchungsgebiet bestimmen
 
-- draw a square or a polygon around the forest fire in Leuk
-- rename it to aoi
+- Zeichnet ein Quadrat oder Polygon um den Waldbrand in Leuk
+- Benennt es in aoi um
 
 
-## Get Tree Canopy Cover over time
+## Baumkronenbedeckung über die Zeit
 
-- get dataset "*Global Forest Cover Change (GFCC) Tree Cover Multi-Year Global 30m*" 
+- Ladet den Datensatz "*Global Forest Cover Change (GFCC) Tree Cover Multi-Year Global 30m*" 
 
 
 ```js
@@ -53,7 +52,7 @@ var gfcc = ee.ImageCollection("NASA/MEASURES/GFCC/TC/v3")
 print(gfcc)
 ```
 
-## Select the band `tree_canopy_cover`
+## Band `tree_canopy_cover` auswählen
 
 ```js
 // chaining!
@@ -64,7 +63,7 @@ print(gfcc)
 ```
 
 
-## Filter by `aoi`
+## Nach `aoi` filtern
 
 ```js
 // chaining!
@@ -76,9 +75,9 @@ print(gfcc.size())
 print(gfcc)
 ```
 
-## Get the date of the first and last dataset
+## Datum des ersten und letzten Datensatzes ermitteln
 
-- write this down from inside out
+- Schreibt dies von innen nach außen
 
 ```js
 var first_date = ee.Date(gfcc.first().get("system:time_start"))
@@ -89,23 +88,22 @@ print("from", first_date, "to", last_date)
 ```
 
 
-## Compare the values for 2000 and 2015
+## Werte für 2000 und 2015 vergleichen
 
-
-- we can't use `.first()` with `sort()` here, because the very first image does not seem to really intersect with the AOI
+- Wir können hier nicht `.first()` mit `sort()` verwenden, da das allererste Bild nicht wirklich mit der AOI zu schneiden scheint
 
 ```js
 var treeCanopy2000 = ee.Image(treeCanopyCover.filterDate('2000-01-01', '2000-01-02').min());
 Map.addLayer(treeCanopy2000);
 ```
 
-## Draw `aoi` outine
+## `aoi` Umriss zeichnen
 
-- Look for fillcolor in the docs
-- notice that these can only be applied to `FeatureCollections`
-- read up on `ee.FeatureCollection`
-- notice that you can create a `FeatureCollection` from a `Geometry`
-- do this, and then style the `aoi_fc` using `fillColor: "00000000"`
+- Sucht nach fillcolor in der Dokumentation
+- Beachtet, dass diese nur auf `FeatureCollections` angewendet werden können
+- Lest über `ee.FeatureCollection` nach
+- Beachtet, dass ihr eine `FeatureCollection` aus einer `Geometry` erstellen könnt
+- Macht dies und stylt dann die `aoi_fc` mit `fillColor: "00000000"`
 
 
 ```js
@@ -114,16 +112,16 @@ Map.addLayer(aoi_fc, {fillColor: "00000000"}, "aoi");
 ```
 
 
-## Work on Map 
+## An der Karte arbeiten
 
-- Add color ramp (e.g. gray to green), transparency and strech the values 0 - 100
-- Maybe highlight <https://colorbrewer2.org>
+- Fügt eine Farbpalette hinzu (z.B. grau zu grün), Transparenz und streckt die Werte 0 - 100
+- Vielleicht <https://colorbrewer2.org> hervorheben
 
 ```js
 Map.addLayer(treeCanopy2000, imageVisParam, "2000");
 ```
 
-## Repeat for 2015
+## Für 2015 wiederholen
 
 ```js
 var treeCanopy2015 = ee.Image(treeCanopyCover.filterDate('2015-01-01', '2015-01-02').min());
@@ -131,17 +129,17 @@ Map.addLayer(treeCanopy2015, imageVisParam, "2015");
 ``` 
 
 
-## Create a chart
+## Diagramm erstellen
 
-- Comparing 2000 and 2015 already shows, that the tree canopy cover has not really increased
-- Lets determine the tree canopy cover over time by creating a chart
+- Der Vergleich zwischen 2000 und 2015 zeigt bereits, dass die Baumkronenbedeckung nicht wirklich zugenommen hat
+- Bestimmt die Baumkronenbedeckung über die Zeit, indem ihr ein Diagramm erstellt
 
 ```js
 print(ui.Chart.image.series(gfcc, aoi));
 ```
 
 
-## Full Example
+## Vollständiges Beispiel
 
 
 ```js
