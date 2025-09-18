@@ -4,39 +4,29 @@
     "href": "index.html",
     "title": "Cloud Computing with Google Earth Engine",
     "section": "",
-    "text": "Introduction\nThese notes are intended to accompany the the Digital Life Sience Data Lab course. Nils will work with you through these examples in a workshop format. This means he will live code and you will accompany him. We specifically do not want to give you these codes up front, since writing your own code and making mistakes is the best way to learn.",
+    "text": "Einführung\nDiese Unterlagen begleiten den Digital Life Science Data Lab Kurs. Nils wird mit euch durch diese Beispiele in einem Workshop-Format arbeiten. Das bedeutet, er wird live programmieren und ihr werdet ihn begleiten. Wir möchten euch diese Codes bewusst nicht im Voraus geben, da das Schreiben eigener Codes und das Machen von Fehlern der beste Weg zum Lernen ist.",
     "crumbs": [
-      "Introduction"
+      "Einführung"
     ]
   },
   {
-    "objectID": "index.html#preperation",
-    "href": "index.html#preperation",
+    "objectID": "index.html#vorbereitung",
+    "href": "index.html#vorbereitung",
     "title": "Cloud Computing with Google Earth Engine",
-    "section": "Preperation",
-    "text": "Preperation\nPlease make sure you have registered for a GoogleEarthEngine Account. See the slides here for instructions.",
+    "section": "Vorbereitung",
+    "text": "Vorbereitung\nBitte stellt sicher, dass ihr euch für ein GoogleEarthEngine Account registriert habt. Siehe die Folien hier für Anweisungen.",
     "crumbs": [
-      "Introduction"
+      "Einführung"
     ]
   },
   {
-    "objectID": "index.html#timetable",
-    "href": "index.html#timetable",
+    "objectID": "index.html#stundenplan",
+    "href": "index.html#stundenplan",
     "title": "Cloud Computing with Google Earth Engine",
-    "section": "Timetable",
-    "text": "Timetable\n\nMorning:\n\nLesson: Slides & Demo 1: console\nLesson: Demo 2: Html-file - Demo 5: year2days-Website\nLesson: Demo 1: Unispectral Data & Demo 2: Multispectral RGB\nLesson: Demo 3: Multispectral NDVI & Demo 5: Forest regrowth 1\n\nAfternoon:",
+    "section": "Stundenplan",
+    "text": "Stundenplan\n\nLektion:\n\nEinführungs-Folien\nDemo 1: console (Demo 1)\n\nLektion:\n\nDemo 2: Html-file (Demo 2)\nAufgabe: Basic-html (Task)\nDemo 3: html-script (Demo 3)\nTask: years2days (Task)\nDemo 4: Methods (Demo 4)\n\nLektion\n\nDemo 5: year2days-Website (Demo 5)\nTask (Optional): Reverse-name Website (Task)\n\nLektion:\n\nDemo 1: Unispectral Data (Demo 1)\nAufgabe (Task)\nDemo 2: Multispectral RGB\n\nLektion:\n\nDemo 3: Multispectral NDVI\nDemo 4: NDVI over time\nDemo 5: Forest regrowth",
     "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#footnotes",
-    "href": "index.html#footnotes",
-    "title": "Cloud Computing with Google Earth Engine",
-    "section": "",
-    "text": "should we leave out Demo 3: Multispectral NDVI? It’s quite complex (cloud cover issue and adding band to collection↩︎",
-    "crumbs": [
-      "Introduction"
+      "Einführung"
     ]
   },
   {
@@ -44,7 +34,7 @@
     "href": "js/01-browser-console-demo.html",
     "title": "Demo 1: console",
     "section": "",
-    "text": "in the browser Console\nCreating string variables:\n// just like in R, but not correct\nmyname = \"Nils Ratnaweera\" \n\n// use var to create a new variable \n// ommiting var works and if you're in the global scope then \n// there's not much difference. https://stackoverflow.com/a/1470494/4139249\nvar myname = \"Nils Ratnaweera\" \n\n// end statement with a semi colon\nvar myname = \"Nils Ratnaweera\"; \nChecking the typeof\ntypeof(myname)\nCreating numeric varibles\n// create a number in quotes\nvar myage = \"34\";\n\n// check the type of this number\ntypeof(myage);\n// why is this not a number, but a string?\n\n// you can't do maths\nmyage+1;\n// number are not in quotes (just like in R)\nvar myage = 34;\n\ntypeof(myage);\n\n// now, you can do math\nmyage+1\n\nmyage*365; \n\n// you can also create variables \"on the fly\"\nvar myage_days = myage*365; \nYou can create variables first and fill them later\nvar myage_days;\n\nmyage_days = myage*365;\nYou can print to the console my calling the variable (just like in R). But this only works from the interactive console.\nmyage_days;\nconsole.log(myage_days);\n\n// dont write print(myage_days); !\nlet and const are other ways to create variables with subtle differences, but we will ignore these in our lesson.\nlet email = \"rata@zhaw.ch\";\nconst employer = \"ZHAW\";",
+    "text": "in der browser Console\nString Variablen erstellen:\n// just like in R, but not correct\nmyname = \"Nils Ratnaweera\"\n\n// use var to create a new variable\n// ommiting var works and if you're in the global scope then\n// there's not much difference. https://stackoverflow.com/a/1470494/4139249\nvar myname = \"Nils Ratnaweera\"\n\n// end statement with a semi colon\nvar myname = \"Nils Ratnaweera\";\nDen typeof überprüfen\ntypeof(myname)\nNumerische Variablen erstellen\n// create a number in quotes\nvar myage = \"34\";\n\n// check the type of this number\ntypeof(myage);\n// why is this not a number, but a string?\n\n// you can't do maths\nmyage+1;\n// number are not in quotes (just like in R)\nvar myage = 34;\n\ntypeof(myage);\n\n// now, you can do math\nmyage+1\n\nmyage*365;\n\n// you can also create variables \"on the fly\"\nvar myage_days = myage*365;\nIhr könnt Variablen zuerst erstellen und später füllen\nvar myage_days;\n\nmyage_days = myage*365;\nIhr könnt auf die console ausgeben, indem ihr die Variable aufruft (genau wie in R). Aber das funktioniert nur von der interaktiven console aus.\nmyage_days;\nconsole.log(myage_days);\n\n// dont write print(myage_days); !\nlet und const sind andere Wege, um Variablen zu erstellen mit subtilen Unterschieden, aber wir werden diese in unserer Lektion ignorieren.\nlet email = \"rata@zhaw.ch\";\nconst employer = \"ZHAW\";",
     "crumbs": [
       "JavaScript",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Demo 1: console</span>"
@@ -55,7 +45,7 @@
     "href": "js/02-basic-html-script-demo.html",
     "title": "Demo 2: Html-file",
     "section": "",
-    "text": "As per instructions in the slides, create an html file and open this file in a browser window. Create opening and closing &lt;script&gt; tags.\n&lt;script&gt;\n&lt;/script&gt;\nNow, start developping javascript code in between the &lt;script&gt; tags.\n// create a var, have a look at the browser.\nvar myname = \"Nils Ratnaweera\";\n\n// where is this var?\n// show that the variable exists\nDemonstrate console.log.\nvar myname = \"Nils Ratnaweera\";\n\n// this wont show in the console\nvar myname = \"Nils Ratnaweera\";\n// adding this will:\nconsole.log(myname);\n\nconsole.log(\"Hi, my name is \"+myname);",
+    "text": "Wie in den Folien angegeben, erstellt eine html Datei und öffnet diese Datei in einem browser window. Erstellt öffnende und schließende &lt;script&gt; tags.\n&lt;script&gt;\n&lt;/script&gt;\nJetzt beginnt mit der Entwicklung von javascript Code zwischen den &lt;script&gt; tags.\n// create a var, have a look at the browser.\nvar myname = \"Nils Ratnaweera\";\n\n// where is this var?\n// show that the variable exists\nDemonstriert console.log.\nvar myname = \"Nils Ratnaweera\";\n\n// this wont show in the console\nvar myname = \"Nils Ratnaweera\";\n// adding this will:\nconsole.log(myname);\n\nconsole.log(\"Hi, my name is \"+myname);",
     "crumbs": [
       "JavaScript",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Demo 2: Html-file</span>"
@@ -64,12 +54,12 @@
   {
     "objectID": "js/03-basic-html-script-task.html",
     "href": "js/03-basic-html-script-task.html",
-    "title": "Task: Basic-html",
+    "title": "Aufgabe: Basic-html",
     "section": "",
-    "text": "in an html file\nvar myage = 34;\nvar myage_days = myage*365; \nconsole.log(\"I am \"+myage_days+\" years old\");",
+    "text": "in einer html Datei\nvar myage = 34;\nvar myage_days = myage*365; \nconsole.log(\"I am \"+myage_days+\" years old\");",
     "crumbs": [
       "JavaScript",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Task: Basic-html</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Aufgabe: Basic-html</span>"
     ]
   },
   {
@@ -77,7 +67,84 @@
     "href": "js/04-basic-html-script-demo.html",
     "title": "Demo 3: html-script",
     "section": "",
-    "text": "Demonstrate doing math\nvar myage_days = myage*365;\n\nconsole.log(\"I am \"+myage_days+\" days old\");\nIn the console, demonstrate checking the type with typeof()\ntypeof(myage);\ntypeof(myname);\nNow, demonstrate comments by adding comments to the code\n// I'm declaring my variables here:\nvar myage = 34;\nvar myage_days = myage*365;\n\nconsole.log(\"I am \"+myage_days+\" days old\");\nDemonstrate creating arrays\nvar myFriends = [\"John\",\"Peter\", \"Mary\"];\nIn the console, demonstrate calling items from an array in the console. Note that the first value is index as 0\nmyFriends[0];\nWhat if we want to store information on each friend, e.g. the age? Demonstrate this with a dictionary.\nvar myFriends = {John: 23, Peter: 33, Mary: 40};\nShow that indexing does not work with numbers in a dictionary\nmyFriends[0];\n\n// it works with string\nmyFriends[\"John\"];\n\n// or with a dot\nmyFriends.John;\nDemonstrate functions.\nQuestion: what are functions good for?\n// write this function in the html file, \n// then run it in the console\nfunction say_hello(){\n    console.log(\"hello\")\n};\n// write this function in the html file, \n// and call it within the script\nfunction say_hello(){\n    console.log(\"hello\")\n};\n\nsay_hello();\nThe previous function did not take an input.\nLet’s create a function that takes an input:\n// write this function in the html file, \n// then run it in the console\nfunction say_something(what){\n    console.log(what)\n};",
+    "text": "Mathematische Operationen\nJavaScript in HTML-Dateien\nDemonstriert mathematische Operationen:",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Demo 3: html-script</span>"
+    ]
+  },
+  {
+    "objectID": "js/04-basic-html-script-demo.html#mathematische-operationen",
+    "href": "js/04-basic-html-script-demo.html#mathematische-operationen",
+    "title": "Demo 3: html-script",
+    "section": "",
+    "text": "var myage_days = myage*365;\n\nconsole.log(\"Ich bin \"+myage_days+\" Tage alt\");",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Demo 3: html-script</span>"
+    ]
+  },
+  {
+    "objectID": "js/04-basic-html-script-demo.html#datentypen-prüfen",
+    "href": "js/04-basic-html-script-demo.html#datentypen-prüfen",
+    "title": "Demo 3: html-script",
+    "section": "Datentypen prüfen",
+    "text": "Datentypen prüfen\nIn der Konsole, demonstriert das Überprüfen des Typs mit typeof():\ntypeof(myage);\ntypeof(myname);",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Demo 3: html-script</span>"
+    ]
+  },
+  {
+    "objectID": "js/04-basic-html-script-demo.html#kommentare",
+    "href": "js/04-basic-html-script-demo.html#kommentare",
+    "title": "Demo 3: html-script",
+    "section": "Kommentare",
+    "text": "Kommentare\nNun demonstriert Kommentare, indem ihr Kommentare zum Code hinzufügt:\n// Hier deklariere ich meine Variablen:\nvar myage = 34;\nvar myage_days = myage*365;\n\nconsole.log(\"Ich bin \"+myage_days+\" Tage alt\");",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Demo 3: html-script</span>"
+    ]
+  },
+  {
+    "objectID": "js/04-basic-html-script-demo.html#arrays",
+    "href": "js/04-basic-html-script-demo.html#arrays",
+    "title": "Demo 3: html-script",
+    "section": "Arrays",
+    "text": "Arrays\nDemonstriert das Erstellen von Arrays:\nvar myFriends = [\"John\",\"Peter\", \"Mary\"];\nIn der Konsole, demonstriert das Aufrufen von Elementen aus einem Array. Beachtet, dass der erste Wert als 0 indiziert ist:\nmyFriends[0];",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Demo 3: html-script</span>"
+    ]
+  },
+  {
+    "objectID": "js/04-basic-html-script-demo.html#dictionaries",
+    "href": "js/04-basic-html-script-demo.html#dictionaries",
+    "title": "Demo 3: html-script",
+    "section": "Dictionaries",
+    "text": "Dictionaries\nWas ist, wenn wir Informationen über jeden Freund speichern wollen, z.B. das Alter? Demonstriert dies mit einem Dictionary:\nvar myFriends = {John: 23, Peter: 33, Mary: 40};\nZeigt, dass Indizierung mit Zahlen in einem Dictionary nicht funktioniert:\nmyFriends[0];\n\n// Es funktioniert mit string\nmyFriends[\"John\"];\n\n// oder mit einem Punkt\nmyFriends.John;",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Demo 3: html-script</span>"
+    ]
+  },
+  {
+    "objectID": "js/04-basic-html-script-demo.html#functions",
+    "href": "js/04-basic-html-script-demo.html#functions",
+    "title": "Demo 3: html-script",
+    "section": "Functions",
+    "text": "Functions\nDemonstriert Functions.\nFrage: Wofür sind Functions gut?\n// Schreibt diese Function in die HTML-Datei,\n// dann führt sie in der Konsole aus\nfunction say_hello(){\n    console.log(\"hello\")\n};\n// Schreibt diese Function in die HTML-Datei,\n// und ruft sie innerhalb des Scripts auf\nfunction say_hello(){\n    console.log(\"hello\")\n};\n\nsay_hello();",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Demo 3: html-script</span>"
+    ]
+  },
+  {
+    "objectID": "js/04-basic-html-script-demo.html#functions-mit-input",
+    "href": "js/04-basic-html-script-demo.html#functions-mit-input",
+    "title": "Demo 3: html-script",
+    "section": "Functions mit Input",
+    "text": "Functions mit Input\nDie vorherige Function nahm keinen Input.\nLasst uns eine Function erstellen, die einen Input nimmt:\n// Schreibt diese Function in die HTML-Datei,\n// dann führt sie in der Konsole aus\nfunction say_something(what){\n    console.log(what)\n};",
     "crumbs": [
       "JavaScript",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Demo 3: html-script</span>"
@@ -88,7 +155,18 @@
     "href": "js/05-function-years2days-task.html",
     "title": "Task: years2days",
     "section": "",
-    "text": "// create this function in the html file, \n// demonstrate it in the console. \nfunction years2days(years){\n    console.log(years*365)\n}; \n// Show how the result cannot be assigned to a variable\n// in the console:\n\nvar myage_days;\nmyage_days = years2days(34);\nmyage_days;\nShow how the function should return something rather than printing to the console.\nfunction years2days(years){\n    return years*365\n};",
+    "text": "Return Statement\nFunction zur Umrechnung von Jahren in Tage\nZeigt, wie die Function etwas returnen sollte, anstatt es in die Konsole zu printen.",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Task: `years2days`</span>"
+    ]
+  },
+  {
+    "objectID": "js/05-function-years2days-task.html#return-statement",
+    "href": "js/05-function-years2days-task.html#return-statement",
+    "title": "Task: years2days",
+    "section": "",
+    "text": "function years2days(years){\n    return years*365\n};",
     "crumbs": [
       "JavaScript",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Task: `years2days`</span>"
@@ -99,7 +177,7 @@
     "href": "js/06-introduction-to-methods-demo.html",
     "title": "Demo 4: Methods",
     "section": "",
-    "text": "Methods are functions tied to specific objects.\nvar myname = \"Nils Ratnaweera\"\n\n// in the console:\nmyname.length\nvar myage = 34\n// in the console\nmyage.toFixed(2) // 2 decimal places\nvar myname = \"Nils Ratnaweera\"\n// in the console\nmyname.split(\" \")\n\nmyname.split(\"\").reverse()\n\nmyname.split(\"\").reverse().join(\"\")",
+    "text": "Einführung in JavaScript Methods\nMethods sind Funktionen, die an spezifische Objekte gebunden sind.\nvar myname = \"Nils Ratnaweera\"\n\n// in der Konsole:\nmyname.length\nvar myage = 34\n// in der Konsole\nmyage.toFixed(2) // 2 Nachkommastellen\nvar myname = \"Nils Ratnaweera\"\n// in der Konsole\nmyname.split(\" \")\n\nmyname.split(\"\").reverse()\n\nmyname.split(\"\").reverse().join(\"\")",
     "crumbs": [
       "JavaScript",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Demo 4: Methods</span>"
@@ -110,7 +188,73 @@
     "href": "js/07-years2days-website.html",
     "title": "Demo 5: year2days-Website",
     "section": "",
-    "text": "Create structure:\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\nAdd header:\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Years to Days calculator&lt;/h1&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\nAdd input and button:\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Years to Days calculator&lt;/h1&gt;\n\n    Please enter your age in years:\n    &lt;input id=\"myage\" type=\"number\"&gt;\n    &lt;button&gt;Calculate&lt;/button&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\nAdd &lt;script&gt; with a dummy function, then call the function when clicking the button.\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Years to Days calculator&lt;/h1&gt;\n\n    Please enter your age in years:\n    &lt;input id=\"myage\" type=\"number\"&gt;\n    &lt;button onclick=\"calculate();\"&gt;Calculate!&lt;/button&gt;\n\n    &lt;script&gt;\n        var i = 1;\n        function calculate() {\n            console.log(i++)\n        }\n    &lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\nReplace the dummy function with the aged entered in the form.\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Years to Days calculator&lt;/h1&gt;\n\n    Please enter your age in years:\n    &lt;input id=\"myage\" type=\"number\"&gt;\n    &lt;button onclick=\"calculate();\"&gt;Calculate!&lt;/button&gt;\n\n    &lt;script&gt;\n        var myage;\n        function calculate() {\n            myage = document.getElementById(\"myage\").value\n            alert(myage)\n        }\n    &lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;\nReplace the alert with the calculation.\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Years to Days calculator&lt;/h1&gt;\n\n    Please enter your age in years:\n    &lt;input id=\"myage\" type=\"number\"&gt;\n    &lt;button onclick=\"calculate();\"&gt;Calculate!&lt;/button&gt;\n\n    &lt;script&gt;\n        var myage;\n        function calculate() {\n            myage = document.getElementById(\"myage\").value\n            var myage_days = myage*365\n            alert(\"You are \"+myage_days+\" days old\")\n        }\n    &lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
+    "text": "Grundstruktur erstellen\nErstellt die Grundstruktur:",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Demo 5: `year2days`-Website</span>"
+    ]
+  },
+  {
+    "objectID": "js/07-years2days-website.html#grundstruktur-erstellen",
+    "href": "js/07-years2days-website.html#grundstruktur-erstellen",
+    "title": "Demo 5: year2days-Website",
+    "section": "",
+    "text": "&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Demo 5: `year2days`-Website</span>"
+    ]
+  },
+  {
+    "objectID": "js/07-years2days-website.html#header-hinzufügen",
+    "href": "js/07-years2days-website.html#header-hinzufügen",
+    "title": "Demo 5: year2days-Website",
+    "section": "Header hinzufügen",
+    "text": "Header hinzufügen\nFügt einen Header hinzu:\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Jahre zu Tage Rechner&lt;/h1&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Demo 5: `year2days`-Website</span>"
+    ]
+  },
+  {
+    "objectID": "js/07-years2days-website.html#input-und-button-hinzufügen",
+    "href": "js/07-years2days-website.html#input-und-button-hinzufügen",
+    "title": "Demo 5: year2days-Website",
+    "section": "Input und Button hinzufügen",
+    "text": "Input und Button hinzufügen\nFügt Input-Feld und Button hinzu:\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Jahre zu Tage Rechner&lt;/h1&gt;\n\n    Bitte gebt euer Alter in Jahren ein:\n    &lt;input id=\"myage\" type=\"number\"&gt;\n    &lt;button&gt;Calculate&lt;/button&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Demo 5: `year2days`-Website</span>"
+    ]
+  },
+  {
+    "objectID": "js/07-years2days-website.html#script-mit-dummy-function",
+    "href": "js/07-years2days-website.html#script-mit-dummy-function",
+    "title": "Demo 5: year2days-Website",
+    "section": "Script mit Dummy Function",
+    "text": "Script mit Dummy Function\nFügt &lt;script&gt; mit einer dummy function hinzu, dann ruft die Function beim Klicken des Buttons auf.\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Jahre zu Tage Rechner&lt;/h1&gt;\n\n    Bitte gebt euer Alter in Jahren ein:\n    &lt;input id=\"myage\" type=\"number\"&gt;\n    &lt;button onclick=\"calculate();\"&gt;Calculate!&lt;/button&gt;\n\n    &lt;script&gt;\n        var i = 1;\n        function calculate() {\n            console.log(i++)\n        }\n    &lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Demo 5: `year2days`-Website</span>"
+    ]
+  },
+  {
+    "objectID": "js/07-years2days-website.html#dummy-function-ersetzen",
+    "href": "js/07-years2days-website.html#dummy-function-ersetzen",
+    "title": "Demo 5: year2days-Website",
+    "section": "Dummy Function ersetzen",
+    "text": "Dummy Function ersetzen\nErsetzt die dummy function mit dem im Formular eingegebenen Alter.\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Jahre zu Tage Rechner&lt;/h1&gt;\n\n    Bitte gebt euer Alter in Jahren ein:\n    &lt;input id=\"myage\" type=\"number\"&gt;\n    &lt;button onclick=\"calculate();\"&gt;Calculate!&lt;/button&gt;\n\n    &lt;script&gt;\n        var myage;\n        function calculate() {\n            myage = document.getElementById(\"myage\").value\n            alert(myage)\n        }\n    &lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Demo 5: `year2days`-Website</span>"
+    ]
+  },
+  {
+    "objectID": "js/07-years2days-website.html#alert-durch-berechnung-ersetzen",
+    "href": "js/07-years2days-website.html#alert-durch-berechnung-ersetzen",
+    "title": "Demo 5: year2days-Website",
+    "section": "Alert durch Berechnung ersetzen",
+    "text": "Alert durch Berechnung ersetzen\nErsetzt das alert durch die Berechnung.\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Jahre zu Tage Rechner&lt;/h1&gt;\n\n    Bitte gebt euer Alter in Jahren ein:\n    &lt;input id=\"myage\" type=\"number\"&gt;\n    &lt;button onclick=\"calculate();\"&gt;Calculate!&lt;/button&gt;\n\n    &lt;script&gt;\n        var myage;\n        function calculate() {\n            myage = document.getElementById(\"myage\").value\n            var myage_days = myage*365\n            alert(\"Du bist \"+myage_days+\" Tage alt\")\n        }\n    &lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
     "crumbs": [
       "JavaScript",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Demo 5: `year2days`-Website</span>"
@@ -121,7 +265,18 @@
     "href": "js/08-reverse-name-website.html",
     "title": "Task (Optional): Reverse-name Website",
     "section": "",
-    "text": "Task: Create a website that takes a name as an input and reverses that input.\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Name reverser&lt;/h1&gt;\n\n    Please enter your name:\n    &lt;input id=\"myname\" type=\"text\"&gt;\n    &lt;button onclick=\"reverse_it();\"&gt;Calculate!&lt;/button&gt;\n\n    &lt;script&gt;\n        var myage;\n        function reverse_it() {\n            myname = document.getElementById(\"myname\").value\n            var myname_reverse = myname.split(\"\").reverse().join(\"\")\n            alert(myname_reverse)\n        }\n    &lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
+    "text": "Aufgabe\nWebsite zum Umkehren von Namen\nDieser Task kann mit gh-pages als Website publiziert werden!\nErstellt eine Website, die einen Namen als Eingabe nimmt und diese Eingabe umkehrt.",
+    "crumbs": [
+      "JavaScript",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Task (Optional): Reverse-name Website</span>"
+    ]
+  },
+  {
+    "objectID": "js/08-reverse-name-website.html#aufgabe",
+    "href": "js/08-reverse-name-website.html#aufgabe",
+    "title": "Task (Optional): Reverse-name Website",
+    "section": "",
+    "text": "&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\n&lt;body&gt;\n    &lt;h1&gt;Name reverser&lt;/h1&gt;\n\n    Bitte gebt euren Namen ein:\n    &lt;input id=\"myname\" type=\"text\"&gt;\n    &lt;button onclick=\"reverse_it();\"&gt;Calculate!&lt;/button&gt;\n\n    &lt;script&gt;\n        var myage;\n        function reverse_it() {\n            myname = document.getElementById(\"myname\").value\n            var myname_reverse = myname.split(\"\").reverse().join(\"\")\n            alert(myname_reverse)\n        }\n    &lt;/script&gt;\n&lt;/body&gt;\n\n&lt;/html&gt;",
     "crumbs": [
       "JavaScript",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Task (Optional): Reverse-name Website</span>"
@@ -130,12 +285,12 @@
   {
     "objectID": "gee/00-Preperation.html",
     "href": "gee/00-Preperation.html",
-    "title": "Preperation",
+    "title": "Vorbereitung",
     "section": "",
-    "text": "The code you write is part of your learning experience and you should keep it for your own reference. To set this up, proceed as follows:\n\nSelect New → Repo → Give the repo a meaningful name\nSelect New → File →\n\nChoose the repo from step 1\nGive the file a meaningful name (Demo Number + Topic)\nOptionally add a commit message\n\nConfigure Repo by clicking on the configure Button. You can use the git URL to clone the repo to your local machine (and sync with GitHub if you are inclined to do so).\n\n\n\n\n\n\n\nNoteInstructions for Nils\n\n\n\n\nDo the steps above\nMake your own repo available to everyone\nShare the URL to your repo",
+    "text": "Der Code, den ihr schreibt, ist Teil eurer Lernerfahrung und ihr solltet ihn für eure eigene Referenz aufbewahren. Um dies einzurichten, geht wie folgt vor:\n\nWählt New → Repo → Gebt dem Repository einen sinnvollen Namen\nWählt New → File →\n\nWählt das Repository aus Schritt 1\nGebt der Datei einen sinnvollen Namen (Demo Nummer + Thema)\nOptional könnt ihr eine commit message hinzufügen\n\nKonfiguriert das Repository durch Klicken auf den configure Button. Ihr könnt die git URL verwenden, um das Repository auf euren lokalen Rechner zu klonen (und mit GitHub zu synchronisieren, falls ihr das möchtet).\n\n\n\n\n\n\n\nNoteAnweisungen für Nils\n\n\n\n\nFühre die obigen Schritte durch\nMache dein eigenes Repository für alle verfügbar\nTeile die URL zu deinem Repository",
     "crumbs": [
       "GEE",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Preperation</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Vorbereitung</span>"
     ]
   },
   {
@@ -143,7 +298,7 @@
     "href": "gee/00-SRTM.html",
     "title": "Demo 1: Unispectral Data",
     "section": "",
-    "text": "Demo\nUse Case: Identifying Suitable Areas for Renewable Energy Installation\nIn this lesson, we will use global terrain data to assess potential sites for renewable energy installations, such as solar panels or wind turbines. By calculating and visualizing elevation, slope, and aspect, we can identify optimal areas for infrastructure placement. Elevation provides insight into regions with better wind exposure or sunlight availability. Slope helps ensure land stability and suitability for construction. Aspect plays a key role in determining sunlight exposure for solar panels. Through this exercise, we will explore how terrain data can support sustainable energy planning and development.\nSolar:\nWind Turbines:",
+    "text": "Demo\nUse Case: Identifizierung geeigneter Gebiete für renewable energy Installation\nIn dieser Lektion werden wir globale terrain Daten verwenden, um potenzielle Standorte für renewable energy Installationen zu bewerten, wie solar panels oder wind turbines. Durch Berechnung und Visualisierung von elevation, slope und aspect können wir optimale Gebiete für infrastructure placement identifizieren. Elevation gibt Einblick in Regionen mit besserer wind exposure oder sunlight availability. Slope hilft, land stability und suitability for construction sicherzustellen. Aspect spielt eine Schlüsselrolle bei der Bestimmung der sunlight exposure für solar panels. Durch diese Übung werden wir erkunden, wie terrain Daten sustainable energy planning und development unterstützen können.\nSolar:\nWind Turbines:",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Demo 1: Unispectral Data</span>"
@@ -154,18 +309,51 @@
     "href": "gee/00-SRTM.html#demo",
     "title": "Demo 1: Unispectral Data",
     "section": "",
-    "text": "Setting up\n\nUse the same search bar to look for “Digital Elevation” data. We will use the SRTM data.\nExplore the metadata of SRTM\nImport via the Collection Snippet-button\n\nSave in a variable and add ;\nExecute with Ctrl + Enter\n\n\nvar srtm = ee.Image(\"USGS/SRTMGL1_003\");\n\n\nconsole.log() and print()\n\nNothing happens.\nTo get metadata of the data (similar to R str() function):\n\nconsole.log(srtm);\n\nIn the GEE environment, print() is the same as console.log()\nThis is not the case outside GEE!\n\nprint(srtm);\n\n\nCreate a map\nAdd the data to the map\nMap.addLayer(srtm)\n\nThe result does not show much. Why?\nThe color scheme “white to black” is streched across the whole range of values.\nVisp, however steep it is there, does not cover this whole range.\n\n\n\nConsult docs to change the viz params\n\nTruncate using the GUI interface (e.g. from 0 to 4000).\nIn the docs for Map.addLayer() see the reference:\n\nFor Images and ImageCollection, see ee.data.getMapId for valid parameters\n\nLook for ee.data.getMapId in the docs and note the following reference:\n\nThe visualization parameters as a (client-side) JavaScript object. …\n\nmin (comma-separated numbers) Value (or one per band) to map onto 00.\nmax (comma-separated numbers) Value (or one per band) to map onto FF.\n\n\n\nvisParam = {min: 0, max: 4000}\nMap.addLayer(srtm, visParam)\n\n\nAdd a color palette\nAdd a color palette, and maybe to the whole thing in one line:\nMap.addLayer(srtm, {min: 0, max: 4000, palette: [\"green\", \"red\", \"blue\"]})\n\n\nAdd slope\nvar slope = ee.Terrain.slope(srtm);\nvar slopevis = {min: 0, max: 30, palette: ['green','yellow','red']};\n\nMap.addLayer(srtm, {min: 0, max: 3000}, 'DEM');\nMap.addLayer(slope, slopevis, 'slope');\n\n\nDetermine if slope is within range (5 - 10°)\nvar slope = ee.Terrain.slope(srtm);\n\nvar good_slope = slope.gt(5).and(slope.lt(10));\n\nMap.addLayer(good_slope, {palette: [\"red\", \"blue\"]}) ;",
+    "text": "Setup\n\nVerwendet die gleiche search bar, um nach “Digital Elevation” Daten zu suchen. Wir werden die SRTM Daten verwenden.\nErkundet die metadata von SRTM\nImportiert über den Collection Snippet-Button\n\nSpeichert in einer Variable und fügt ; hinzu\nFührt mit Ctrl + Enter aus\n\n\nvar srtm = ee.Image(\"USGS/SRTMGL1_003\");\n\n\nconsole.log() und print()\n\nNichts passiert.\nUm metadata der Daten zu erhalten (ähnlich der R str() Funktion):\n\nconsole.log(srtm);\n\nIn der GEE Umgebung ist print() das gleiche wie console.log()\nDas ist außerhalb von GEE nicht der Fall!\n\nprint(srtm);\n\n\nEine Karte erstellen\nFügt die Daten zur Karte hinzu\nMap.addLayer(srtm)\n\nDas Ergebnis zeigt nicht viel. Warum?\nDas color scheme “white to black” ist über den ganzen range of values gestreckt.\nVisp, egal wie steil es dort ist, deckt nicht diesen ganzen range ab.\n\n\n\nDocs konsultieren, um die viz params zu ändern\n\nTruncate mit dem GUI interface (z.B. von 0 bis 4000).\nIn den docs für Map.addLayer() seht die Referenz:\n\nFor Images and ImageCollection, see ee.data.getMapId for valid parameters\n\nSucht nach ee.data.getMapId in den docs und beachtet die folgende Referenz:\n\nThe visualization parameters as a (client-side) JavaScript object. …\n\nmin (comma-separated numbers) Value (or one per band) to map onto 00.\nmax (comma-separated numbers) Value (or one per band) to map onto FF.\n\n\n\nvisParam = {min: 0, max: 4000}\nMap.addLayer(srtm, visParam)\n\n\nEine color palette hinzufügen\nFügt eine color palette hinzu, und vielleicht das Ganze in einer Zeile:\nMap.addLayer(srtm, {min: 0, max: 4000, palette: [\"green\", \"red\", \"blue\"]})\n\n\nSlope hinzufügen\nvar slope = ee.Terrain.slope(srtm);\nvar slopevis = {min: 0, max: 30, palette: ['green','yellow','red']};\n\nMap.addLayer(srtm, {min: 0, max: 3000}, 'DEM');\nMap.addLayer(slope, slopevis, 'slope');\n\n\nBestimmt, ob slope im Bereich liegt (5 - 10°)\nvar slope = ee.Terrain.slope(srtm);\n\nvar good_slope = slope.gt(5).and(slope.lt(10));\n\nMap.addLayer(good_slope, {palette: [\"red\", \"blue\"]}) ;",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Demo 1: Unispectral Data</span>"
     ]
   },
   {
-    "objectID": "gee/00-SRTM.html#task",
-    "href": "gee/00-SRTM.html#task",
+    "objectID": "gee/00-SRTM.html#bestimmt-ob-elevation-im-bereich-liegt-1000---2000-m.s.l",
+    "href": "gee/00-SRTM.html#bestimmt-ob-elevation-im-bereich-liegt-1000---2000-m.s.l",
     "title": "Demo 1: Unispectral Data",
-    "section": "Task",
-    "text": "Task\n\nDetermine if Elevation is with Range (1000 - 2000 m.s.l)\nvar good_elevation = srtm.gt(1000).and(srtm.lt(2000))\n\n\nCalculate Aspect\nWhat is aspect?\nvar aspect = ee.Terrain.aspect(srtm);\n\n\nDetermine if aspect is within range (135° and 225°)\nWe need southfacing slopes!\nvar good_aspect = aspect.gt(135).and(aspect.lt(225));\n\n\nBring everything together\nvar good_everything = good_slope.and(good_aspect.and(good_elevation))\n\n// selfMask() hides all 0 values\nMap.addLayer(good_everything.selfMask(), {palette: [\"#ff000077\", \"blue\"]}) ;\n\n\n\n\n\n\nNoteFull working example\n\n\n\n\n\nvar srtm = ee.Image(\"CGIAR/SRTM90_V4\");\n\nvar slope = ee.Terrain.slope(srtm);\n\nvar aspect = ee.Terrain.aspect(srtm);\n\n\nvar good_slope = slope.gt(5).and(slope.lt(10));\n\nvar good_aspect = aspect.gt(135).and(aspect.lt(225));\n\n\nvar good_elevation = srtm.gt(1000).and(srtm.lt(2000))\n\nvar good_everything = good_slope.and(good_aspect.and(good_elevation))\n\n\n\nMap.addLayer(good_everything.selfMask(), {palette: [\"#ff000077\", \"blue\"]}) ;",
+    "section": "Bestimmt, ob Elevation im Bereich liegt (1000 - 2000 m.s.l)",
+    "text": "Bestimmt, ob Elevation im Bereich liegt (1000 - 2000 m.s.l)\nvar good_elevation = srtm.gt(1000).and(srtm.lt(2000))",
+    "crumbs": [
+      "GEE",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Demo 1: Unispectral Data</span>"
+    ]
+  },
+  {
+    "objectID": "gee/00-SRTM.html#aspect-berechnen",
+    "href": "gee/00-SRTM.html#aspect-berechnen",
+    "title": "Demo 1: Unispectral Data",
+    "section": "Aspect berechnen",
+    "text": "Aspect berechnen\nWas ist aspect?\nvar aspect = ee.Terrain.aspect(srtm);",
+    "crumbs": [
+      "GEE",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Demo 1: Unispectral Data</span>"
+    ]
+  },
+  {
+    "objectID": "gee/00-SRTM.html#bestimmt-ob-aspect-im-bereich-liegt-135-und-225",
+    "href": "gee/00-SRTM.html#bestimmt-ob-aspect-im-bereich-liegt-135-und-225",
+    "title": "Demo 1: Unispectral Data",
+    "section": "Bestimmt, ob aspect im Bereich liegt (135° und 225°)",
+    "text": "Bestimmt, ob aspect im Bereich liegt (135° und 225°)\nWir brauchen südlich ausgerichtete slopes!\nvar good_aspect = aspect.gt(135).and(aspect.lt(225));",
+    "crumbs": [
+      "GEE",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Demo 1: Unispectral Data</span>"
+    ]
+  },
+  {
+    "objectID": "gee/00-SRTM.html#alles-zusammenbringen",
+    "href": "gee/00-SRTM.html#alles-zusammenbringen",
+    "title": "Demo 1: Unispectral Data",
+    "section": "Alles zusammenbringen",
+    "text": "Alles zusammenbringen\nvar good_everything = good_slope.and(good_aspect.and(good_elevation))\n\n// selfMask() hides all 0 values\nMap.addLayer(good_everything.selfMask(), {palette: [\"#ff000077\", \"blue\"]}) ;\n\n\n\n\n\n\nNoteVollständiges funktionierendes Beispiel\n\n\n\n\n\nvar srtm = ee.Image(\"CGIAR/SRTM90_V4\");\n\nvar slope = ee.Terrain.slope(srtm);\n\nvar aspect = ee.Terrain.aspect(srtm);\n\n\nvar good_slope = slope.gt(5).and(slope.lt(10));\n\nvar good_aspect = aspect.gt(135).and(aspect.lt(225));\n\n\nvar good_elevation = srtm.gt(1000).and(srtm.lt(2000))\n\nvar good_everything = good_slope.and(good_aspect.and(good_elevation))\n\n\n\nMap.addLayer(good_everything.selfMask(), {palette: [\"#ff000077\", \"blue\"]}) ;",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Demo 1: Unispectral Data</span>"
@@ -176,7 +364,29 @@
     "href": "gee/01-Task_Suitable_Locations.html",
     "title": "Task 1: Identifying Suitable Areas for Renewable Energy Installation",
     "section": "",
-    "text": "Solution:\n\nvar srtm = ee.Image(\"CGIAR/SRTM90_V4\");\n\n\nvar slope = ee.Terrain.slope(srtm);\nvar aspect = ee.Terrain.aspect(srtm);\n\n\n\nvar elevation_good = srtm.gt(500).and(srtm.lt(1000));\nvar slope_good = slope.gt(3).and(slope.lt(6));\nvar aspect_good = aspect.gte(135).and(aspect.lte(225));\n\n// good aspect (exposition): 135-225°\n\nvar all_good = elevation_good.and(slope_good).and(aspect_good)\n\n\n//Map.addLayer(srtm, {min: 0, max: 4000, palette: [\"blue\",\"yellow\",\"red\"]});\n//Map.addLayer(elevation_good.selfMask(), {palette: [\"red\",\"green\"]})\n\nMap.addLayer(all_good.selfMask(), {palette: [\"red\",\"green\"]})",
+    "text": "Aufgabenstellung\nIdentifikation geeigneter Gebiete für Erneuerbare Energie Anlagen\nIdentifiziert geeignete Standorte für die Installation von erneuerbaren Energieanlagen basierend auf folgenden Kriterien:",
+    "crumbs": [
+      "GEE",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Task 1: Identifying Suitable Areas for Renewable Energy Installation</span>"
+    ]
+  },
+  {
+    "objectID": "gee/01-Task_Suitable_Locations.html#aufgabenstellung",
+    "href": "gee/01-Task_Suitable_Locations.html#aufgabenstellung",
+    "title": "Task 1: Identifying Suitable Areas for Renewable Energy Installation",
+    "section": "",
+    "text": "Elevation: 500-1000m über Meereshöhe\nSlope: 3-6 Grad\nAspect (Exposition): 135-225° (Süd-exponiert)",
+    "crumbs": [
+      "GEE",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Task 1: Identifying Suitable Areas for Renewable Energy Installation</span>"
+    ]
+  },
+  {
+    "objectID": "gee/01-Task_Suitable_Locations.html#lösung",
+    "href": "gee/01-Task_Suitable_Locations.html#lösung",
+    "title": "Task 1: Identifying Suitable Areas for Renewable Energy Installation",
+    "section": "Lösung:",
+    "text": "Lösung:\n\nvar srtm = ee.Image(\"CGIAR/SRTM90_V4\");\n\n\nvar slope = ee.Terrain.slope(srtm);\nvar aspect = ee.Terrain.aspect(srtm);\n\n\n\nvar elevation_good = srtm.gt(500).and(srtm.lt(1000));\nvar slope_good = slope.gt(3).and(slope.lt(6));\nvar aspect_good = aspect.gte(135).and(aspect.lte(225));\n\n// Gute Exposition: 135-225° (südexponiert)\n\nvar all_good = elevation_good.and(slope_good).and(aspect_good)\n\n\n//Map.addLayer(srtm, {min: 0, max: 4000, palette: [\"blue\",\"yellow\",\"red\"]});\n//Map.addLayer(elevation_good.selfMask(), {palette: [\"red\",\"green\"]})\n\nMap.addLayer(all_good.selfMask(), {palette: [\"red\",\"green\"]})",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Task 1: Identifying Suitable Areas for Renewable Energy Installation</span>"
@@ -187,7 +397,7 @@
     "href": "gee/01-Sentinel-RBG.html",
     "title": "Demo 2: Multispectral RGB",
     "section": "",
-    "text": "Exploring Multispectral Data\n\nIn this exercise, we will explore a more complex, multispectral dataset.\nThis adds complexity since there are not only multiple bands, but there also is a temporal dimension and issues with cloud cover etc\nWe will create a “true color image”, meaning that we will take the Red, Green and Blue band and map the values to RGB.\nWe will also create a “false color image”, meaning taht we will take other bands and map these to RGB\n\nLets get started!\n\nLook for Sentinel-2 Data, browse the collections\nAdd the dataset Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A\n\nvar s2 = ee.ImageCollection(\"COPERNICUS/S2_SR_HARMONIZED\");\n\nEven the first step shows us, that this is a more complex dataset.\nPrinting the collection fails:\n\nprint(s2);\n\nin the docs, look for ways to filter the dataset, e.g. by date\nuse the function filterDate() which can be found under ee.ImageCollection\nApply the filter:\n\nPlay around with some recent dates (2 - 3 days)\nZoom out\nand add the result to the map.\nThis nicely shows the path of the Sentiel-2 satellite\n\n\nvar filtered = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\n\nMap.addLayer(filtered);\n\nPrinting to the console is still not possible.\nHow many images are in the collection?\n\nprint(filtered.size())\n\nZoom back to a region of interest, e.g. Visp\nThe image does not look good\nCheck the Docs for ee.ImageCollection and as before, it references ee.data.getMapId(). There, note the following line:\n\nbands (comma-separated strings) Comma-delimited list of band names to be mapped to RGB.\n\nRead the Metadata of the dataset, check the Tab “Bands”. Note the Band names and their description: RGB is “B4, B3, B2”.\n\nMap.addLayer(filtered, {\"bands\":[\"B4\",\"B3\",\"B2\"]});\n\nstill not looking good. Using the map UI, use the layer setting to strech the image to 98% and raise the gamma to about 4. You will learn more about these values in the Remote Sensing Course (FS24)\nimport these setting into the script via the Import-Button\n\nNote the imageVisParam object and how it is part of the code, but not quite. You can copy the code and create your own object from it, if you are so inclined.\nYou can now replace the JavaScript object with the imageVisParam object\n\n\n// was created automagically:\nvar imageVisParam = {\"opacity\":1,\"bands\":[\"B4\",\"B3\",\"B2\"],\"min\":85.84,\"max\":4206.16,\"gamma\":3.055};\n\n// can be used in the addLayer-function:\nMap.addLayer(filtered, imageVisParam);\nfrom here:\n\nTrue color composite uses visible light bands red (B04), green (B03) and blue (B02) in the corresponding red, green and blue color channels, resulting in a natural colored result, that is a good representation of the Earth as humans would see it naturally.\nFalse color composite using near infrared, red and green bands is very popular. It is most commonly used to assess plant density and health, as plants reflect near infrared and green light, while absorbing red. Since they reflect more near infrared than green, plant-covered land appears deep red. Denser plant growth is darker red. Cities and exposed ground are gray or tan, and water appears blue or black.\n\n\nimageVisParam2 = {\"opacity\":1,\"bands\":[\"B8\",\"B4\",\"B3\"],\"min\":204.68,\"max\":10029.32,\"gamma\":3.8280000000000003}",
+    "text": "Multispektrale Daten erkunden\n\nIn dieser Übung werden wir einen komplexeren, multispektralen Datensatz erkunden.\nDies fügt Komplexität hinzu, da es nicht nur mehrere bands gibt, sondern auch eine zeitliche Dimension und Probleme mit cloud cover etc\nWir werden ein “true color image” erstellen, das bedeutet, wir nehmen die Red, Green und Blue band und mappen die Werte auf RGB.\nWir werden auch ein “false color image” erstellen, das bedeutet, wir nehmen andere bands und mappen diese auf RGB\n\nLasst uns anfangen!\n\nSucht nach Sentinel-2 Data, durchstöbert die collections\nFügt den Datensatz Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A hinzu\n\nvar s2 = ee.ImageCollection(\"COPERNICUS/S2_SR_HARMONIZED\");\n\nSchon der erste Schritt zeigt uns, dass dies ein komplexerer Datensatz ist.\nDas Ausgeben der collection schlägt fehl:\n\nprint(s2);\n\nin den docs, sucht nach Wegen, den Datensatz zu filtern, z.B. nach Datum\nverwendet die Funktion filterDate(), die unter ee.ImageCollection zu finden ist\nWendet den Filter an:\n\nSpielt mit einigen aktuellen Daten herum (2 - 3 Tage)\nZoomt heraus\nund fügt das Ergebnis zur Karte hinzu.\nDies zeigt schön den Pfad des Sentinel-2 Satelliten\n\n\nvar filtered = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\n\nMap.addLayer(filtered);\n\nDas Ausgeben auf die console ist immer noch nicht möglich.\nWie viele Bilder sind in der collection?\n\nprint(filtered.size())\n\nZoomt zurück zu einer region of interest, z.B. Visp\nDas Bild sieht nicht gut aus\nÜberprüft die Docs für ee.ImageCollection und wie zuvor referenziert es ee.data.getMapId(). Dort, beachtet die folgende Zeile:\n\nbands (comma-separated strings) Comma-delimited list of band names to be mapped to RGB.\n\nLiest die Metadata des Datensatzes, überprüft den Tab “Bands”. Beachtet die Band Namen und ihre Beschreibung: RGB ist “B4, B3, B2”.\n\nMap.addLayer(filtered, {\"bands\":[\"B4\",\"B3\",\"B2\"]});\n\nsieht immer noch nicht gut aus. Verwendet die map UI, nutzt die layer Einstellung, um das Bild auf 98% zu strecken und erhöht gamma auf etwa 4. Ihr werdet mehr über diese Werte im Remote Sensing Kurs lernen (FS24)\nimportiert diese Einstellungen in das script über den Import-Button\n\nBeachtet das imageVisParam object und wie es Teil des Codes ist, aber nicht ganz. Ihr könnt den Code kopieren und euer eigenes object daraus erstellen, wenn ihr möchtet.\nIhr könnt jetzt das JavaScript object mit dem imageVisParam object ersetzen\n\n\n// was created automagically:\nvar imageVisParam = {\"opacity\":1,\"bands\":[\"B4\",\"B3\",\"B2\"],\"min\":85.84,\"max\":4206.16,\"gamma\":3.055};\n\n// can be used in the addLayer-function:\nMap.addLayer(filtered, imageVisParam);\nvon hier:\n\nTrue color composite verwendet visible light bands red (B04), green (B03) und blue (B02) in den entsprechenden red, green und blue color channels, was zu einem natürlich gefärbten Ergebnis führt, das eine gute Darstellung der Erde ist, wie Menschen sie natürlich sehen würden.\nFalse color composite mit near infrared, red und green bands ist sehr beliebt. Es wird am häufigsten verwendet, um plant density und health zu bewerten, da plants near infrared und green light reflektieren, während sie red absorbieren. Da sie mehr near infrared als green reflektieren, erscheint pflanzenbewachsenes Land tiefrot. Dichterer Pflanzenwuchs ist dunkler rot. Städte und exposed ground sind grau oder braun, und water erscheint blau oder schwarz.\n\n\nimageVisParam2 = {\"opacity\":1,\"bands\":[\"B8\",\"B4\",\"B3\"],\"min\":204.68,\"max\":10029.32,\"gamma\":3.8280000000000003}",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Demo 2: Multispectral RGB</span>"
@@ -198,7 +408,7 @@
     "href": "gee/02-Sentinel_NDVI.html",
     "title": "Demo 3: Multispectral NDVI",
     "section": "",
-    "text": "Setup\nCalculating NDVI for a single image\nUse Case: Assessing Agricultural Crop Health Using NDVI\nIn this lesson, we will calculate and analyze NDVI (Normalized Difference Vegetation Index) to monitor the health of crops across a farmland area. NDVI provides a way to assess plant vitality by measuring how much near-infrared light (reflected by healthy plants) differs from red light (absorbed by plants). By identifying areas with low NDVI values, we can detect early signs of crop stress caused by insufficient water, nutrient deficiencies, or disease.\nThis analysis has direct financial implications: early detection of stressed crops allows farmers to take timely corrective actions, such as adjusting irrigation or applying fertilizers, potentially avoiding major losses. Improved crop health leads to higher yields, reducing waste and increasing profitability. Additionally, precision farming strategies informed by NDVI can help optimize resource use, lowering costs related to water, fertilizers, and pesticides while increasing overall farm efficiency.",
+    "text": "Setup\nNDVI für ein einzelnes Bild berechnen\nUse Case: Bewertung der landwirtschaftlichen Pflanzengesundheit mit NDVI\nIn dieser Lektion werden wir NDVI (Normalized Difference Vegetation Index) berechnen und analysieren, um die Gesundheit von crops über ein farmland Gebiet zu überwachen. NDVI bietet einen Weg, plant vitality zu bewerten, indem gemessen wird, wie sehr sich near-infrared light (reflektiert von gesunden plants) von red light (absorbiert von plants) unterscheidet. Durch die Identifizierung von Gebieten mit niedrigen NDVI-Werten können wir frühe Anzeichen von crop stress erkennen, verursacht durch insufficient water, nutrient deficiencies oder disease.\nDiese Analyse hat direkte finanzielle Auswirkungen: frühe Erkennung von gestressten crops ermöglicht es farmers, rechtzeitig korrigierende Maßnahmen zu ergreifen, wie adjusting irrigation oder applying fertilizers, wodurch möglicherweise größere Verluste vermieden werden. Verbesserte crop health führt zu höheren yields, reduziert waste und erhöht profitability. Zusätzlich können precision farming Strategien, die durch NDVI informiert werden, helfen, resource use zu optimieren, Kosten im Zusammenhang mit water, fertilizers und pesticides zu senken und gleichzeitig die overall farm efficiency zu steigern.",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
@@ -209,62 +419,62 @@
     "href": "gee/02-Sentinel_NDVI.html#setup",
     "title": "Demo 3: Multispectral NDVI",
     "section": "",
-    "text": "We will work with the same data from Demo 2\nWe can overwrite s2 so we do not have too many variables\n\nvar imageVisParam = {\"opacity\":1,\"bands\":[\"B4\",\"B3\",\"B2\"],\"min\":85.84,\"max\":4206.16,\"gamma\":3.055}\n\nvar s2 = ee.ImageCollection(\"COPERNICUS/S2_SR_HARMONIZED\");\n\ns2 = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\n\nMap.addLayer(s2, imageVisParam);",
+    "text": "Wir werden mit den gleichen Daten von Demo 2 arbeiten\nWir können s2 überschreiben, damit wir nicht zu viele Variablen haben\n\nvar imageVisParam = {\"opacity\":1,\"bands\":[\"B4\",\"B3\",\"B2\"],\"min\":85.84,\"max\":4206.16,\"gamma\":3.055}\n\nvar s2 = ee.ImageCollection(\"COPERNICUS/S2_SR_HARMONIZED\");\n\ns2 = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\n\nMap.addLayer(s2, imageVisParam);",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
-    "objectID": "gee/02-Sentinel_NDVI.html#specify-an-area-of-interest-aoi",
-    "href": "gee/02-Sentinel_NDVI.html#specify-an-area-of-interest-aoi",
+    "objectID": "gee/02-Sentinel_NDVI.html#eine-area-of-interest-aoi-spezifizieren",
+    "href": "gee/02-Sentinel_NDVI.html#eine-area-of-interest-aoi-spezifizieren",
     "title": "Demo 3: Multispectral NDVI",
-    "section": "Specify an area of interest (aoi)",
-    "text": "Specify an area of interest (aoi)\n\nAs we saw in the last demo, we have several images in the collection.\nHowever, we are interested only in a single image of a specific area\nTo select a single image, we need to filter by location.\nTo do this, use the map UI and create a point in Visp, name it “aoi”\n\nNote how the points are immediately added in the code editor\nIf a mistake was made, either delete and redraw, or copy the code, delete the import statement and add it manually\n\n\n// this was created automagically\naoi = ee.Geometry.Point([7.880419288840592, 46.29770703906289]);\n\n// and can be added to the Map like so:\nMap.addLayer(aoi);",
+    "section": "Eine area of interest (aoi) spezifizieren",
+    "text": "Eine area of interest (aoi) spezifizieren\n\nWie wir in der letzten Demo gesehen haben, haben wir mehrere Bilder in der collection.\nWir sind jedoch nur an einem einzelnen Bild eines spezifischen Gebiets interessiert\nUm ein einzelnes Bild auszuwählen, müssen wir nach location filtern.\nDazu verwendet die map UI und erstellt einen Punkt in Visp, nennt ihn “aoi”\n\nBeachtet, wie die Punkte sofort im code editor hinzugefügt werden\nFalls ein Fehler gemacht wurde, entweder löschen und neu zeichnen, oder den Code kopieren, das import statement löschen und manuell hinzufügen\n\n\n// this was created automagically\naoi = ee.Geometry.Point([7.880419288840592, 46.29770703906289]);\n\n// and can be added to the Map like so:\nMap.addLayer(aoi);",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
-    "objectID": "gee/02-Sentinel_NDVI.html#filter-by-the-aoi",
-    "href": "gee/02-Sentinel_NDVI.html#filter-by-the-aoi",
+    "objectID": "gee/02-Sentinel_NDVI.html#nach-der-aoi-filtern",
+    "href": "gee/02-Sentinel_NDVI.html#nach-der-aoi-filtern",
     "title": "Demo 3: Multispectral NDVI",
-    "section": "Filter by the aoi",
-    "text": "Filter by the aoi\n\nusing the search function in Docs, look for various filter functions\nWe will need the function filerBounds()\nApply the filter, but out of intereste check the size of the collection before and after filtering\n\n// the original filter coincidently shows just one image \n// for the filtered Date and AOI. Try changing the dates \n// so that multiple images \n\n//var s2 = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\nvar s2 = s2.filterDate(\"2023-09-01\", \"2023-10-03\");\n\n\nconsole.log(s2.size())\n\ns2 = s2.filterBounds(aoi);\n\nconsole.log(s2.size())\nconsole.log(s2);",
+    "section": "Nach der aoi filtern",
+    "text": "Nach der aoi filtern\n\nverwendet die search Funktion in Docs, sucht nach verschiedenen filter Funktionen\nWir brauchen die Funktion filterBounds()\nWendet den Filter an, aber überprüft aus Interesse die Größe der collection vor und nach dem Filtern\n\n// the original filter coincidently shows just one image \n// for the filtered Date and AOI. Try changing the dates \n// so that multiple images \n\n//var s2 = s2.filterDate(\"2023-10-01\", \"2023-10-03\");\nvar s2 = s2.filterDate(\"2023-09-01\", \"2023-10-03\");\n\n\nconsole.log(s2.size())\n\ns2 = s2.filterBounds(aoi);\n\nconsole.log(s2.size())\nconsole.log(s2);",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
-    "objectID": "gee/02-Sentinel_NDVI.html#inspect-the-output",
-    "href": "gee/02-Sentinel_NDVI.html#inspect-the-output",
+    "objectID": "gee/02-Sentinel_NDVI.html#den-output-inspizieren",
+    "href": "gee/02-Sentinel_NDVI.html#den-output-inspizieren",
     "title": "Demo 3: Multispectral NDVI",
-    "section": "Inspect the output",
-    "text": "Inspect the output\n\nCheck the output of console.log(s2).\nWe wanted a single image, but still have an image collection with multiple values.\nWe might want to choose the best image (we will do so later on)\nbut for now let’s keep it simple and just take the first with the first() method\n\ns2 = s2.first()\n\nprint(s2)",
+    "section": "Den output inspizieren",
+    "text": "Den output inspizieren\n\nÜberprüft den output von console.log(s2).\nWir wollten ein einzelnes Bild, haben aber immer noch eine image collection mit mehreren Werten.\nWir möchten vielleicht das beste Bild wählen (das werden wir später tun)\naber für jetzt halten wir es einfach und nehmen das erste mit der first() method\n\ns2 = s2.first()\n\nprint(s2)",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
-    "objectID": "gee/02-Sentinel_NDVI.html#normalized-difference-function-skip-this-doesnt-work",
-    "href": "gee/02-Sentinel_NDVI.html#normalized-difference-function-skip-this-doesnt-work",
+    "objectID": "gee/02-Sentinel_NDVI.html#normalized-difference-function-überspringen-funktioniert-nicht",
+    "href": "gee/02-Sentinel_NDVI.html#normalized-difference-function-überspringen-funktioniert-nicht",
     "title": "Demo 3: Multispectral NDVI",
-    "section": "Normalized Difference Function (skip this, doesn’t work)",
-    "text": "Normalized Difference Function (skip this, doesn’t work)\n\nAlternatively, you can use the Normalized Difference function\nThe function “normalizedDifference” is a generic function to calculcate normalized difference between two bands\nThis doesn’t seem to work?\n\nvar ndvi = s2.normalizedDifference([\"B8\", \"B4\"]);",
+    "section": "Normalized Difference Function (überspringen, funktioniert nicht)",
+    "text": "Normalized Difference Function (überspringen, funktioniert nicht)\n\nAlternativ könnt ihr die Normalized Difference Funktion verwenden\nDie Funktion “normalizedDifference” ist eine generische Funktion, um normalized difference zwischen zwei bands zu berechnen\nDas scheint nicht zu funktionieren?\n\nvar ndvi = s2.normalizedDifference([\"B8\", \"B4\"]);",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
     ]
   },
   {
-    "objectID": "gee/02-Sentinel_NDVI.html#adjust-range-and-palette",
-    "href": "gee/02-Sentinel_NDVI.html#adjust-range-and-palette",
+    "objectID": "gee/02-Sentinel_NDVI.html#range-und-palette-anpassen",
+    "href": "gee/02-Sentinel_NDVI.html#range-und-palette-anpassen",
     "title": "Demo 3: Multispectral NDVI",
-    "section": "Adjust range and palette",
-    "text": "Adjust range and palette\n\nVia the GUI\n\nAdjust the value range to -1 - 1\nAdd a palettte by adding the colors red, yellow and green. These will automatically be mapped to the specified value rage.\n\nImport the visParams from the GUI to the code editor\n\nimageVisParam2 = {\"opacity\":1,\"bands\":[\"B8\"],\"min\":-1,\"palette\":[\"ff0000\",\"ffff00\",\"008000\"]};\n\nMap.addLayer(ndvi, imageVisParam2);",
+    "section": "Range und palette anpassen",
+    "text": "Range und palette anpassen\n\nÜber die GUI\n\nPasst die value range auf -1 - 1 an\nFügt eine palette hinzu, indem ihr die Farben red, yellow und green hinzufügt. Diese werden automatisch auf die spezifizierte value range gemappt.\n\nImportiert die visParams von der GUI in den code editor\n\nimageVisParam2 = {\"opacity\":1,\"bands\":[\"B8\"],\"min\":-1,\"palette\":[\"ff0000\",\"ffff00\",\"008000\"]};\n\nMap.addLayer(ndvi, imageVisParam2);",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
@@ -275,7 +485,7 @@
     "href": "gee/02-Sentinel_NDVI.html#custom-ndvi-function",
     "title": "Demo 3: Multispectral NDVI",
     "section": "Custom NDVI function",
-    "text": "Custom NDVI function\n\nWe could also create a custom ndvi()-function that takes the bands 8 and 4\nWe can only apply this function to the Sentinel-2 data, where the Band numbers 8 and 4 correspond to NIR and Red.\n\nfunction ndvi_fun(image){\n  var ndvi = image.normalizedDifference([\"B8\", \"B4\"]);\n  return ndvi\n}\n\nvar ndvi = ndvi_fun(filtered)\n\nMap.addLayer(ndvi, {palette: [\"red\", \"yellow\", \"green\"]});",
+    "text": "Custom NDVI function\n\nWir könnten auch eine custom ndvi()-function erstellen, die die bands 8 und 4 nimmt\nWir können diese Funktion nur auf die Sentinel-2 Daten anwenden, wo die Band Nummern 8 und 4 NIR und Red entsprechen.\n\nfunction ndvi_fun(image){\n  var ndvi = image.normalizedDifference([\"B8\", \"B4\"]);\n  return ndvi\n}\n\nvar ndvi = ndvi_fun(filtered)\n\nMap.addLayer(ndvi, {palette: [\"red\", \"yellow\", \"green\"]});",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Demo 3: Multispectral NDVI</span>"
@@ -286,128 +496,128 @@
     "href": "gee/03-Sentinel-NDVI-over-time.html",
     "title": "Demo 4: NDVI over time",
     "section": "",
-    "text": "Prepare\nCalculating NDVI over time",
+    "text": "Vorbereitung\nNDVI über die Zeit berechnen",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#prepare",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#prepare",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#vorbereitung",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#vorbereitung",
     "title": "Demo 4: NDVI over time",
     "section": "",
-    "text": "In this exercise, we will calculate NDVI values over time.\nstarting with the sentinel-2 image from the last example\nRemove everything but the following lines:\n\n// just keep the import statements ↓\nvar imageVisParam = {\"opacity\":1,\"bands\":[\"B4\",\"B3\",\"B2\"],\"min\":85.84,\"max\":4206.16,\"gamma\":3.055};\naoi = ee.Geometry.Point([7.880419288840592, 46.29770703906289]);\n\nimageVisParam2 = {\"opacity\":1,\"bands\":[\"B8\"],\"min\":-1,\"palette\":[\"ff0000\",\"ffff00\",\"008000\"]};\n// just keep the import statements ↑\n\n// move the function statemement up\nfunction ndvi_fun(image){\n  var ndvi = image.normalizedDifference([\"B8\", \"B4\"]);\n  return ndvi\n}\n\n\n// filter the image collection by date and location\nvar s2 = ee.ImageCollection(\"COPERNICUS/S2_SR_HARMONIZED\");\ns2 = s2.filterDate(\"2023-09-01\", \"2023-10-03\");\ns2 = s2.filterBounds(aoi);\ns2 = s2.first()\n\nvar ndvi = ndvi_fun(s2)\n\n\nMap.addLayer(ndvi, imageVisParam2);",
+    "text": "In dieser Übung werden wir NDVI-Werte über die Zeit berechnen.\nBeginnen mit dem Sentinel-2 Bild aus dem letzten Beispiel\nEntfernt alles außer den folgenden Zeilen:\n\n// just keep the import statements ↓\nvar imageVisParam = {\"opacity\":1,\"bands\":[\"B4\",\"B3\",\"B2\"],\"min\":85.84,\"max\":4206.16,\"gamma\":3.055};\naoi = ee.Geometry.Point([7.880419288840592, 46.29770703906289]);\n\nimageVisParam2 = {\"opacity\":1,\"bands\":[\"B8\"],\"min\":-1,\"palette\":[\"ff0000\",\"ffff00\",\"008000\"]};\n// just keep the import statements ↑\n\n// move the function statemement up\nfunction ndvi_fun(image){\n  var ndvi = image.normalizedDifference([\"B8\", \"B4\"]);\n  return ndvi\n}\n\n\n// filter the image collection by date and location\nvar s2 = ee.ImageCollection(\"COPERNICUS/S2_SR_HARMONIZED\");\ns2 = s2.filterDate(\"2023-09-01\", \"2023-10-03\");\ns2 = s2.filterBounds(aoi);\ns2 = s2.first()\n\nvar ndvi = ndvi_fun(s2)\n\n\nMap.addLayer(ndvi, imageVisParam2);",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#replace-point-with-polygon",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#replace-point-with-polygon",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#point-mit-polygon-ersetzen",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#point-mit-polygon-ersetzen",
     "title": "Demo 4: NDVI over time",
-    "section": "Replace Point with Polygon",
-    "text": "Replace Point with Polygon\n\nDelete the aoi-Point and replace it with a Polygon of the same name\nDraw a polygon from about Lalden (North-East) to Zeneggen (South-West)\nRerun the code, the output should be similar",
+    "section": "Point mit Polygon ersetzen",
+    "text": "Point mit Polygon ersetzen\n\nLöscht den aoi-Point und ersetzt ihn mit einem Polygon gleichen Namens\nZeichnet ein Polygon von etwa Lalden (Nord-Ost) bis Zeneggen (Süd-West)\nFührt den Code erneut aus, die Ausgabe sollte ähnlich sein",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#apply-the-function-to-the-whole-image-collection",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#apply-the-function-to-the-whole-image-collection",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#function-auf-die-gesamte-image-collection-anwenden",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#function-auf-die-gesamte-image-collection-anwenden",
     "title": "Demo 4: NDVI over time",
-    "section": "Apply the function to the whole image collection",
-    "text": "Apply the function to the whole image collection\n\nNow, we want to apply our ndvi_fun() to the whole image collection.\nRemove lines\n\ns2 = s2.first()\nvar ndvi = ndvi_fun(s2)\n\nWe can use .map() for this. Add the following line:\n\nvar ndvi = s2.map(ndvi_fun);\n\nprint(ndvi);",
+    "section": "Function auf die gesamte Image Collection anwenden",
+    "text": "Function auf die gesamte Image Collection anwenden\n\nNun wollen wir unsere ndvi_fun() auf die gesamte Image Collection anwenden.\nEntfernt die Zeilen:\n\ns2 = s2.first()\nvar ndvi = ndvi_fun(s2)\n\nWir können .map() dafür verwenden. Fügt die folgende Zeile hinzu:\n\nvar ndvi = s2.map(ndvi_fun);\n\nprint(ndvi);",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#visualize-the-output",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#visualize-the-output",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#output-visualisieren",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#output-visualisieren",
     "title": "Demo 4: NDVI over time",
-    "section": "Visualize the output",
-    "text": "Visualize the output\n\nNow we want to create a chart of the ndvi values over time\nsearch through the docs for chart.\nconsult the docs “ui.Chart.image.series” first\nTry the following\n\nprint(ui.Chart.image.series(ndvi, aoi));",
+    "section": "Output visualisieren",
+    "text": "Output visualisieren\n\nNun wollen wir ein Diagramm der NDVI-Werte über die Zeit erstellen\nSucht in der Dokumentation nach chart\nKonsultiert zuerst die Dokumentation zu “ui.Chart.image.series”\nVersucht das Folgende:\n\nprint(ui.Chart.image.series(ndvi, aoi));",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#debugging-the-chart",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#debugging-the-chart",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#chart-debuggen",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#chart-debuggen",
     "title": "Demo 4: NDVI over time",
-    "section": "Debugging the chart",
-    "text": "Debugging the chart\nThis will throw an error:\n\n\n\n\n\n\nImportantError\n\n\n\nNo features contain non-null values of \"system:time_start\"",
+    "section": "Chart debuggen",
+    "text": "Chart debuggen\nDies wird einen Fehler werfen:\n\n\n\n\n\n\nImportantError\n\n\n\nNo features contain non-null values of \"system:time_start\"",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#compare-the-two-objects",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#compare-the-two-objects",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#die-zwei-objekte-vergleichen",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#die-zwei-objekte-vergleichen",
     "title": "Demo 4: NDVI over time",
-    "section": "Compare the two objects",
-    "text": "Compare the two objects\nCompare the to objects, s2 and ndvi. Much metadata was lost when we mapped the function over the collection.\n\n\n\n\n\n\nNotes2 looks as follows:\n\n\n\n\n\nfeatures: List (218 elements)\n  0:  Image COPERNICUS/S2_SR_HARMONIZED/20230101T102339_20230101T102333_T32TLS (23 bands)\n    type: Image\n    id: COPERNICUS/S2_SR_HARMONIZED/20230101T102339_20230101T102333_T32TLS\n    version: 1696354178264204\n    bands: List (23 elements)\n    properties: Object (101 properties)  # ← lots of metadata\n      AOT_RETRIEVAL_ACCURACY: 0\n      AOT_RETRIEVAL_METHOD: CAMS\n      ....\n      system:time_end: 1672568887220\n      system:time_start: 1672568887220\n\n\n\n\n\n\n\n\n\nNotendvi looks as follows:\n\n\n\n\n\nfeatures: List (218 elements)\n  0: Image (1 band)\n    type: Image\n    bands: List (1 element)\n    properties: Object (1 property)        # ← no metadata\n      system:index: 20230101T102339_20230",
+    "section": "Die zwei Objekte vergleichen",
+    "text": "Die zwei Objekte vergleichen\nVergleicht die beiden Objekte s2 und ndvi. Viele Metadaten gingen verloren, als wir die Function über die Collection mappten.\n\n\n\n\n\n\nNotes2 looks as follows:\n\n\n\n\n\nfeatures: List (218 elements)\n  0:  Image COPERNICUS/S2_SR_HARMONIZED/20230101T102339_20230101T102333_T32TLS (23 bands)\n    type: Image\n    id: COPERNICUS/S2_SR_HARMONIZED/20230101T102339_20230101T102333_T32TLS\n    version: 1696354178264204\n    bands: List (23 elements)\n    properties: Object (101 properties)  # ← lots of metadata\n      AOT_RETRIEVAL_ACCURACY: 0\n      AOT_RETRIEVAL_METHOD: CAMS\n      ....\n      system:time_end: 1672568887220\n      system:time_start: 1672568887220\n\n\n\n\n\n\n\n\n\nNotendvi looks as follows:\n\n\n\n\n\nfeatures: List (218 elements)\n  0: Image (1 band)\n    type: Image\n    bands: List (1 element)\n    properties: Object (1 property)        # ← no metadata\n      system:index: 20230101T102339_20230",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#add-output-as-new-image",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#add-output-as-new-image",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#output-als-neues-image-hinzufügen",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#output-als-neues-image-hinzufügen",
     "title": "Demo 4: NDVI over time",
-    "section": "Add output as new image",
-    "text": "Add output as new image\nInstead of generating a new image, we can simply add the output to the original image collection:\nfunction ndvi_fun(image){\n  var nir = image.select(\"B8\");\n  var red = image.select(\"B4\");\n  var zaehler = nir.subtract(red);\n  var nenner = nir.add(red);\n  var ndvi = zaehler.divide(nenner);\n  return ndvi\n  ndvi = ndvi.rename(\"ndvi\")\n  return image.addBands(ndvi)\n}",
+    "section": "Output als neues Image hinzufügen",
+    "text": "Output als neues Image hinzufügen\nAnstatt ein neues Image zu generieren, können wir einfach das Output zur ursprünglichen Image Collection hinzufügen:\nfunction ndvi_fun(image){\n  var nir = image.select(\"B8\");\n  var red = image.select(\"B4\");\n  var zaehler = nir.subtract(red);\n  var nenner = nir.add(red);\n  var ndvi = zaehler.divide(nenner);\n  return ndvi\n  ndvi = ndvi.rename(\"ndvi\")\n  return image.addBands(ndvi)\n}",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#run-analysis-on-the-entire-year",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#run-analysis-on-the-entire-year",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#analyse-für-das-ganze-jahr-durchführen",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#analyse-für-das-ganze-jahr-durchführen",
     "title": "Demo 4: NDVI over time",
-    "section": "Run analysis on the entire year",
-    "text": "Run analysis on the entire year\n\nNow, extend the date range to the entire year\nNote how the ndvi values change over time, but have irregularities?",
+    "section": "Analyse für das ganze Jahr durchführen",
+    "text": "Analyse für das ganze Jahr durchführen\n\nErweitert nun den Datumsbereich auf das ganze Jahr\nBeachtet, wie sich die NDVI-Werte über die Zeit ändern, aber Unregelmäßigkeiten aufweisen?",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#debugging-the-chart-again",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#debugging-the-chart-again",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#chart-erneut-debuggen",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#chart-erneut-debuggen",
     "title": "Demo 4: NDVI over time",
-    "section": "Debugging the chart again",
-    "text": "Debugging the chart again\n\nDetermine the date of such an image by hovering over the chart\nin my chart, 2023-06-10 is such a date\n\n// filter by that date (these can result more than one image, but no matter)\nvar fil = s2.filterDate(\"2023-06-10\",\"2023-06-11\")\n\n// add the filtered image to the map. Apply the visualization parameters\nMap.addLayer(fil)",
+    "section": "Chart erneut debuggen",
+    "text": "Chart erneut debuggen\n\nBestimmt das Datum eines solchen Images, indem ihr über das Diagramm hovert\nIn meinem Diagramm ist 2023-06-10 ein solches Datum\n\n// filter by that date (these can result more than one image, but no matter)\nvar fil = s2.filterDate(\"2023-06-10\",\"2023-06-11\")\n\n// add the filtered image to the map. Apply the visualization parameters\nMap.addLayer(fil)",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#filtering-by-cloud-cover",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#filtering-by-cloud-cover",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#nach-wolkenbedeckung-filtern",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#nach-wolkenbedeckung-filtern",
     "title": "Demo 4: NDVI over time",
-    "section": "Filtering by cloud cover",
-    "text": "Filtering by cloud cover\nThis shows the issue: clouds!\n\n\nCheck the metadata of the image.\nIn the properties, there is a field CLOUDY_PIXEL_PERCENTAGE.\nin the docs, look for Filters\nee.Filter.metadata(name, operator, value) is depricated, use ee.Filter.lt() instead\n\ns2 = s2.filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20));",
+    "section": "Nach Wolkenbedeckung filtern",
+    "text": "Nach Wolkenbedeckung filtern\nDies zeigt das Problem: Wolken!\n\n\nÜberprüft die Metadaten des Images\nIn den Properties gibt es ein Feld CLOUDY_PIXEL_PERCENTAGE\nSucht in der Dokumentation nach Filters\nee.Filter.metadata(name, operator, value) ist veraltet, verwendet stattdessen ee.Filter.lt()\n\ns2 = s2.filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20));",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
     ]
   },
   {
-    "objectID": "gee/03-Sentinel-NDVI-over-time.html#export-the-data",
-    "href": "gee/03-Sentinel-NDVI-over-time.html#export-the-data",
+    "objectID": "gee/03-Sentinel-NDVI-over-time.html#daten-exportieren",
+    "href": "gee/03-Sentinel-NDVI-over-time.html#daten-exportieren",
     "title": "Demo 4: NDVI over time",
-    "section": "Export the data",
-    "text": "Export the data\nNow you can export the output as csv, svg or png",
+    "section": "Daten exportieren",
+    "text": "Daten exportieren\nNun könnt ihr das Output als csv, svg oder png exportieren",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Demo 4: NDVI over time</span>"
@@ -418,161 +628,161 @@
     "href": "gee/04-Forest-Cover-Change.html",
     "title": "Demo 5: Forest regrowth",
     "section": "",
-    "text": "Preperation\nHow did the forst fire in leuk (2003) affect tree canopy cover",
+    "text": "Vorbereitung\nWie wirkte sich der Waldbrand in Leuk (2003) auf die Baumkronenbedeckung aus?",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#preperation",
-    "href": "gee/04-Forest-Cover-Change.html#preperation",
+    "objectID": "gee/04-Forest-Cover-Change.html#vorbereitung",
+    "href": "gee/04-Forest-Cover-Change.html#vorbereitung",
     "title": "Demo 5: Forest regrowth",
     "section": "",
-    "text": "get dataset “Hansen Global Forest Change v1.9 (2000-2021)”\nprint() it to the console, explore the bands and properties\n\nvar hansen = ee.Image(\"UMD/hansen/global_forest_change_2020_v1_8\")\n\nprint(hansen)",
+    "text": "Ladet den Datensatz “Hansen Global Forest Change v1.9 (2000-2021)”\nGebt ihn mit print() in der Konsole aus, erkundet die Bänder und Properties\n\nvar hansen = ee.Image(\"UMD/hansen/global_forest_change_2020_v1_8\")\n\nprint(hansen)",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#visualize-the-fire-lossyear",
-    "href": "gee/04-Forest-Cover-Change.html#visualize-the-fire-lossyear",
+    "objectID": "gee/04-Forest-Cover-Change.html#waldbrand-visualisieren-lossyear",
+    "href": "gee/04-Forest-Cover-Change.html#waldbrand-visualisieren-lossyear",
     "title": "Demo 5: Forest regrowth",
-    "section": "Visualize the fire (lossyear)",
-    "text": "Visualize the fire (lossyear)\n\nvisualize the forst fire loss year\n\nvar lossyear = hansen.select(\"lossyear\")\nMap.addLayer(lossyear, {}, \"Year of Loss\");",
+    "section": "Waldbrand visualisieren (lossyear)",
+    "text": "Waldbrand visualisieren (lossyear)\n\nVisualisiert das Jahr des Waldverlusts\n\nvar lossyear = hansen.select(\"lossyear\")\nMap.addLayer(lossyear, {}, \"Year of Loss\");",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#highlight-the-fire-in-2003",
-    "href": "gee/04-Forest-Cover-Change.html#highlight-the-fire-in-2003",
+    "objectID": "gee/04-Forest-Cover-Change.html#waldbrand-von-2003-hervorheben",
+    "href": "gee/04-Forest-Cover-Change.html#waldbrand-von-2003-hervorheben",
     "title": "Demo 5: Forest regrowth",
-    "section": "Highlight the fire in 2003",
-    "text": "Highlight the fire in 2003\n\nalbeit the fire was in 2003, the loss year is recorded 2004\nreclassify to 2004 to 1 (all other to nodata) to see the fire in 2004\n\nvar loss2004 = hansen.select(\"lossyear\").remap([4], [1])\nMap.addLayer(loss2004, {}, \"Loss 2004\");",
+    "section": "Waldbrand von 2003 hervorheben",
+    "text": "Waldbrand von 2003 hervorheben\n\nObwohl der Brand 2003 war, ist das Verlustjahr als 2004 erfasst\nReklassifiziert 2004 zu 1 (alle anderen zu nodata), um den Brand von 2004 zu sehen\n\nvar loss2004 = hansen.select(\"lossyear\").remap([4], [1])\nMap.addLayer(loss2004, {}, \"Loss 2004\");",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#determine-the-area-of-interest",
-    "href": "gee/04-Forest-Cover-Change.html#determine-the-area-of-interest",
+    "objectID": "gee/04-Forest-Cover-Change.html#untersuchungsgebiet-bestimmen",
+    "href": "gee/04-Forest-Cover-Change.html#untersuchungsgebiet-bestimmen",
     "title": "Demo 5: Forest regrowth",
-    "section": "Determine the area of interest",
-    "text": "Determine the area of interest\n\ndraw a square or a polygon around the forest fire in Leuk\nrename it to aoi",
+    "section": "Untersuchungsgebiet bestimmen",
+    "text": "Untersuchungsgebiet bestimmen\n\nZeichnet ein Quadrat oder Polygon um den Waldbrand in Leuk\nBenennt es in aoi um",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#get-tree-canopy-cover-over-time",
-    "href": "gee/04-Forest-Cover-Change.html#get-tree-canopy-cover-over-time",
+    "objectID": "gee/04-Forest-Cover-Change.html#baumkronenbedeckung-über-die-zeit",
+    "href": "gee/04-Forest-Cover-Change.html#baumkronenbedeckung-über-die-zeit",
     "title": "Demo 5: Forest regrowth",
-    "section": "Get Tree Canopy Cover over time",
-    "text": "Get Tree Canopy Cover over time\n\nget dataset “Global Forest Cover Change (GFCC) Tree Cover Multi-Year Global 30m”\n\nvar gfcc = ee.ImageCollection(\"NASA/MEASURES/GFCC/TC/v3\")\n\n// printing fails\nprint(gfcc)",
+    "section": "Baumkronenbedeckung über die Zeit",
+    "text": "Baumkronenbedeckung über die Zeit\n\nLadet den Datensatz “Global Forest Cover Change (GFCC) Tree Cover Multi-Year Global 30m”\n\nvar gfcc = ee.ImageCollection(\"NASA/MEASURES/GFCC/TC/v3\")\n\n// printing fails\nprint(gfcc)",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#select-the-band-tree_canopy_cover",
-    "href": "gee/04-Forest-Cover-Change.html#select-the-band-tree_canopy_cover",
+    "objectID": "gee/04-Forest-Cover-Change.html#band-tree_canopy_cover-auswählen",
+    "href": "gee/04-Forest-Cover-Change.html#band-tree_canopy_cover-auswählen",
     "title": "Demo 5: Forest regrowth",
-    "section": "Select the band tree_canopy_cover",
-    "text": "Select the band tree_canopy_cover\n// chaining!\nvar gfcc = ee.ImageCollection(\"NASA/MEASURES/GFCC/TC/v3\")\n  .select(\"tree_canopy_cover\")\n\nprint(gfcc)",
+    "section": "Band tree_canopy_cover auswählen",
+    "text": "Band tree_canopy_cover auswählen\n// chaining!\nvar gfcc = ee.ImageCollection(\"NASA/MEASURES/GFCC/TC/v3\")\n  .select(\"tree_canopy_cover\")\n\nprint(gfcc)",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#filter-by-aoi",
-    "href": "gee/04-Forest-Cover-Change.html#filter-by-aoi",
+    "objectID": "gee/04-Forest-Cover-Change.html#nach-aoi-filtern",
+    "href": "gee/04-Forest-Cover-Change.html#nach-aoi-filtern",
     "title": "Demo 5: Forest regrowth",
-    "section": "Filter by aoi",
-    "text": "Filter by aoi\n// chaining!\nvar gfcc = ee.ImageCollection(\"NASA/MEASURES/GFCC/TC/v3\")\n  .select(\"tree_canopy_cover\")\n  .filterBounds(aoi)\n\nprint(gfcc.size())\nprint(gfcc)",
+    "section": "Nach aoi filtern",
+    "text": "Nach aoi filtern\n// chaining!\nvar gfcc = ee.ImageCollection(\"NASA/MEASURES/GFCC/TC/v3\")\n  .select(\"tree_canopy_cover\")\n  .filterBounds(aoi)\n\nprint(gfcc.size())\nprint(gfcc)",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#get-the-date-of-the-first-and-last-dataset",
-    "href": "gee/04-Forest-Cover-Change.html#get-the-date-of-the-first-and-last-dataset",
+    "objectID": "gee/04-Forest-Cover-Change.html#datum-des-ersten-und-letzten-datensatzes-ermitteln",
+    "href": "gee/04-Forest-Cover-Change.html#datum-des-ersten-und-letzten-datensatzes-ermitteln",
     "title": "Demo 5: Forest regrowth",
-    "section": "Get the date of the first and last dataset",
-    "text": "Get the date of the first and last dataset\n\nwrite this down from inside out\n\nvar first_date = ee.Date(gfcc.first().get(\"system:time_start\"))\nvar last_date = ee.Date(gfcc.sort(\"system:time_start\", false).first().get(\"system:time_start\"))\n\nprint(\"from\", first_date, \"to\", last_date)",
+    "section": "Datum des ersten und letzten Datensatzes ermitteln",
+    "text": "Datum des ersten und letzten Datensatzes ermitteln\n\nSchreibt dies von innen nach außen\n\nvar first_date = ee.Date(gfcc.first().get(\"system:time_start\"))\nvar last_date = ee.Date(gfcc.sort(\"system:time_start\", false).first().get(\"system:time_start\"))\n\nprint(\"from\", first_date, \"to\", last_date)",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#compare-the-values-for-2000-and-2015",
-    "href": "gee/04-Forest-Cover-Change.html#compare-the-values-for-2000-and-2015",
+    "objectID": "gee/04-Forest-Cover-Change.html#werte-für-2000-und-2015-vergleichen",
+    "href": "gee/04-Forest-Cover-Change.html#werte-für-2000-und-2015-vergleichen",
     "title": "Demo 5: Forest regrowth",
-    "section": "Compare the values for 2000 and 2015",
-    "text": "Compare the values for 2000 and 2015\n\nwe can’t use .first() with sort() here, because the very first image does not seem to really intersect with the AOI\n\nvar treeCanopy2000 = ee.Image(treeCanopyCover.filterDate('2000-01-01', '2000-01-02').min());\nMap.addLayer(treeCanopy2000);",
+    "section": "Werte für 2000 und 2015 vergleichen",
+    "text": "Werte für 2000 und 2015 vergleichen\n\nWir können hier nicht .first() mit sort() verwenden, da das allererste Bild nicht wirklich mit der AOI zu schneiden scheint\n\nvar treeCanopy2000 = ee.Image(treeCanopyCover.filterDate('2000-01-01', '2000-01-02').min());\nMap.addLayer(treeCanopy2000);",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#draw-aoi-outine",
-    "href": "gee/04-Forest-Cover-Change.html#draw-aoi-outine",
+    "objectID": "gee/04-Forest-Cover-Change.html#aoi-umriss-zeichnen",
+    "href": "gee/04-Forest-Cover-Change.html#aoi-umriss-zeichnen",
     "title": "Demo 5: Forest regrowth",
-    "section": "Draw aoi outine",
-    "text": "Draw aoi outine\n\nLook for fillcolor in the docs\nnotice that these can only be applied to FeatureCollections\nread up on ee.FeatureCollection\nnotice that you can create a FeatureCollection from a Geometry\ndo this, and then style the aoi_fc using fillColor: \"00000000\"\n\nvar aoi_fc = ee.FeatureCollection(aoi)\nMap.addLayer(aoi_fc, {fillColor: \"00000000\"}, \"aoi\");",
+    "section": "aoi Umriss zeichnen",
+    "text": "aoi Umriss zeichnen\n\nSucht nach fillcolor in der Dokumentation\nBeachtet, dass diese nur auf FeatureCollections angewendet werden können\nLest über ee.FeatureCollection nach\nBeachtet, dass ihr eine FeatureCollection aus einer Geometry erstellen könnt\nMacht dies und stylt dann die aoi_fc mit fillColor: \"00000000\"\n\nvar aoi_fc = ee.FeatureCollection(aoi)\nMap.addLayer(aoi_fc, {fillColor: \"00000000\"}, \"aoi\");",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#work-on-map",
-    "href": "gee/04-Forest-Cover-Change.html#work-on-map",
+    "objectID": "gee/04-Forest-Cover-Change.html#an-der-karte-arbeiten",
+    "href": "gee/04-Forest-Cover-Change.html#an-der-karte-arbeiten",
     "title": "Demo 5: Forest regrowth",
-    "section": "Work on Map",
-    "text": "Work on Map\n\nAdd color ramp (e.g. gray to green), transparency and strech the values 0 - 100\nMaybe highlight https://colorbrewer2.org\n\nMap.addLayer(treeCanopy2000, imageVisParam, \"2000\");",
+    "section": "An der Karte arbeiten",
+    "text": "An der Karte arbeiten\n\nFügt eine Farbpalette hinzu (z.B. grau zu grün), Transparenz und streckt die Werte 0 - 100\nVielleicht https://colorbrewer2.org hervorheben\n\nMap.addLayer(treeCanopy2000, imageVisParam, \"2000\");",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#repeat-for-2015",
-    "href": "gee/04-Forest-Cover-Change.html#repeat-for-2015",
+    "objectID": "gee/04-Forest-Cover-Change.html#für-2015-wiederholen",
+    "href": "gee/04-Forest-Cover-Change.html#für-2015-wiederholen",
     "title": "Demo 5: Forest regrowth",
-    "section": "Repeat for 2015",
-    "text": "Repeat for 2015\nvar treeCanopy2015 = ee.Image(treeCanopyCover.filterDate('2015-01-01', '2015-01-02').min());\nMap.addLayer(treeCanopy2015, imageVisParam, \"2015\");",
+    "section": "Für 2015 wiederholen",
+    "text": "Für 2015 wiederholen\nvar treeCanopy2015 = ee.Image(treeCanopyCover.filterDate('2015-01-01', '2015-01-02').min());\nMap.addLayer(treeCanopy2015, imageVisParam, \"2015\");",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#create-a-chart",
-    "href": "gee/04-Forest-Cover-Change.html#create-a-chart",
+    "objectID": "gee/04-Forest-Cover-Change.html#diagramm-erstellen",
+    "href": "gee/04-Forest-Cover-Change.html#diagramm-erstellen",
     "title": "Demo 5: Forest regrowth",
-    "section": "Create a chart",
-    "text": "Create a chart\n\nComparing 2000 and 2015 already shows, that the tree canopy cover has not really increased\nLets determine the tree canopy cover over time by creating a chart\n\nprint(ui.Chart.image.series(gfcc, aoi));",
+    "section": "Diagramm erstellen",
+    "text": "Diagramm erstellen\n\nDer Vergleich zwischen 2000 und 2015 zeigt bereits, dass die Baumkronenbedeckung nicht wirklich zugenommen hat\nBestimmt die Baumkronenbedeckung über die Zeit, indem ihr ein Diagramm erstellt\n\nprint(ui.Chart.image.series(gfcc, aoi));",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"
     ]
   },
   {
-    "objectID": "gee/04-Forest-Cover-Change.html#full-example",
-    "href": "gee/04-Forest-Cover-Change.html#full-example",
+    "objectID": "gee/04-Forest-Cover-Change.html#vollständiges-beispiel",
+    "href": "gee/04-Forest-Cover-Change.html#vollständiges-beispiel",
     "title": "Demo 5: Forest regrowth",
-    "section": "Full Example",
-    "text": "Full Example\n\nvar aoi = \n    /* color: #98ff00 */\n    /* shown: false */\n    ee.Geometry.Polygon(\n        [[[7.643917258942992, 46.31961919138104],\n          [7.644603904450804, 46.32199024646279],\n          [7.64769380923596, 46.324598288374254],\n          [7.65318697329846, 46.3260208042863],\n          [7.657306846345335, 46.3281545087973],\n          [7.65868013736096, 46.33171049803083],\n          [7.660740073884398, 46.33550329839251],\n          [7.664516624177367, 46.338347726044226],\n          [7.663829978669554, 46.341192005737106],\n          [7.659710105622679, 46.341192005737106],\n          [7.64769380923596, 46.33692553071325],\n          [7.64220064517346, 46.33123637949057],\n          [7.640827354157835, 46.32625788667534],\n          [7.635677512849242, 46.327206205956394],\n          [7.63396089907971, 46.32388701654679],\n          [7.638080772126585, 46.31985630151306]]]);\n\n\nvar hansen = ee.Image(\"UMD/hansen/global_forest_change_2020_v1_8\")\n\nvar imageVisParam = {\"opacity\":0.5,\"bands\":[\"tree_canopy_cover\"],\"min\":0,\"max\":100,\"palette\":['#f7fcf5','#e5f5e0','#c7e9c0','#a1d99b','#74c476','#41ab5d','#238b45','#006d2c','#00441b']}\n\nvar loss2004 = hansen.select(\"lossyear\").remap([4], [1]);\nvar gfcc = ee.ImageCollection(\"NASA/MEASURES/GFCC/TC/v3\")\n  .filterBounds(aoi)\n  .select(\"tree_canopy_cover\")\n\nvar first_date = ee.Date(gfcc.first().get(\"system:time_start\"))\nvar last_date = ee.Date(gfcc.sort(\"system:time_start\", false).first().get(\"system:time_start\"))\n\nprint(\"from\", first_date, \"to\", last_date, \"total\", gfcc.size())\n\n\nvar treeCanopy2000 = gfcc.filterDate('2000-01-01', '2000-01-02').mean()\nvar treeCanopy2015 = gfcc.filterDate('2015-01-01', '2015-01-02').mean()\n\n\nprint(treeCanopy2000)\n\n\nvar aoi_fc = ee.FeatureCollection(aoi)\n\nMap.addLayer(treeCanopy2000, imageVisParam, \"2000\");\nMap.addLayer(treeCanopy2015, imageVisParam, \"2015\");\n\nprint(ui.Chart.image.series(gfcc, aoi));\n\n\nMap.addLayer(aoi_fc.style({fillColor: \"00000000\"}));",
+    "section": "Vollständiges Beispiel",
+    "text": "Vollständiges Beispiel\n\nvar aoi = \n    /* color: #98ff00 */\n    /* shown: false */\n    ee.Geometry.Polygon(\n        [[[7.643917258942992, 46.31961919138104],\n          [7.644603904450804, 46.32199024646279],\n          [7.64769380923596, 46.324598288374254],\n          [7.65318697329846, 46.3260208042863],\n          [7.657306846345335, 46.3281545087973],\n          [7.65868013736096, 46.33171049803083],\n          [7.660740073884398, 46.33550329839251],\n          [7.664516624177367, 46.338347726044226],\n          [7.663829978669554, 46.341192005737106],\n          [7.659710105622679, 46.341192005737106],\n          [7.64769380923596, 46.33692553071325],\n          [7.64220064517346, 46.33123637949057],\n          [7.640827354157835, 46.32625788667534],\n          [7.635677512849242, 46.327206205956394],\n          [7.63396089907971, 46.32388701654679],\n          [7.638080772126585, 46.31985630151306]]]);\n\n\nvar hansen = ee.Image(\"UMD/hansen/global_forest_change_2020_v1_8\")\n\nvar imageVisParam = {\"opacity\":0.5,\"bands\":[\"tree_canopy_cover\"],\"min\":0,\"max\":100,\"palette\":['#f7fcf5','#e5f5e0','#c7e9c0','#a1d99b','#74c476','#41ab5d','#238b45','#006d2c','#00441b']}\n\nvar loss2004 = hansen.select(\"lossyear\").remap([4], [1]);\nvar gfcc = ee.ImageCollection(\"NASA/MEASURES/GFCC/TC/v3\")\n  .filterBounds(aoi)\n  .select(\"tree_canopy_cover\")\n\nvar first_date = ee.Date(gfcc.first().get(\"system:time_start\"))\nvar last_date = ee.Date(gfcc.sort(\"system:time_start\", false).first().get(\"system:time_start\"))\n\nprint(\"from\", first_date, \"to\", last_date, \"total\", gfcc.size())\n\n\nvar treeCanopy2000 = gfcc.filterDate('2000-01-01', '2000-01-02').mean()\nvar treeCanopy2015 = gfcc.filterDate('2015-01-01', '2015-01-02').mean()\n\n\nprint(treeCanopy2000)\n\n\nvar aoi_fc = ee.FeatureCollection(aoi)\n\nMap.addLayer(treeCanopy2000, imageVisParam, \"2000\");\nMap.addLayer(treeCanopy2015, imageVisParam, \"2015\");\n\nprint(ui.Chart.image.series(gfcc, aoi));\n\n\nMap.addLayer(aoi_fc.style({fillColor: \"00000000\"}));",
     "crumbs": [
       "GEE",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Demo 5: Forest regrowth</span>"

@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Einführung</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../js/03-basic-html-script-task.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Task: Basic-html</span></a>
+  <a href="../js/03-basic-html-script-task.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aufgabe: Basic-html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../gee/00-Preperation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preperation</span></a>
+  <a href="../gee/00-Preperation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -254,15 +254,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link active" data-scroll-target="#aufgabenstellung">Aufgabenstellung</a></li>
+  <li><a href="#lösung" id="toc-lösung" class="nav-link" data-scroll-target="#lösung">Lösung:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../gee/00-Preperation.html">GEE</a></li><li class="breadcrumb-item"><a href="../gee/01-Task_Suitable_Locations.html"><span class="chapter-title">Task 1: Identifying Suitable Areas for Renewable Energy Installation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Task 1: Identifying Suitable Areas for Renewable Energy Installation</span></h1>
+<h1 class="title"><span id="sec-gee-task-suitable" class="quarto-section-identifier"><span class="chapter-title">Task 1: Identifying Suitable Areas for Renewable Energy Installation</span></span></h1>
 </div>
 
 
@@ -279,7 +286,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Solution:</p>
+<p><em>Identifikation geeigneter Gebiete für Erneuerbare Energie Anlagen</em></p>
+<section id="aufgabenstellung" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabenstellung">Aufgabenstellung</h2>
+<p>Identifiziert geeignete Standorte für die Installation von erneuerbaren Energieanlagen basierend auf folgenden Kriterien:</p>
+<ul>
+<li>Elevation: 500-1000m über Meereshöhe</li>
+<li>Slope: 3-6 Grad</li>
+<li>Aspect (Exposition): 135-225° (Süd-exponiert)</li>
+</ul>
+</section>
+<section id="lösung" class="level2">
+<h2 class="anchored" data-anchor-id="lösung">Lösung:</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> srtm <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">"CGIAR/SRTM90_V4"</span>)<span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -293,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> slope_good <span class="op">=</span> slope<span class="op">.</span><span class="fu">gt</span>(<span class="dv">3</span>)<span class="op">.</span><span class="fu">and</span>(slope<span class="op">.</span><span class="fu">lt</span>(<span class="dv">6</span>))<span class="op">;</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> aspect_good <span class="op">=</span> aspect<span class="op">.</span><span class="fu">gte</span>(<span class="dv">135</span>)<span class="op">.</span><span class="fu">and</span>(aspect<span class="op">.</span><span class="fu">lte</span>(<span class="dv">225</span>))<span class="op">;</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">// good aspect (exposition): 135-225°</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">// Gute Exposition: 135-225° (südexponiert)</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> all_good <span class="op">=</span> elevation_good<span class="op">.</span><span class="fu">and</span>(slope_good)<span class="op">.</span><span class="fu">and</span>(aspect_good)</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
@@ -305,6 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Einführung</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../js/03-basic-html-script-task.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Task: Basic-html</span></a>
+  <a href="../js/03-basic-html-script-task.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aufgabe: Basic-html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../gee/00-Preperation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preperation</span></a>
+  <a href="../gee/00-Preperation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -260,11 +260,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#specify-an-area-of-interest-aoi" id="toc-specify-an-area-of-interest-aoi" class="nav-link" data-scroll-target="#specify-an-area-of-interest-aoi">Specify an area of interest (<code>aoi</code>)</a></li>
-  <li><a href="#filter-by-the-aoi" id="toc-filter-by-the-aoi" class="nav-link" data-scroll-target="#filter-by-the-aoi">Filter by the <code>aoi</code></a></li>
-  <li><a href="#inspect-the-output" id="toc-inspect-the-output" class="nav-link" data-scroll-target="#inspect-the-output">Inspect the output</a></li>
-  <li><a href="#normalized-difference-function-skip-this-doesnt-work" id="toc-normalized-difference-function-skip-this-doesnt-work" class="nav-link" data-scroll-target="#normalized-difference-function-skip-this-doesnt-work">Normalized Difference Function (skip this, doesn’t work)</a></li>
-  <li><a href="#adjust-range-and-palette" id="toc-adjust-range-and-palette" class="nav-link" data-scroll-target="#adjust-range-and-palette">Adjust range and palette</a></li>
+  <li><a href="#eine-area-of-interest-aoi-spezifizieren" id="toc-eine-area-of-interest-aoi-spezifizieren" class="nav-link" data-scroll-target="#eine-area-of-interest-aoi-spezifizieren">Eine area of interest (<code>aoi</code>) spezifizieren</a></li>
+  <li><a href="#nach-der-aoi-filtern" id="toc-nach-der-aoi-filtern" class="nav-link" data-scroll-target="#nach-der-aoi-filtern">Nach der <code>aoi</code> filtern</a></li>
+  <li><a href="#den-output-inspizieren" id="toc-den-output-inspizieren" class="nav-link" data-scroll-target="#den-output-inspizieren">Den output inspizieren</a></li>
+  <li><a href="#normalized-difference-function-überspringen-funktioniert-nicht" id="toc-normalized-difference-function-überspringen-funktioniert-nicht" class="nav-link" data-scroll-target="#normalized-difference-function-überspringen-funktioniert-nicht">Normalized Difference Function (überspringen, funktioniert nicht)</a></li>
+  <li><a href="#range-und-palette-anpassen" id="toc-range-und-palette-anpassen" class="nav-link" data-scroll-target="#range-und-palette-anpassen">Range und palette anpassen</a></li>
   <li><a href="#custom-ndvi-function" id="toc-custom-ndvi-function" class="nav-link" data-scroll-target="#custom-ndvi-function">Custom NDVI function</a></li>
   </ul>
 </nav>
@@ -291,19 +291,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><em>Calculating NDVI for a single image</em></p>
+<p><em>NDVI für ein einzelnes Bild berechnen</em></p>
 <ul>
-<li>In this exercise, we will do some quantitative analysis on the data, rather than “just” visualizing it qualitatively.</li>
-<li>We will calculate the <a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">Normalized Difference Vegetation Index</a> (NDVI)</li>
+<li>In dieser Übung werden wir eine quantitative Analyse der Daten durchführen, anstatt sie “nur” qualitativ zu visualisieren.</li>
+<li>Wir werden den <a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">Normalized Difference Vegetation Index</a> (NDVI) berechnen</li>
 </ul>
-<p><strong>Use Case: Assessing Agricultural Crop Health Using NDVI</strong></p>
-<p>In this lesson, we will calculate and analyze NDVI (Normalized Difference Vegetation Index) to monitor the health of crops across a farmland area. NDVI provides a way to assess plant vitality by measuring how much near-infrared light (reflected by healthy plants) differs from red light (absorbed by plants). By identifying areas with low NDVI values, we can detect early signs of crop stress caused by insufficient water, nutrient deficiencies, or disease.</p>
-<p>This analysis has direct financial implications: early detection of stressed crops allows farmers to take timely corrective actions, such as adjusting irrigation or applying fertilizers, potentially avoiding major losses. Improved crop health leads to higher yields, reducing waste and increasing profitability. Additionally, precision farming strategies informed by NDVI can help optimize resource use, lowering costs related to water, fertilizers, and pesticides while increasing overall farm efficiency.</p>
+<p><strong>Use Case: Bewertung der landwirtschaftlichen Pflanzengesundheit mit NDVI</strong></p>
+<p>In dieser Lektion werden wir NDVI (Normalized Difference Vegetation Index) berechnen und analysieren, um die Gesundheit von crops über ein farmland Gebiet zu überwachen. NDVI bietet einen Weg, plant vitality zu bewerten, indem gemessen wird, wie sehr sich near-infrared light (reflektiert von gesunden plants) von red light (absorbiert von plants) unterscheidet. Durch die Identifizierung von Gebieten mit niedrigen NDVI-Werten können wir frühe Anzeichen von crop stress erkennen, verursacht durch insufficient water, nutrient deficiencies oder disease.</p>
+<p>Diese Analyse hat direkte finanzielle Auswirkungen: frühe Erkennung von gestressten crops ermöglicht es farmers, rechtzeitig korrigierende Maßnahmen zu ergreifen, wie adjusting irrigation oder applying fertilizers, wodurch möglicherweise größere Verluste vermieden werden. Verbesserte crop health führt zu höheren yields, reduziert waste und erhöht profitability. Zusätzlich können precision farming Strategien, die durch NDVI informiert werden, helfen, resource use zu optimieren, Kosten im Zusammenhang mit water, fertilizers und pesticides zu senken und gleichzeitig die overall farm efficiency zu steigern.</p>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <ul>
-<li>We will work with the same data from Demo 2</li>
-<li>We can overwrite <code>s2</code> so we do not have too many variables</li>
+<li>Wir werden mit den gleichen Daten von Demo 2 arbeiten</li>
+<li>Wir können <code>s2</code> überschreiben, damit wir nicht zu viele Variablen haben</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> imageVisParam <span class="op">=</span> {<span class="st">"opacity"</span><span class="op">:</span><span class="dv">1</span><span class="op">,</span><span class="st">"bands"</span><span class="op">:</span>[<span class="st">"B4"</span><span class="op">,</span><span class="st">"B3"</span><span class="op">,</span><span class="st">"B2"</span>]<span class="op">,</span><span class="st">"min"</span><span class="op">:</span><span class="fl">85.84</span><span class="op">,</span><span class="st">"max"</span><span class="op">:</span><span class="fl">4206.16</span><span class="op">,</span><span class="st">"gamma"</span><span class="op">:</span><span class="fl">3.055</span>}</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -313,16 +313,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(s2<span class="op">,</span> imageVisParam)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="specify-an-area-of-interest-aoi" class="level2">
-<h2 class="anchored" data-anchor-id="specify-an-area-of-interest-aoi">Specify an area of interest (<code>aoi</code>)</h2>
+<section id="eine-area-of-interest-aoi-spezifizieren" class="level2">
+<h2 class="anchored" data-anchor-id="eine-area-of-interest-aoi-spezifizieren">Eine area of interest (<code>aoi</code>) spezifizieren</h2>
 <ul>
-<li>As we saw in the last demo, we have several images in the collection.</li>
-<li>However, we are interested only in a single image of a specific area</li>
-<li>To select a single image, we need to filter by location.</li>
-<li>To do this, use the map UI and create a point in Visp, name it “aoi”
+<li>Wie wir in der letzten Demo gesehen haben, haben wir mehrere Bilder in der collection.</li>
+<li>Wir sind jedoch nur an einem einzelnen Bild eines spezifischen Gebiets interessiert</li>
+<li>Um ein einzelnes Bild auszuwählen, müssen wir nach location filtern.</li>
+<li>Dazu verwendet die map UI und erstellt einen Punkt in Visp, nennt ihn “aoi”
 <ul>
-<li>Note how the points are immediately added in the code editor</li>
-<li>If a mistake was made, either delete and redraw, or copy the code, delete the import statement and add it manually</li>
+<li>Beachtet, wie die Punkte sofort im code editor hinzugefügt werden</li>
+<li>Falls ein Fehler gemacht wurde, entweder löschen und neu zeichnen, oder den Code kopieren, das import statement löschen und manuell hinzufügen</li>
 </ul></li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// this was created automagically</span></span>
@@ -331,12 +331,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">// and can be added to the Map like so:</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(aoi)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="filter-by-the-aoi" class="level2">
-<h2 class="anchored" data-anchor-id="filter-by-the-aoi">Filter by the <code>aoi</code></h2>
+<section id="nach-der-aoi-filtern" class="level2">
+<h2 class="anchored" data-anchor-id="nach-der-aoi-filtern">Nach der <code>aoi</code> filtern</h2>
 <ul>
-<li>using the search function in Docs, look for various filter functions</li>
-<li>We will need the function <code>filerBounds()</code></li>
-<li>Apply the filter, but out of intereste check the size of the collection before and after filtering</li>
+<li>verwendet die search Funktion in Docs, sucht nach verschiedenen filter Funktionen</li>
+<li>Wir brauchen die Funktion <code>filterBounds()</code></li>
+<li>Wendet den Filter an, aber überprüft aus Interesse die Größe der collection vor und nach dem Filtern</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// the original filter coincidently shows just one image </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// for the filtered Date and AOI. Try changing the dates </span></span>
@@ -353,36 +353,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(s2<span class="op">.</span><span class="fu">size</span>())</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(s2)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="inspect-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="inspect-the-output">Inspect the output</h2>
+<section id="den-output-inspizieren" class="level2">
+<h2 class="anchored" data-anchor-id="den-output-inspizieren">Den output inspizieren</h2>
 <ul>
-<li>Check the output of <code>console.log(s2)</code>.</li>
-<li>We wanted a single image, but still have an image collection with multiple values.</li>
-<li>We might want to choose <em>the best</em> image (we will do so later on)</li>
-<li>but for now let’s keep it simple and just take the first with the <code>first()</code> method</li>
+<li>Überprüft den output von <code>console.log(s2)</code>.</li>
+<li>Wir wollten ein einzelnes Bild, haben aber immer noch eine image collection mit mehreren Werten.</li>
+<li>Wir möchten vielleicht <em>das beste</em> Bild wählen (das werden wir später tun)</li>
+<li>aber für jetzt halten wir es einfach und nehmen das erste mit der <code>first()</code> method</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> s2<span class="op">.</span><span class="fu">first</span>()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(s2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="normalized-difference-function-skip-this-doesnt-work" class="level2">
-<h2 class="anchored" data-anchor-id="normalized-difference-function-skip-this-doesnt-work">Normalized Difference Function (skip this, doesn’t work)</h2>
+<section id="normalized-difference-function-überspringen-funktioniert-nicht" class="level2">
+<h2 class="anchored" data-anchor-id="normalized-difference-function-überspringen-funktioniert-nicht">Normalized Difference Function (überspringen, funktioniert nicht)</h2>
 <ul>
-<li>Alternatively, you can use the <em>Normalized Difference</em> function</li>
-<li>The function “normalizedDifference” is a generic function to calculcate normalized difference between two bands</li>
-<li>This doesn’t seem to work?</li>
+<li>Alternativ könnt ihr die <em>Normalized Difference</em> Funktion verwenden</li>
+<li>Die Funktion “normalizedDifference” ist eine generische Funktion, um normalized difference zwischen zwei bands zu berechnen</li>
+<li>Das scheint nicht zu funktionieren?</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndvi <span class="op">=</span> s2<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">"B8"</span><span class="op">,</span> <span class="st">"B4"</span>])<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="adjust-range-and-palette" class="level2">
-<h2 class="anchored" data-anchor-id="adjust-range-and-palette">Adjust range and palette</h2>
+<section id="range-und-palette-anpassen" class="level2">
+<h2 class="anchored" data-anchor-id="range-und-palette-anpassen">Range und palette anpassen</h2>
 <ul>
-<li>Via the GUI
+<li>Über die GUI
 <ul>
-<li>Adjust the value range to <code>-1</code> - <code>1</code></li>
-<li>Add a palettte by adding the colors red, yellow and green. These will automatically be mapped to the specified value rage.</li>
+<li>Passt die value range auf <code>-1</code> - <code>1</code> an</li>
+<li>Fügt eine palette hinzu, indem ihr die Farben red, yellow und green hinzufügt. Diese werden automatisch auf die spezifizierte value range gemappt.</li>
 </ul></li>
-<li>Import the visParams from the GUI to the code editor</li>
+<li>Importiert die visParams von der GUI in den code editor</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>imageVisParam2 <span class="op">=</span> {<span class="st">"opacity"</span><span class="op">:</span><span class="dv">1</span><span class="op">,</span><span class="st">"bands"</span><span class="op">:</span>[<span class="st">"B8"</span>]<span class="op">,</span><span class="st">"min"</span><span class="op">:-</span><span class="dv">1</span><span class="op">,</span><span class="st">"palette"</span><span class="op">:</span>[<span class="st">"ff0000"</span><span class="op">,</span><span class="st">"ffff00"</span><span class="op">,</span><span class="st">"008000"</span>]}<span class="op">;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -391,8 +391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="custom-ndvi-function" class="level2">
 <h2 class="anchored" data-anchor-id="custom-ndvi-function">Custom NDVI function</h2>
 <ul>
-<li>We could also create a custom <code>ndvi()</code>-function that takes the bands 8 and 4</li>
-<li>We can only apply this function to the Sentinel-2 data, where the Band numbers 8 and 4 correspond to NIR and Red.</li>
+<li>Wir könnten auch eine custom <code>ndvi()</code>-function erstellen, die die bands 8 und 4 nimmt</li>
+<li>Wir können diese Funktion nur auf die Sentinel-2 Daten anwenden, wo die Band Nummern 8 und 4 NIR und Red entsprechen.</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ndvi_fun</span>(image){</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> ndvi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">"B8"</span><span class="op">,</span> <span class="st">"B4"</span>])<span class="op">;</span></span>

@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Einführung</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../js/03-basic-html-script-task.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Task: Basic-html</span></a>
+  <a href="../js/03-basic-html-script-task.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aufgabe: Basic-html</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../gee/00-Preperation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preperation</span></a>
+  <a href="../gee/00-Preperation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -279,59 +279,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><em>Exploring Multispectral Data</em></p>
+<p><em>Multispektrale Daten erkunden</em></p>
 <ul>
-<li>In this exercise, we will explore a more complex, multispectral dataset.</li>
-<li>This adds complexity since there are not only multiple bands, but there also is a temporal dimension and issues with cloud cover etc</li>
-<li>We will create a “true color image”, meaning that we will take the Red, Green and Blue band and map the values to RGB.</li>
-<li>We will also create a “false color image”, meaning taht we will take other bands and map these to RGB</li>
+<li>In dieser Übung werden wir einen komplexeren, multispektralen Datensatz erkunden.</li>
+<li>Dies fügt Komplexität hinzu, da es nicht nur mehrere bands gibt, sondern auch eine zeitliche Dimension und Probleme mit cloud cover etc</li>
+<li>Wir werden ein “true color image” erstellen, das bedeutet, wir nehmen die Red, Green und Blue band und mappen die Werte auf RGB.</li>
+<li>Wir werden auch ein “false color image” erstellen, das bedeutet, wir nehmen andere bands und mappen diese auf RGB</li>
 </ul>
-<p>Lets get started!</p>
+<p>Lasst uns anfangen!</p>
 <ul>
-<li>Look for Sentinel-2 Data, browse the collections</li>
-<li>Add the dataset <em>Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</em></li>
+<li>Sucht nach Sentinel-2 Data, durchstöbert die collections</li>
+<li>Fügt den Datensatz <em>Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</em> hinzu</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> s2 <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">"COPERNICUS/S2_SR_HARMONIZED"</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>Even the first step shows us, that this is a more complex dataset.</li>
-<li>Printing the collection fails:</li>
+<li>Schon der erste Schritt zeigt uns, dass dies ein komplexerer Datensatz ist.</li>
+<li>Das Ausgeben der collection schlägt fehl:</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(s2)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>in the docs, look for ways to filter the dataset, e.g.&nbsp;by date</li>
-<li>use the function <code>filterDate()</code> which can be found under <code>ee.ImageCollection</code></li>
-<li>Apply the filter:
+<li>in den docs, sucht nach Wegen, den Datensatz zu filtern, z.B. nach Datum</li>
+<li>verwendet die Funktion <code>filterDate()</code>, die unter <code>ee.ImageCollection</code> zu finden ist</li>
+<li>Wendet den Filter an:
 <ul>
-<li>Play around with some recent dates (2 - 3 days)</li>
-<li>Zoom out</li>
-<li>and add the result to the map.</li>
-<li>This nicely shows the path of the Sentiel-2 satellite</li>
+<li>Spielt mit einigen aktuellen Daten herum (2 - 3 Tage)</li>
+<li>Zoomt heraus</li>
+<li>und fügt das Ergebnis zur Karte hinzu.</li>
+<li>Dies zeigt schön den Pfad des Sentinel-2 Satelliten</li>
 </ul></li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> filtered <span class="op">=</span> s2<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">"2023-10-01"</span><span class="op">,</span> <span class="st">"2023-10-03"</span>)<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(filtered)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>Printing to the console is still not possible.</li>
-<li>How many images are in the collection?</li>
+<li>Das Ausgeben auf die console ist immer noch nicht möglich.</li>
+<li>Wie viele Bilder sind in der collection?</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(filtered<span class="op">.</span><span class="fu">size</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li><p>Zoom back to a region of interest, e.g.&nbsp;Visp</p></li>
-<li><p>The image does not look good</p></li>
-<li><p>Check the Docs for <code>ee.ImageCollection</code> and as before, it references <code>ee.data.getMapId()</code>. There, note the following line:</p>
+<li><p>Zoomt zurück zu einer region of interest, z.B. Visp</p></li>
+<li><p>Das Bild sieht nicht gut aus</p></li>
+<li><p>Überprüft die Docs für <code>ee.ImageCollection</code> und wie zuvor referenziert es <code>ee.data.getMapId()</code>. Dort, beachtet die folgende Zeile:</p>
 <blockquote class="blockquote">
 <p>bands (comma-separated strings) Comma-delimited list of band names to be mapped to RGB.</p>
 </blockquote></li>
-<li><p>Read the Metadata of the dataset, check the Tab “Bands”. Note the Band names and their description: RGB is “B4, B3, B2”.</p></li>
+<li><p>Liest die Metadata des Datensatzes, überprüft den Tab “Bands”. Beachtet die Band Namen und ihre Beschreibung: RGB ist “B4, B3, B2”.</p></li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(filtered<span class="op">,</span> {<span class="st">"bands"</span><span class="op">:</span>[<span class="st">"B4"</span><span class="op">,</span><span class="st">"B3"</span><span class="op">,</span><span class="st">"B2"</span>]})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>still not looking good. Using the map UI, use the layer setting to strech the image to 98% and raise the gamma to about 4. You will learn more about these values in the Remote Sensing Course (FS24)</li>
-<li>import these setting into the script via the <strong>Import</strong>-Button
+<li>sieht immer noch nicht gut aus. Verwendet die map UI, nutzt die layer Einstellung, um das Bild auf 98% zu strecken und erhöht gamma auf etwa 4. Ihr werdet mehr über diese Werte im Remote Sensing Kurs lernen (FS24)</li>
+<li>importiert diese Einstellungen in das script über den <strong>Import</strong>-Button
 <ul>
-<li>Note the <code>imageVisParam</code> object and how it is part of the code, but not quite. You can copy the code and create your own object from it, if you are so inclined.</li>
-<li>You can now replace the JavaScript object with the <code>imageVisParam</code> object</li>
+<li>Beachtet das <code>imageVisParam</code> object und wie es Teil des Codes ist, aber nicht ganz. Ihr könnt den Code kopieren und euer eigenes object daraus erstellen, wenn ihr möchtet.</li>
+<li>Ihr könnt jetzt das JavaScript object mit dem <code>imageVisParam</code> object ersetzen</li>
 </ul></li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// was created automagically:</span></span>
@@ -339,10 +339,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// can be used in the addLayer-function:</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(filtered<span class="op">,</span> imageVisParam)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>from <a href="https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/composites/">here</a>:</p>
+<p>von <a href="https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/composites/">hier</a>:</p>
 <ul>
-<li><strong>True color composite</strong> uses visible light bands red (B04), green (B03) and blue (B02) in the corresponding red, green and blue color channels, resulting in a natural colored result, that is a good representation of the Earth as humans would see it naturally.</li>
-<li><strong>False color composite</strong> using near infrared, red and green bands is very popular. It is most commonly used to assess plant density and health, as plants reflect near infrared and green light, while absorbing red. Since they reflect more near infrared than green, plant-covered land appears deep red. Denser plant growth is darker red. Cities and exposed ground are gray or tan, and water appears blue or black.</li>
+<li><strong>True color composite</strong> verwendet visible light bands red (B04), green (B03) und blue (B02) in den entsprechenden red, green und blue color channels, was zu einem natürlich gefärbten Ergebnis führt, das eine gute Darstellung der Erde ist, wie Menschen sie natürlich sehen würden.</li>
+<li><strong>False color composite</strong> mit near infrared, red und green bands ist sehr beliebt. Es wird am häufigsten verwendet, um plant density und health zu bewerten, da plants near infrared und green light reflektieren, während sie red absorbieren. Da sie mehr near infrared als green reflektieren, erscheint pflanzenbewachsenes Land tiefrot. Dichterer Pflanzenwuchs ist dunkler rot. Städte und exposed ground sind grau oder braun, und water erscheint blau oder schwarz.</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-code-line-numbers=""><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>imageVisParam2 <span class="op">=</span> {<span class="st">"opacity"</span><span class="op">:</span><span class="dv">1</span><span class="op">,</span><span class="st">"bands"</span><span class="op">:</span>[<span class="st">"B8"</span><span class="op">,</span><span class="st">"B4"</span><span class="op">,</span><span class="st">"B3"</span>]<span class="op">,</span><span class="st">"min"</span><span class="op">:</span><span class="fl">204.68</span><span class="op">,</span><span class="st">"max"</span><span class="op">:</span><span class="fl">10029.32</span><span class="op">,</span><span class="st">"gamma"</span><span class="op">:</span><span class="fl">3.8280000000000003</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
